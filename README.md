@@ -1,3 +1,17 @@
+# news-explorer-api
+
+
+The API of "News Explorer" with authorization and registration handled by the back-end server.
+
+This repository contains the full front end of "News Explorer" project that features user authorization and user registration and allows users to search and save news articles. 
+* https://github.com/thinklikeadesigner/news-explorer-frontend
+* http://last-call.students.nomoreparties.site
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
