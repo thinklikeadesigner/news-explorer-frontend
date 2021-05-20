@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Header } from "../Header/Header";
+import { Footer } from './Footer/Footer';
+import { Header } from "./Header";
 
 export function Register({
   onSetEmail,
@@ -86,6 +87,7 @@ export function Register({
           </form>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

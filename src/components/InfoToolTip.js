@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { PopupWithImage } from "../PopupWithImage/PopupWithImage";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
+
+import { PopupWithImage } from "./PopupWithImage";
 
 export function InfoToolTip(props) {
   return (

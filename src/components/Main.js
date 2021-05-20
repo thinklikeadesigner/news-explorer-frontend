@@ -1,9 +1,9 @@
 import React from "react";
-import Card from "../Card/Card";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { Footer } from "../Footer/Footer";
+import Card from "../components/Card";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
+// import { Footer } from "./Footer";
 import { useHistory, Link } from "react-router-dom";
-import { Header } from "../Header/Header";
+import { Header } from "./Header";
 
 export function Main({
   onCardClick,
@@ -84,6 +84,7 @@ export function Main({
           </ul>
         </section>
       </main>
+      {/* <Footer /> */}
     </>
   );
 }

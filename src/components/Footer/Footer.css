@@ -1,37 +1,31 @@
-/* 
 
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 16px;
-line-height: 22px;
-/* identical to box height, or 137% */
-/* simulator/gray/text */
-/*color: #B6BCBF; */
 
 .footer {
   width: 100%;
-  max-width: 882px;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  /* max-width: 882px; */
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  justify-content: space-between;
   height: 100%;
+  background-color: #FFFFFF;
+  padding-left: 100px;
 }
 
-.footer__copyright {
-  font-size: 18px;
-  line-height: calc(22 / 18);
-  color: #545454;
-  padding: 66px 0 60px;
-  margin: 0;
+.facebook-icon {
+  margin-top: 16px;
+  min-height: 31px;
+  width: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: none;
+  transition: 0.3s;
+  outline: none;
+  background-image: url("../../images/facebook.svg");
+  background-repeat: no-repeat;
+  background-position: center;
 }
+
 
 @media screen and (max-width: 1140px) {
   .footer {
@@ -40,15 +34,52 @@ line-height: 22px;
   }
 }
 
+
 @media screen and (max-width: 750px) {
   .footer {
     max-width: 282px;
   }
+}
+
+.footer__links_container {
+  display: flex;
+  align-items: center;
+}
+
+.footer__copyright {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #B6BCBF;
+  padding: 66px 0 60px;
+  margin: 0;
+}
+.footer__links {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  margin-right: 42px;
+  color: #1A1B22;
+}
+
+.footer__copyright_container {
+  width: 433px;
+}
+
+@media screen and (max-width: 750px) {
   .footer__copyright {
-    font-size: 14px;
-    line-height: calc(17 / 14);
-    margin: 0;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #B6BCBF;
+    margin-left: 104PX;
     padding: 48px 0 36px;
   }
 }
-/*# sourceMappingURL=Footer.css.map */
+
