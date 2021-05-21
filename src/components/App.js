@@ -19,7 +19,7 @@ import InfoToolTip from './InfoToolTip';
 import { ProtectedRoute } from './ProtectedRoute';
 import { Footer } from './Footer/Footer';
 import { EditAvatarPopup } from './EditAvatarPopup';
-import { EditProfilePopup } from './EditProfilePopup';
+import { Newlogin } from './Login/newlogin';
 import { AddPlacePopup } from './AddPlacePopup';
 import { PopupWithImage } from './PopupWithImage';
 import { PopupWithForm } from './PopupWithForm';
@@ -42,6 +42,7 @@ function App() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
 
   const [message, setMessage] = useState('');
   const [isInfoToolTipOpen, setIsInfoToolTipOpen] = useState(false);
@@ -50,6 +51,7 @@ function App() {
   function resetForm() {
     setEmail('');
     setPassword('');
+    setName('');
     setMessage('');
   }
 
@@ -168,11 +170,11 @@ function App() {
   const handleRegisterSubmit = (e) => {
     e.preventDefault();
 
-    if (!password || !email) {
+    if (!password || !email || !name) {
       return;
     }
     auth
-      .register(email, password)
+      .register(email, password, name)
       .then((res) => {
   
         setSuccess(true);
@@ -202,6 +204,9 @@ setMessage("Success! You have now been registered.");
   }
   function handleSetEmail(e) {
     setEmail(e.target.value);
+  }
+  function handleSetName(e) {
+    setName(e.target.value);
   }
 
   function handleInfoToolTip() {
@@ -289,6 +294,7 @@ setMessage("Success! You have now been registered.");
               message={message}
               onSetEmail={handleSetEmail}
               onSetPassword={handleSetPassword}
+              onSetName={handleSetName}
               onRegister={handleRegisterSubmit}
             />
           </Route>
@@ -307,8 +313,14 @@ setMessage("Success! You have now been registered.");
           </Route>
         </Switch>
         
-        <EditProfilePopup
-          isOpen={isEditProfilePopupOpen}
+        <Newlogin
+          isOpen={true}
+          // isOpen={isEditProfilePopupOpen}
+          message={message}
+          onSetEmail={handleSetEmail}
+          onSetPassword={handleSetPassword}
+          onSetName={handleSetName}
+          onRegister={handleRegisterSubmit}
           onClose={closeAllPopups}
           onUpdateUser={handleUpdateUser}
         />

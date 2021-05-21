@@ -13,7 +13,7 @@ export function Register({
 }) {
   return (
     <>
-      <Header headerlogout='header__container_log-out'>
+      {/* <Header headerlogout='header__container_log-out'>
         <div style={{ display: "flex", alignItems: "center" }}>
           <Link
             style={{
@@ -26,7 +26,7 @@ export function Register({
             Log In
           </Link>
         </div>
-      </Header>
+      </Header> */}
       <div className={"sign-in__container"}>
         <div className='modal__container'>
           

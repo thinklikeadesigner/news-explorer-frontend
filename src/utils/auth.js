@@ -11,7 +11,7 @@ function checkResponse(res) {
   }
 }
 
-export const register = (email, password) => {
+export const register = (email, password, name) => {
 
   return fetch(baseUrl + '/signup', {
 
@@ -19,7 +19,7 @@ export const register = (email, password) => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ email, password }),
+    body: JSON.stringify({ email, password, name }),
   })
     .then(checkResponse)
     .then((res) => {
