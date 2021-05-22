@@ -11,7 +11,7 @@ export class Footer extends React.Component {
 <div className="footer__content">
 <div className="footer__links_container">        <p className="footer__links">Home</p>
         <p className="footer__links">Practicum by Yandex</p>  </div>
-        <div class="footer__social-icon_container">
+        <div className="footer__social-icon_container">
         <div className='footer__social-icon footer__social-icon_facebook '/>
                      <div className='footer__social-icon footer__social-icon_github'/>
         </div>

@@ -7,7 +7,7 @@ import "./form.css";
 
 
 
-export function Newlogin({
+export function NewRegister({
     onSetEmail,
     onSetPassword,
     onRegister,
@@ -81,11 +81,11 @@ export function Newlogin({
         onChange={onSetName}
       />
       <span className='form__input-error' id='job-input-error'>error</span>
-      <button type='submit' className={`form__button`}>
+      <button type='submit' className={`form__button form__button:hover`}>
             Save
           </button>
           <div className="form__link_container">
-          <span className="sign-in-span">or <Link
+          <span className="form__link-span">or <Link
 
               to='/login'
               type='submit'

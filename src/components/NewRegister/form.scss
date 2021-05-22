@@ -1,0 +1,158 @@
+@import '../../utils/constants/constants.scss';
+
+.form {
+  min-width: 320px;
+  width: 67vw;
+  max-width: 430px;
+  min-height: 200px;
+  border-radius: 10px;
+  background: $primary-bg-color;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 36px 34px;
+  box-sizing: border-box;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  &__title {
+    color: $primary-text-color;
+    margin: 0 0 22px;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: calc(29 / 24);
+  }
+
+  &__input {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    line-height: calc(17 / 14);
+    width: 100%;
+    border-bottom: 1px solid $form-border-bottom-color;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    &-title {
+      color: $primary-color;
+      margin: 0;
+      margin-bottom: 10px;
+    }
+    &-error {
+      visibility: hidden;
+      font-size: 12px;
+      line-height: 15px;
+      color: $error-color;
+      margin: 0 0 13px;
+      &_visible {
+        visibility: visible;
+      }
+      &:last-of-type {
+        margin-bottom: 8px;
+      }
+    }
+    &:last-of-type {
+      margin-bottom: 17px;
+    }
+  }
+
+  &__link {
+    margin: 0;
+    text-decoration: none;
+    color: $primary-color;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    &_container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    &-span {
+      color: $black-text-color;
+      font-family: Inter;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 17px;
+      text-align: center;
+    }
+  }
+  &__button {
+    max-width: 358px;
+    width: 100%;
+    min-height: 50.15px;
+    background: $primary-color;
+    color: $white-text-color;
+    font-size: 18px;
+    line-height: calc(22 / 18);
+    border-radius: 100px;
+    justify-self: center;
+    align-self: center;
+    border: none;
+    padding: 0;
+    margin-bottom: 16px;
+    &:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+    &_disabled {
+      color: $disabled-text-color;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      box-sizing: border-box;
+      background: $disabled-button-color;
+      pointer-events: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+  }
+}
+
+.sign-in__container {
+  height: 70vh;
+}
+
+@media screen and (max-width: 700px) {
+  .form {
+    width: 67vw;
+    min-width: 220px;
+  }
+}
+
+.form__title_sign_up {
+  color: $white-text-color;
+  align-self: center;
+  /* font-style: normal; */
+}
+
+.form__input_sign_up {
+  background-color: black;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 1);
+}
+
+.form__input_type_error {
+  border-bottom: 1px solid $error-color;
+}
+
+.form__button_sign_up {
+  background: white;
+  color: $black-text-color;
+  margin-bottom: 0;
+  margin-top: 216px;
+  padding-bottom: 0;
+}
+
+.form__button_member_log_in {
+  background: black;
+  color: $white-text-color;
+  margin: 0;
+  font-size: 14px;
+}

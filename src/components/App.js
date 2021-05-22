@@ -19,11 +19,14 @@ import InfoToolTip from './InfoToolTip';
 import { ProtectedRoute } from './ProtectedRoute';
 import { Footer } from './Footer/Footer';
 import { EditAvatarPopup } from './EditAvatarPopup';
-import { Newlogin } from './Login/newlogin';
+
 import { AddPlacePopup } from './AddPlacePopup';
 import { PopupWithImage } from './PopupWithImage';
 import { PopupWithForm } from './PopupWithForm';
 import { Main } from './Main';
+import { NewRegister } from './NewRegister/NewRegister';
+import { NewLogin } from './NewLogin/NewLogin';
+
 function App() {
   const history = useHistory();
 
@@ -312,17 +315,28 @@ setMessage("Success! You have now been registered.");
             {loggedIn ? <Redirect to='/main' /> : <Redirect to='/login' />}
           </Route>
         </Switch>
-        
-        <Newlogin
+        {/* <NewRegister
+    
           isOpen={true}
           // isOpen={isEditProfilePopupOpen}
+          // REFACTOR to is newlogin popup open
           message={message}
           onSetEmail={handleSetEmail}
           onSetPassword={handleSetPassword}
           onSetName={handleSetName}
           onRegister={handleRegisterSubmit}
           onClose={closeAllPopups}
-          onUpdateUser={handleUpdateUser}
+        /> */}
+<NewLogin
+          isOpen={true}
+          // isOpen={isEditProfilePopupOpen}
+          // REFACTOR to is new register popup open
+          message={message}
+          onSetEmail={handleSetEmail}
+          onSetPassword={handleSetPassword}
+          onSetName={handleSetName}
+          onLogin={handleLoginSubmit}
+          onClose={closeAllPopups}
         />
         <EditAvatarPopup
           isOpen={isEditAvatarPopupOpen}
