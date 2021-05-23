@@ -19,11 +19,11 @@ import InfoToolTip from './InfoToolTip';
 import { ProtectedRoute } from './ProtectedRoute';
 import { Footer } from './Footer/Footer';
 import { EditAvatarPopup } from './EditAvatarPopup';
-
+import {Main} from './Main';
 import { AddPlacePopup } from './AddPlacePopup';
 import { PopupWithImage } from './PopupWithImage';
 import { PopupWithForm } from './PopupWithForm';
-import { Main } from './Main';
+
 import { NewRegister } from './NewRegister/NewRegister';
 import { NewLogin } from './NewLogin/NewLogin';
 
@@ -276,8 +276,19 @@ setMessage("Success! You have now been registered.");
     <div className='page'>
       <CurrentUserContext.Provider value={currentUser}>
         <Switch>
-          
-          <ProtectedRoute
+          <Main             path='/main'
+            loggedIn={loggedIn}
+            cards={cards}
+            component={Main}
+            onEditProfile={handleEditProfileClick}
+            onAddPlace={handleAddPlaceClick}
+            onEditAvatar={handleEditAvatarClick}
+            onDeleteCard={handleDeleteCardClick}
+            onCardClick={handleCardClick}
+            onCardDelete={handleCardDelete}
+            onCardLike={handleCardLike}
+            onSignOut={handleLogOut}></Main>
+          {/* <ProtectedRoute
             path='/main'
             loggedIn={loggedIn}
             cards={cards}
@@ -290,7 +301,7 @@ setMessage("Success! You have now been registered.");
             onCardDelete={handleCardDelete}
             onCardLike={handleCardLike}
             onSignOut={handleLogOut}
-          ></ProtectedRoute>
+          ></ProtectedRoute> */}
           <Route path='/register'>
             
             <Register
@@ -327,7 +338,7 @@ setMessage("Success! You have now been registered.");
           onRegister={handleRegisterSubmit}
           onClose={closeAllPopups}
         /> */}
-<NewLogin
+{/* <NewLogin
           isOpen={true}
           // isOpen={isEditProfilePopupOpen}
           // REFACTOR to is new register popup open
@@ -337,7 +348,7 @@ setMessage("Success! You have now been registered.");
           onSetName={handleSetName}
           onLogin={handleLoginSubmit}
           onClose={closeAllPopups}
-        />
+        /> */}
         <EditAvatarPopup
           isOpen={isEditAvatarPopupOpen}
           onClose={closeAllPopups}

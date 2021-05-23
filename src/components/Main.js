@@ -1,9 +1,10 @@
 import React from "react";
-import Card from "../components/Card";
+// import Card from "./Card/Card";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 // import { Footer } from "./Footer";
 import { useHistory, Link } from "react-router-dom";
 import { Header } from "./Header";
+import Card from './Card/Card';
 
 export function Main({
   onCardClick,
@@ -70,7 +71,15 @@ export function Main({
           </div>
         </section>
         <section className='cards'>
-          <ul className='cards__list'>
+     <Card
+          
+          // key={card._id}
+          onCardLike={onCardLike}
+          onCardDelete={onCardDelete}
+          onCardClick={onCardClick}
+          // card={card}
+        />
+          {/* <ul className='cards__list'>
             {cards.map((card) => (
               <Card
           
@@ -81,7 +90,7 @@ export function Main({
                 card={card}
               />
             ))}
-          </ul>
+          </ul> */}
         </section>
       </main>
       {/* <Footer /> */}

@@ -47,7 +47,7 @@
     url("./roboto/roboto-900.woff") format("woff");
 }
  @font-face {
-  font-family: "Roboto";
+  font-family: "Roboto Slab";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -55,7 +55,7 @@
     url("./roboto/roboto-slab-400-regular.woff") format("woff");
 }
  @font-face {
-  font-family: "Roboto";
+  font-family: "Roboto Slab";
   font-style: normal;
   font-weight: 700;
   font-display: swap;

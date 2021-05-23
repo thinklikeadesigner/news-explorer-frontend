@@ -1,5 +1,5 @@
 export * from './AddPlacePopup'; 
-export * from './Card'; 
+export * from './Card/Card'; 
 export * from './EditProfilePopup'; 
 export * from './App'; 
 export * from './EditAvatarPopup'; 
