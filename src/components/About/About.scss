@@ -1,0 +1,136 @@
+@import '../../utils/constants/constants.scss';
+
+.about {
+  height: 624px;
+  background-color: white;
+  padding-top: 80px;
+  padding-left: 104px;
+  display: flex;
+  box-sizing: border-box;
+  &__pic {
+    src: url('../../images/avatar.png');
+    height: 464px;
+    width: 464px;
+    object-fit: cover;
+  }
+  &__text {
+    margin-left: 56px;
+    width: 100%;
+    max-width: 600px;
+
+    &-title {
+      margin-top: 50px;
+      margin-bottom: 24px;
+      color: $primary-text-color;
+      font-family: Roboto Slab;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 40px;
+      line-height: 46px;
+    }
+    &-body {
+      color: $primary-text-color;
+      margin-bottom: 24px;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+}
+
+@media screen and (max-width: 1140px) {
+
+.about {
+    height: 354px;
+    background-color: white;
+    padding-top: 40px;
+    padding-left: 40px;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    &__pic {
+      src: url('../../images/avatar.png');
+      height: 232px;
+      width: 232px;
+      object-fit: cover;
+      margin-top: 21px;
+    }
+    &__text {
+      margin-left: 32px;
+      width: 100%;
+      max-width: 424px;
+  
+      &-title {
+        margin-top: 0px;
+        margin-bottom: 16px;
+        color: $primary-text-color;
+        font-family: Roboto Slab;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 30px;
+        line-height: 40px;
+      }
+      &-body {
+        color: $primary-text-color;
+        margin-bottom: 24px;
+        font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 24px;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 750px) {
+
+    .about {
+        height: 752px;
+        background-color: white;
+        padding-top: 32px;
+        padding-left: 24px;
+        padding-right: 24px;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: flex-start;
+        &__pic {
+          src: url('../../images/avatar.png');
+          height: 272px;
+          width: 272px;
+          object-fit: cover;
+          margin-top: 0px;
+          margin-bottom: 24px;
+        }
+        &__text {
+          margin-left: 32px;
+          width: 100%;
+          min-width: 240px;
+      
+          &-title {
+            margin-top: 0px;
+            margin-bottom: 16px;
+            color: $primary-text-color;
+            font-family: Roboto Slab;
+font-style: normal;
+font-weight: normal;
+font-size: 30px;
+line-height: 40px;
+          }
+          &-body {
+            color: $primary-text-color;
+            margin-bottom: 24px;
+            font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+          }
+        }
+      }
+    }

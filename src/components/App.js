@@ -19,13 +19,14 @@ import InfoToolTip from './InfoToolTip';
 import { ProtectedRoute } from './ProtectedRoute';
 import { Footer } from './Footer/Footer';
 import { EditAvatarPopup } from './EditAvatarPopup';
-import {Main} from './Main';
+
 import { AddPlacePopup } from './AddPlacePopup';
 import { PopupWithImage } from './PopupWithImage';
 import { PopupWithForm } from './PopupWithForm';
 
 import { NewRegister } from './NewRegister/NewRegister';
 import { NewLogin } from './NewLogin/NewLogin';
+import { Main } from './Main/Main';
 
 function App() {
   const history = useHistory();
@@ -276,7 +277,8 @@ setMessage("Success! You have now been registered.");
     <div className='page'>
       <CurrentUserContext.Provider value={currentUser}>
         <Switch>
-          <Main             path='/main'
+          <Main    
+                   path='/main'
             loggedIn={loggedIn}
             cards={cards}
             component={Main}

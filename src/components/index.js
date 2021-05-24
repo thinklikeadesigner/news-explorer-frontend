@@ -5,7 +5,7 @@ export * from './App';
 export * from './EditAvatarPopup'; 
 // export * from './Footer'; 
 export * from './Header'; 
-export * from './Main'; 
+// export * from './Main'; 
 export * from './PopupWithForm'; 
 export * from './PopupWithImage'; 
 export * from './ProtectedRoute'; 
