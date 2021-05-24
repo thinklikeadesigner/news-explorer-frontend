@@ -5,7 +5,7 @@
 .footer {
   width: 100%;
   display: flex;
-  background-color: $footer-bg-color;
+  background-color: $primary-bg-color;
   justify-content: center;
   height: 85px;
   &__container {
@@ -49,7 +49,7 @@
   &__social-icon {
     min-height: 31px;
     width: 31px;
-    background-color: $footer-bg-color;
+    background-color: $primary-bg-color;
     border: none;
     transition: 0.3s;
     outline: none;

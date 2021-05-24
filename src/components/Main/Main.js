@@ -7,6 +7,7 @@ import { Header } from "../Header";
 import Card from '../Card/Card';
 import About from '../About/About';
 import './Main.css';
+import { Footer } from '../Footer/Footer';
 
 export function Main({
   onCardClick,
@@ -42,7 +43,7 @@ export function Main({
         </div>
       </Header>
       <main className='main'>
-       <About />
+       
         <section className='cards'>
      <Card
           
@@ -65,8 +66,9 @@ export function Main({
             ))}
           </ul> */}
         </section>
+        <About />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

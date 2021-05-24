@@ -92,8 +92,8 @@ line-height: 24px;
         height: 752px;
         background-color: white;
         padding-top: 32px;
-        padding-left: 24px;
-        padding-right: 24px;
+        padding-left: 16px;
+        padding-right: 16px;
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
@@ -108,7 +108,8 @@ line-height: 24px;
           margin-bottom: 24px;
         }
         &__text {
-          margin-left: 32px;
+          margin-left: 16px;
+          margin-right: 16px;
           width: 100%;
           min-width: 240px;
       
