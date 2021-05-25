@@ -3,11 +3,13 @@ import React from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 // import { Footer } from "./Footer";
 import { useHistory, Link } from "react-router-dom";
-import { Header } from "../Header";
+import { Header } from "../Header/Header";
 import Card from '../Card/Card';
 import About from '../About/About';
 import './Main.css';
 import { Footer } from '../Footer/Footer';
+import SearchForm from '../SearchForm/SearchForm';
+import SavedNewsPage from '../SavedNewsPage/SavedNewsPage';
 
 export function Main({
   onCardClick,
@@ -25,23 +27,11 @@ export function Main({
 
   return (
     <>
-      <Header headerlogout='header__container_log-out'>
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <p>{currentUser.email}</p>
 
-          <Link
-            style={{
-              textDecoration: "none",
-              color: "#A9A9A9",
-              paddingLeft: 24,
-            }}
-            onClick={onSignOut}
-            to='/login'
-          >
-            Log Out
-          </Link>
-        </div>
-      </Header>
+{/* <SearchForm>
+
+      </SearchForm>  */}
+      <SavedNewsPage />
       <main className='main'>
        
         <section className='cards'>

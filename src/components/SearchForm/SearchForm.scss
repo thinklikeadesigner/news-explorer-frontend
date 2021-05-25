@@ -1,0 +1,16 @@
+@import "../../utils/constants/constants.scss";
+
+.search-form {
+    height: 576px;
+    display: flex;
+    width: 100%;
+}
+
+.search-form__pic {
+    background-repeat: no-repeat;
+    object-fit: cover;
+    width: 100%;
+    background-image: url('../../images/hero.png');
+    background-size: cover;
+} 
+
