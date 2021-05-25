@@ -12,7 +12,7 @@ export function Header(props) {
   <div className={`header__container `}>
     <p className={`header__title ${props.headerTitleBlack}`}>NewsExplorer</p>
     <div className="header__nav">
-    <p className={`header__home ${props.homeSaved}`}>Home</p>
+
     
     
      {props.children}

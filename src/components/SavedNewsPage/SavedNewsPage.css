@@ -133,7 +133,7 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    padding: 8px 16px 32px;
+    padding: 16px;
   }
   .saved-news__subtitle {
     color: #1A1B22;

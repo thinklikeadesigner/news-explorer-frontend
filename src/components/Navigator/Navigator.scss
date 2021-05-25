@@ -1,0 +1,22 @@
+@import "../../utils/constants/constants.scss";
+
+.navigator {
+    display: flex;
+    background-color: $navigator-bg-color;
+    flex-direction: column;
+    width: 100%;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    
+    &__drawer {
+        display: flex;
+        flex-direction: column;
+        padding: 16px 16px 24px;
+    }
+    &__links {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+}
+

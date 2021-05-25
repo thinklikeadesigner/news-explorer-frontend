@@ -9,7 +9,8 @@ function SavedNewsPage() {
   return (
       <>
       <div className="saved-news">
-      <Header headerTitleBlack="header__title_black" headerSavedArticlesBlack="header__saved-articles_black" headerButtonBlack="header__button_black" headerIconSaved="header__icon_saved" homeSaved="header__home_saved">
+      <Header headerTitleBlack="header__title_black"  >
+      <p className={`header__home header__home_saved`}>Home</p>
       <p className={`header__saved-articles header__saved-articles_black`}>Saved articles</p>
       <button className={`header__button header__button_black`}>Elise
 <div className={`header__icon header__icon_black`}></div> 

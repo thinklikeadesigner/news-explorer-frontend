@@ -223,9 +223,7 @@
     &__container {
       display: flex;
       width: 100%;
-      padding-left: 40px;
-      padding-right: 40px;
-      padding-top: 14px;
+      padding: 16px;
       box-sizing: border-box;
       justify-content: space-between;
     }
@@ -233,10 +231,9 @@
       font-family: Roboto Slab;
       font-style: normal;
       font-weight: bold;
-      font-size: 20px;
+      font-size: 16px;
       line-height: 24px;
-      margin-top: 11px;
-      margin-bottom: 26px;
+      margin: 0;
       color: white;
       &_black {
         color: black;
@@ -257,13 +254,17 @@
         color: black;
         border-bottom: none;
       }
+      &_navigator {
+        color: white;
+        border-bottom: none;
+      }
     }
     &__button {
       border: 1px solid #ffffff;
       box-sizing: border-box;
       border-radius: 100px;
-      height: 48px;
-      width: 176px;
+      height: 56px;
+      width: 288px;
       background-color: transparent;
       font-family: Roboto;
       font-style: normal;
@@ -274,6 +275,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      align-self: center;
       &_black {
         color: black;
         border: 1px solid black;
@@ -299,16 +301,16 @@
       }
     }
     &__icon {
-      min-height: 31px;
-      width: 25px;
-      margin-left: 25px;
+      height: 24px;
+      width: 24px;
+      margin: 0;
 
       border: none;
       transition: 0.3s;
       outline: none;
       background-repeat: no-repeat;
       background-position: center;
-      background-image: url('../../images/logout-white.svg');
+      background-image: url('../../images/x.svg');
       &_black {
         background-image: url('../../images/logout-black.svg');
       }

@@ -10,6 +10,7 @@ import './Main.css';
 import { Footer } from '../Footer/Footer';
 import SearchForm from '../SearchForm/SearchForm';
 import SavedNewsPage from '../SavedNewsPage/SavedNewsPage';
+import { Navigator } from '../Navigator/Navigator';
 
 export function Main({
   onCardClick,
@@ -31,7 +32,8 @@ export function Main({
 {/* <SearchForm>
 
       </SearchForm>  */}
-      <SavedNewsPage />
+      {/* <SavedNewsPage /> */}
+      <Navigator />
       <main className='main'>
        
         <section className='cards'>
