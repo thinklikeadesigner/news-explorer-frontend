@@ -5,12 +5,16 @@
   background-color: white;
   flex-direction: column;
   width: 100%;
+  &_hidden {
+    display: none;
+  }
   &__intro {
     display: flex;
     flex-direction: column;
 
     padding: 40px 104px 56px;
   }
+
   &__subtitle {
     color: $primary-text-color;
     opacity: 50%;
@@ -96,7 +100,7 @@
 
 @media screen and (max-width: 750px) {
   .saved-news {
-    display: flex;
+    display: none;
     background-color: white;
     flex-direction: column;
     width: 100%;

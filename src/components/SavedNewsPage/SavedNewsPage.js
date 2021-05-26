@@ -5,10 +5,10 @@ import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
 import './SavedNewsPage.css';
 
 
-function SavedNewsPage() {
+function SavedNewsPage(props) {
   return (
       <>
-      <div className="saved-news">
+      <div className={`saved-news`}>
       <Header headerTitleBlack="header__title_black"  >
       <p className={`header__home header__home_saved`}>Home</p>
       <p className={`header__saved-articles header__saved-articles_black`}>Saved articles</p>

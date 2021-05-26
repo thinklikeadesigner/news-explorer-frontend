@@ -1,17 +1,31 @@
 @import "../../utils/constants/constants.scss";
-
+.navigator {
+    display: none;
+}
+@media screen and (max-width: 750px) {
 .navigator {
     display: flex;
-    background-color: $navigator-bg-color;
+
     flex-direction: column;
     width: 100%;
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
+
     
+    &_hidden {
+        display:none;
+    }
     &__drawer {
         display: flex;
         flex-direction: column;
         padding: 16px 16px 24px;
+        border-bottom-left-radius: 16px;
+border-bottom-right-radius: 16px;
+background-color: $navigator-bg-color;
+&_white {
+    background-color: white;
+}
+&_hidden {
+    display: none;
+}
     }
     &__links {
         display: flex;
@@ -20,3 +34,4 @@
     }
 }
 
+}

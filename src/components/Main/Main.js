@@ -22,17 +22,24 @@ export function Main({
   onCardDelete,
   onSignOut,
 }) {
+  const headerTitleBlack = 'header__title_black';
+  const hamburger = 'header__icon_hamburger';
+  const headerBgWhite= "header__container_white";
+  const hiddenNavDrawer = 'navigator__drawer_hidden';
 
 
-  const currentUser = React.useContext(CurrentUserContext);
+  // for white bg navigator, switch out <Navigator /> with the on below
+  // <Navigator hamburger={hamburger} hiddenNavDrawer={hiddenNavDrawer} headerTitleBlack={headerTitleBlack} headerBgWhite={headerBgWhite} />
+
+  
 
   return (
     <>
 
-{/* <SearchForm>
+{/* <SearchForm  >
 
-      </SearchForm>  */}
-      {/* <SavedNewsPage /> */}
+       </SearchForm >  */}
+      <SavedNewsPage  />
       <Navigator />
       <main className='main'>
        

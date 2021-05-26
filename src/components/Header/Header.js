@@ -7,9 +7,9 @@ export function Header(props) {
 
   
   return (
-  <header className="header">
+  <header className={`header `}>
   {/* <div className={`header__container ${props.headerlogout}`}> */}
-  <div className={`header__container `}>
+  <div className={`header__container ${props.headerBgWhite}`}>
     <p className={`header__title ${props.headerTitleBlack}`}>NewsExplorer</p>
     <div className="header__nav">
 

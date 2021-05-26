@@ -10,6 +10,10 @@
   width: 100%;
 }
 
+.saved-news_hidden {
+  display: none;
+}
+
 .saved-news__intro {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -115,9 +119,7 @@
 
 @media screen and (max-width: 750px) {
   .saved-news {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: none;
     background-color: white;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
