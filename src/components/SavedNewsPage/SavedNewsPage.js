@@ -1,7 +1,6 @@
 import React from 'react';
 import { Header } from '../Header/Header';
 
-import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
 import './SavedNewsPage.css';
 
 
@@ -9,7 +8,7 @@ function SavedNewsPage(props) {
   return (
       <>
       <div className={`saved-news`}>
-      <Header headerTitleBlack="header__title_black"  >
+      <Header headerTitle={props.headerTitle} headerBg={props.headerBg} >
       <p className={`header__home header__home_saved`}>Home</p>
       <p className={`header__saved-articles header__saved-articles_black`}>Saved articles</p>
       <button className={`header__button header__button_black`}>Elise

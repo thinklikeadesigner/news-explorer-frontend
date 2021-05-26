@@ -23,24 +23,31 @@ export function Main({
   onSignOut,
 }) {
   const headerTitleBlack = 'header__title_black';
+  const headerTitleWhite = '';
   const hamburger = 'header__icon_hamburger';
   const headerBgWhite= "header__container_white";
+  const headerBgTransparent =  "header__container_transparent";
+  const headerBgBlack =  "";
   const hiddenNavDrawer = 'navigator__drawer_hidden';
-
+  const showNavDrawer = '';
+  const hamburgerBlack = 'header__icon_hamburger-black';
+  const hamburgerWhite = 'header__icon_hamburger-white';
 
   // for white bg navigator, switch out <Navigator /> with the on below
   // <Navigator hamburger={hamburger} hiddenNavDrawer={hiddenNavDrawer} headerTitleBlack={headerTitleBlack} headerBgWhite={headerBgWhite} />
 
-  
-
+  // for transparent mobile header use this one
+{/* <Navigator hamburger={hamburger} hiddenNavDrawer={hiddenNavDrawer} headerTitleBlack={headerTitleBlack} headerBgWhite={headerBgWhite} /> */}
   return (
     <>
 
-{/* <SearchForm  >
+<SearchForm hiddenNavDrawer={hiddenNavDrawer} headerTitle={headerTitleWhite} headerBg={headerBgTransparent} />
 
-       </SearchForm >  */}
-      <SavedNewsPage  />
-      <Navigator />
+
+      {/* <SavedNewsPage  headerTitle={headerTitleBlack} headerBg={headerBgWhite} /> */}
+      {/* <Navigator hamburgerColor={hamburgerWhite} NavDrawer={showNavDrawer} headerTitle={headerTitleWhite} headerBg={headerBgBlack} /> */}
+      {/* <Navigator hamburgerColor={hamburgerBlack} NavDrawer={hiddenNavDrawer} headerTitle={headerTitleBlack} headerBg={headerBgWhite} /> */}
+      {/* <Navigator hamburgerColor={hamburgerBlack} NavDrawer={hiddenNavDrawer} headerTitle={headerTitleBlack} headerBg={headerBgTransparent} /> */}
       <main className='main'>
        
         <section className='cards'>

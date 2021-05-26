@@ -4,18 +4,251 @@
     height: 576px;
     display: flex;
     width: 100%;
+    &_container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-sizing: border-box;
+    padding-top: 80px;
+    }
+    &_pic {
+        background-repeat: no-repeat;
+        object-fit: cover;
+        width: 100%;
+        background-image: url('../../images/hero.png');
+        background-size: cover;
+    } 
+    &__title {
+        font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 60px;
+    line-height: 64px;
+    margin: 0;
+    max-width: 608px;
+    margin-bottom: 42px;
+    }
+    &__subtitle{
+        font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 88px;
+    max-width: 608px;
+    }
+    
 }
 
-.search-form__pic {
-    background-repeat: no-repeat;
-    object-fit: cover;
-    width: 100%;
-    background-image: url('../../images/hero.png');
-    background-size: cover;
-} 
+
+
+
+
+.search-bar {
+    width: 609px;
+    position: relative;
+    background-color: white;
+    border-radius: 100px;
+    &__input {
+        border: none;
+        position: relative;
+        background: #FFFFFF;
+        width: 439px;
+        height: 64px;
+        box-sizing: border-box;
+        border-radius: 100px;
+        padding: 21px 24px 21px 24px;
+        box-sizing: border-box;
+        &:focus {outline:none;}
+    }
+    &__button{
+        position: absolute;
+        right: 0;
+        border: none;
+        width: 168px;
+        height: 64px;
+        background-color: $primary-color;
+        border-radius: 100px;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 24px;
+        color: white;
+    }
+}
+
+@media screen and (max-width: 1140px) {
+    .search-form {
+
+        display: flex;
+        width: 100%;
+        &_container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        padding-top: 38px;
+        padding-bottom: 48px;
+        }
+        &_pic {
+            background-repeat: no-repeat;
+            object-fit: cover;
+            width: 100%;
+            background-image: url('../../images/hero.png');
+            background-size: cover;
+            padding-bottom: 48px;
+max-height: 400px;
+box-sizing: border-box;
+        } 
+        &__title {
+            font-family: Roboto Slab;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 36px;
+            line-height: 40px;
+        margin: 0;
+        max-width: 385px;
+        margin-bottom: 16px;
+        }
+        &__subtitle{
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 24px;
+        margin-bottom: 48px;
+        max-width: 452px;
+        }
+        
+    }
+    
+    
+    
+    
+    
+    .search-bar {
+        width: 448px;
+        height: 56px;
+        position: relative;
+        background-color: white;
+        border-radius: 100px;
+        &__input {
+            border: none;
+            position: relative;
+            background: #FFFFFF;
+            width: 439px;
+            height: 56px;
+            box-sizing: border-box;
+            border-radius: 100px;
+            padding: 17px 0px 17px 24px;
+            box-sizing: border-box;
+            max-width: 228px;
+            &:focus {outline:none;}
+        }
+        &__button{
+            position: absolute;
+            right: 0;
+            border: none;
+            width: 160px;
+            height: 56px;
+            background-color: $primary-color;
+            border-radius: 100px;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 24px;
+            color: white;
+        }
+    }
+ }
 
 @media screen and (max-width: 750px) { 
     .search-form {
-        display: none;
+
+        display: flex;
+        width: 100%;
+        &_container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        padding-top: 30px;
+        padding-bottom: 32px;
+        }
+        &_pic {
+            background-repeat: no-repeat;
+            object-fit: cover;
+            width: 100%;
+            background-image: url('../../images/hero.png');
+            background-size: cover;
+            padding-bottom: 32px;
+min-height: 536px;
+box-sizing: border-box;
+        } 
+        &__title {
+            font-family: Roboto Slab;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 36px;
+            line-height: 40px;
+        margin: 0;
+        max-width: 285px;
+        margin-bottom: 16px;
+        }
+        &__subtitle{
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 24px;
+        margin-bottom: 122px;
+        max-width: 288px;
+        }
+        
+    }
+    
+    
+    
+    
+    
+    .search-bar {
+        width: 288px;
+        height: 56px;
+        position: relative;
+        background-color: white;
+        border-radius: 100px;
+        display: flex;
+        flex-direction: column;
+        &__input {
+            border: none;
+            position: relative;
+            background: #FFFFFF;
+            width: 439px;
+            height: 56px;
+            box-sizing: border-box;
+            border-radius: 100px;
+            padding: 17px 0px 17px 24px;
+            box-sizing: border-box;
+            max-width: 228px;
+            margin-bottom: 16px;
+            &:focus {outline:none;}
+        }
+        &__button{
+            position: relative;
+            
+            border: none;
+            width: 160px;
+            height: 56px;
+            background-color: $primary-color;
+            border-radius: 100px;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 24px;
+            color: white;
+        }
     }
 }

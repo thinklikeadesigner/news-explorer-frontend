@@ -93,6 +93,14 @@
   padding-right: 19px;
 }
 
+.header__button_white {
+  color: white;
+  border: 1px solid #ffffff;
+  width: auto;
+  padding-left: 19px;
+  padding-right: 19px;
+}
+
 .header__saved-articles {
   font-family: Roboto;
   font-style: normal;
@@ -286,6 +294,9 @@
   .header__container_white {
     background-color: white;
   }
+  .header__container_transparent {
+    background-color: transparent;
+  }
   .header__title {
     font-family: Roboto Slab;
     font-style: normal;
@@ -379,8 +390,11 @@
     background-position: center;
     background-image: url("../../images/x.svg");
   }
-  .header__icon_hamburger {
-    background-image: url("../../images/hamburger.svg");
+  .header__icon_hamburger-white {
+    background-image: url("../../images/hamburger-white.svg");
+  }
+  .header__icon_hamburger-black {
+    background-image: url("../../images/hamburger-black.svg");
   }
   .header__nav {
     display: -webkit-box;
