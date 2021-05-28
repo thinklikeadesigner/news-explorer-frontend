@@ -1,0 +1,45 @@
+.nothing-found {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #f5f6f7;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.nothing-found__pic {
+  background-image: url("../../images/nothing-found.svg");
+  background-repeat: no-repeat;
+  height: 96px;
+  width: 96px;
+  margin-bottom: 24px;
+}
+
+.nothing-found__title {
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 30px;
+  margin-bottom: 16px;
+  color: #1A1B22;
+}
+
+.nothing-found__subtitle {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: #B6BCBF;
+  max-width: 250px;
+  text-align: center;
+}
+/*# sourceMappingURL=NothingFound.css.map */

@@ -49,7 +49,8 @@ function Card(props) {
           <button className='card__save-btn' />
         </div> */}
         <div className='card__icon-text_container'>
-          <button className='card__delete-btn' />
+          {/* <button className='card__delete-btn' /> */}
+          <button className='card__save-btn' />
         </div>
       </div>
       {/* </div> */}

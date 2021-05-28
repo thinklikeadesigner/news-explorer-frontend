@@ -27,6 +27,7 @@ import { PopupWithForm } from './PopupWithForm';
 import { NewRegister } from './NewRegister/NewRegister';
 import { NewLogin } from './NewLogin/NewLogin';
 import { Main } from './Main/Main';
+import SavedNewsPage from './SavedNewsPage/SavedNewsPage';
 
 function App() {
   const history = useHistory();
@@ -35,6 +36,8 @@ function App() {
   const [selectedCard, setSelectedCard] = useState(false);
 
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
+  const [isNewLoginOpen, setIsNewLoginOpen] = useState(false);
+  const [isNewRegisterOpen, setIsNewRegisterOpen] = useState(false);
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
   const [isImagePopupOpen, setIsImagePopupOpen] = useState(false);
@@ -231,6 +234,8 @@ setMessage("Success! You have now been registered.");
     setSelectedCard(false);
     setIsImagePopupOpen(false);
     setIsInfoToolTipOpen(false);
+    setIsNewLoginOpen(false);
+    setIsNewRegisterOpen(false);
   }
 
   useEffect(() => {
@@ -304,33 +309,21 @@ setMessage("Success! You have now been registered.");
             onCardLike={handleCardLike}
             onSignOut={handleLogOut}
           ></ProtectedRoute> */}
-          <Route path='/register'>
+
+
+<Route path='/savedNewsPage'>
             
-            <Register
-              message={message}
-              onSetEmail={handleSetEmail}
-              onSetPassword={handleSetPassword}
-              onSetName={handleSetName}
-              onRegister={handleRegisterSubmit}
-            />
-          </Route>
-          <Route path='/login'>
-            
-            <LogIn
-              onSetEmail={handleSetEmail}
-              message={message}
-              onSetPassword={handleSetPassword}
-              onLogin={handleLoginSubmit}
-              onInfoToolTip={handleInfoToolTip}
+    <SavedNewsPage
+
             />
           </Route>
           <Route exact path='/'>
             {loggedIn ? <Redirect to='/main' /> : <Redirect to='/login' />}
           </Route>
         </Switch>
-        {/* <NewRegister
+        <NewRegister
     
-          isOpen={true}
+          isOpen={isNewRegisterOpen}
           // isOpen={isEditProfilePopupOpen}
           // REFACTOR to is newlogin popup open
           message={message}
@@ -339,9 +332,9 @@ setMessage("Success! You have now been registered.");
           onSetName={handleSetName}
           onRegister={handleRegisterSubmit}
           onClose={closeAllPopups}
-        /> */}
-{/* <NewLogin
-          isOpen={true}
+        />
+ <NewLogin
+          isOpen={isNewLoginOpen}
           // isOpen={isEditProfilePopupOpen}
           // REFACTOR to is new register popup open
           message={message}
@@ -350,7 +343,7 @@ setMessage("Success! You have now been registered.");
           onSetName={handleSetName}
           onLogin={handleLoginSubmit}
           onClose={closeAllPopups}
-        /> */}
+        /> 
         <EditAvatarPopup
           isOpen={isEditAvatarPopupOpen}
           onClose={closeAllPopups}

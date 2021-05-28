@@ -10,6 +10,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   position: relative;
+  border-radius: 20px;
 }
 
 .card__top-left_container {
@@ -104,6 +105,11 @@
   border-radius: 8px;
 }
 
+.card__icon-text_container:hover {
+  background-color: #E8E8E8;
+  cursor: pointer;
+}
+
 .card__save-btn {
   width: 24px;
   height: 24px;
@@ -113,6 +119,15 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+}
+
+.card__save-btn:hover {
+  background-image: url("../../images/saved-hover.svg");
+  cursor: pointer;
+}
+
+.card__save-btn:active {
+  background-image: url("../../images/saved-blue.svg");
 }
 
 .card__delete-btn {
@@ -126,11 +141,16 @@
   position: relative;
 }
 
+.card__delete-btn:hover {
+  cursor: pointer;
+}
+
 .card__pic {
   -o-object-fit: cover;
      object-fit: cover;
   height: 272px;
   width: 100%;
+  border-radius: 20px 20px 0 0;
 }
 
 .card__text {

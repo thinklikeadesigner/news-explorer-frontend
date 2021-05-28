@@ -7,6 +7,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  border-radius: 20px;
   &__top-left_container {
     display: flex;
 
@@ -66,6 +67,10 @@
     align-items: center;
     justify-content: center;
     border-radius: 8px;
+    &:hover {
+      background-color: #E8E8E8;
+      cursor: pointer;
+    }
   }
   &__save-btn {
     width: 24px;
@@ -76,6 +81,14 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    &:hover {
+  background-image: url("../../images/saved-hover.svg");
+  cursor: pointer;
+    }
+    &:active {
+      background-image: url('../../images/saved-blue.svg');
+    }
+    
   }
   &__delete-btn {
     width: 24px;
@@ -86,11 +99,15 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    &:hover {
+      cursor: pointer;
+    }
   }
   &__pic {
     object-fit: cover;
     height: 272px;
     width: 100%;
+    border-radius: 20px 20px 0 0;
   }
   &__text {
     height: 100%;

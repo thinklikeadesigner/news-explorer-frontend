@@ -20,7 +20,7 @@ export function Header(props) {
 
     </div>
     
-{/* {props.children} */}
+
   </div>
 </header>
 );}

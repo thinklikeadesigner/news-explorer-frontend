@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,QAAQ,CAAC;EACL,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,gBAAgB,EAAE,OAAO;EACzB,WAAW,EAAE,MAAM;EACnB,OAAO,EAAE,QAAQ;EACjB,UAAU,EAAE,UAAU;CACvB",
+    "sources": [
+        "Results.scss",
+        "../../utils/constants/constants.scss"
+    ],
+    "names": [],
+    "file": "Results.css"
+}
