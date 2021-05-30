@@ -112,80 +112,32 @@
 
 @media screen and (max-width: 1140px) {
   .search-form_container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
     padding-top: 38px;
     padding-bottom: 48px;
   }
   .search-form_pic {
-    background-repeat: no-repeat;
-    -o-object-fit: cover;
-       object-fit: cover;
-    width: 100%;
-    background-image: url("../../images/hero.png");
-    background-size: cover;
     padding-bottom: 48px;
     max-height: 400px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
   }
   .search-form__title {
-    font-family: Roboto Slab;
-    font-style: normal;
-    font-weight: normal;
     font-size: 36px;
     line-height: 40px;
-    margin: 0;
     max-width: 385px;
     margin-bottom: 16px;
   }
   .search-form__subtitle {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 24px;
     margin-bottom: 48px;
     max-width: 452px;
   }
   .search-bar {
     width: 448px;
     height: 56px;
-    position: relative;
-    background-color: white;
-    border-radius: 100px;
   }
   .search-bar__input {
-    border: none;
-    position: relative;
-    background: #ffffff;
-    width: 439px;
     height: 56px;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    border-radius: 100px;
     padding: 17px 0px 17px 24px;
-    box-sizing: border-box;
     max-width: 228px;
   }
   .search-bar__input:focus {
@@ -226,52 +178,22 @@
     padding-bottom: 32px;
   }
   .search-form_pic {
-    background-repeat: no-repeat;
-    -o-object-fit: cover;
-       object-fit: cover;
-    width: 100%;
-    background-image: url("../../images/hero.png");
-    background-size: cover;
     padding-bottom: 32px;
     min-height: 536px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
   }
   .search-form__title {
-    font-family: Roboto Slab;
-    font-style: normal;
-    font-weight: normal;
     font-size: 36px;
     line-height: 40px;
-    margin: 0;
     max-width: 285px;
     margin-bottom: 16px;
   }
   .search-form__subtitle {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 24px;
     margin-bottom: 122px;
     max-width: 288px;
   }
   .search-bar {
-    width: 288px;
-    height: 56px;
-    position: relative;
-    background-color: white;
-    border-radius: 100px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -281,16 +203,8 @@
             flex-direction: column;
   }
   .search-bar__input {
-    border: none;
-    position: relative;
-    background: #ffffff;
-    width: 439px;
     height: 56px;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    border-radius: 100px;
     padding: 17px 0px 17px 24px;
-    box-sizing: border-box;
     max-width: 228px;
     margin-bottom: 16px;
   }
@@ -299,17 +213,8 @@
   }
   .search-bar__button {
     position: relative;
-    border: none;
     width: 160px;
     height: 56px;
-    background-color: #2f71e5;
-    border-radius: 100px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-    color: white;
   }
 }
 /*# sourceMappingURL=SearchForm.css.map */
