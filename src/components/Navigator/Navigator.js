@@ -7,13 +7,18 @@ import {headerBgBlack, headerBgTransparent, headerBgWhite, headerTitleBlack, hea
 export function Navigator(props) { 
   const [isNavOpen, setIsNavOpen] = useState(false);
   
+function handleNavOpen(e) {
+  e.preventDefault();
+  setIsNavOpen(!isNavOpen);
+}
+
 
   
   return (
     <>
     <div className={`navigator`}>
     <Header headerTitle={props.headerTitle} headerBg={isNavOpen ? headerBgBlack : props.headerBg} >
-<div className={`header__icon ${props.hamburgerColor}`}></div> 
+<button onClick={handleNavOpen} className={`header__icon ${isNavOpen ?   'header__icon_x' : props.hamburgerColor}`}></button> 
     </Header>
   <div className={`navigator__drawer ${isNavOpen ? showNavDrawer : hiddenNavDrawer}`}>
   <div className="navigator__links">
