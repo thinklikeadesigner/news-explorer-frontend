@@ -19,11 +19,11 @@ function SavedNewsPage(props) {
   return (
       <>
       <div className={`saved-news`}>
-        { isMobile ? <Navigator /> :    
+        { isMobile ? <Navigator headerTitle={headerTitleBlack} hamburgerColor={hamburgerBlack}   headerBg={headerBgWhite} /> :    
            <Header headerTitle={headerTitleBlack} headerBg={headerBgWhite} >
-      <p className={`header__home header__home_saved`}>Home</p>
-      <p className={`header__saved-articles header__saved-articles_black`}>Saved articles</p>
-      <button className={`header__button header__button_black`}>Elise
+      <p className={`header__home header__home_black`}>Home</p>
+      <p className={`header__saved-articles header__saved-articles_underlined`}>Saved articles</p>
+      <button onClick={props.onLogOut} className={`header__button header__button_black`}>Elise
 <div className={`header__icon header__icon_black`}></div> 
 </button>
       </Header>

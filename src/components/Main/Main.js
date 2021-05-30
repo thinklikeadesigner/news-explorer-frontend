@@ -13,10 +13,7 @@ import SavedNewsPage from '../SavedNewsPage/SavedNewsPage';
 import { Navigator } from '../Navigator/Navigator';
 
 import {
-
   headerBgTransparent,
-  
-  
   headerTitleWhite,
   hamburgerWhite,
 } from '../../utils/constants/constants.js';
@@ -29,34 +26,40 @@ import { Search } from '../Search/Search';
 export function Main(props) {
   const isMobile = useMediaQuery('(max-width: 750px)');
   const isTable = useMediaQuery('(max-width: 1140px)');
-  const [isNavOpen, setIsNavOpen] = useState(false);
 
+  const savedArticles = props.loggedIn ? (
+    <p className={`header__saved-articles `}>Saved articles</p>
+  ) : null;
 
-  const userName = 'Elise';
-
-
-
-
-
-  
-
+  const headerButton = props.loggedIn ? (
+    <button onClick={props.onLogOut} className={`header__button header__button_white`}>
+      Elise
+      <div className={`header__icon `}></div>
+    </button>
+  ) : (
+    <button onClick={props.onSignIn} className={`header__button header__button_white`}>SignIn</button>
+  );
 
   return (
     <>
       <main className='main'>
         <div className='search-form_pic'>
-        <Header headerTitle={headerTitleWhite} headerBg={headerBgTransparent}>
-      <p className={`header__home `}>Home</p>
-      {props.loggedIn ? (
-    <p className={`header__saved-articles `}>Saved articles</p>
-  ) : null}
-      <button className={`header__button header__button_white`}>
-        {' '}
-        {props.loggedIn ? userName : 'SignIn'}
-        <div className={`header__icon `}></div>
-      </button>
-    </Header>
-          {isNavOpen ? <Navigator /> : null}
+          {isMobile ? (
+            <Navigator
+              hamburgerColor={hamburgerWhite}
+              headerTitle={headerTitleWhite}
+              headerBg={headerBgTransparent}
+            />
+          ) : (
+            <Header
+              headerTitle={headerTitleWhite}
+              headerBg={headerBgTransparent}
+            >
+              <p className={`header__home header__home_underlined `}>Home</p>
+              {savedArticles}
+              {headerButton}
+            </Header>
+          )}
           <div className='search-form_container'>
             <h1 className='search-form__title'>
               What's going on in the world?

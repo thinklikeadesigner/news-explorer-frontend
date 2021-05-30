@@ -1,28 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch, useHistory, Redirect } from 'react-router-dom';
-// import {
-//   AddPlacePopup,
-//   ProtectedRoute,
-//   EditAvatarPopup,
-//   EditProfilePopup,
-//   PopupWithForm,
-//   PopupWithImage,
-//   Main,
-  // Footer,
-// } from './index';
+
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import * as api from '../utils/api';
-import { Register } from './Register';
-import { LogIn } from './LogIn';
 import * as auth from '../utils/auth';
 import InfoToolTip from './InfoToolTip';
-import { ProtectedRoute } from './ProtectedRoute';
-import { Footer } from './Footer/Footer';
-import { EditAvatarPopup } from './EditAvatarPopup';
 
-import { AddPlacePopup } from './AddPlacePopup';
-import { PopupWithImage } from './PopupWithImage';
-import { PopupWithForm } from './PopupWithForm';
 
 import { NewRegister } from './NewRegister/NewRegister';
 import { NewLogin } from './NewLogin/NewLogin';
@@ -35,13 +18,8 @@ function App() {
   const [cards, setCards] = useState([]);
   const [selectedCard, setSelectedCard] = useState(false);
 
-  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
-  const [isNewLoginOpen, setIsNewLoginOpen] = useState(false);
-  const [isNewRegisterOpen, setIsNewRegisterOpen] = useState(false);
-  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
-  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
-  const [isImagePopupOpen, setIsImagePopupOpen] = useState(false);
-  const [isDeleteCardPopupOpen, setIsDeleteCardPopupOpen] = useState(false);
+  const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false);
+  const [isRegisterPopupOpen, setIsRegisterPopupOpen] = useState(false);
 
   const [currentUser, setCurrentUser] = useState({});
 
@@ -62,47 +40,26 @@ function App() {
     setMessage('');
   }
 
-  function handleAddPlaceClick() {
-    setIsAddPlacePopupOpen(true);
-  }
+function handleSignInClick() {
+  setIsRegisterPopupOpen(true);
+}
 
-  function handleEditProfileClick() {
-    setIsEditProfilePopupOpen(true);
-  }
+function handleSwitchToRegister() {
+  setIsLoginPopupOpen(false);
+  setIsRegisterPopupOpen(true);
+  console.log('register');
+}
+function handleSwitchToLogin() {
+  setIsRegisterPopupOpen(false);
+  setIsLoginPopupOpen(true);
+}
 
-  function handleEditAvatarClick() {
-    setIsEditAvatarPopupOpen(true);
-  }
 
-  function handleUpdateUser({ name, about }) {
-    api
-      .setUserInfo({ name, about })
-      .then((res) => setCurrentUser(res))
-      .then(closeAllPopups)
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }
-
-  function handleUpdateAvatar({ avatar }) {
-    api
-      .setUserAvatar({ avatar })
-      .then((res) => setCurrentUser(res))
-      .then(closeAllPopups)
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }
 
   //NOTE card functions
 
   function handleCardClick(card) {
     setSelectedCard(card);
-    setIsImagePopupOpen(true);
-  }
-
-  function handleDeleteCardClick() {
-    setIsDeleteCardPopupOpen(true);
   }
 
   function handleCardLike(card) {
@@ -112,7 +69,6 @@ function App() {
     api
       .changeCardLikeStatus(card._id, !isLiked)
       .then((newCard) => {
-
         const newCards = cards.map((c) => (c._id === card._id ? newCard : c));
         setCards(newCards);
       })
@@ -153,15 +109,14 @@ function App() {
     e.preventDefault();
     console.log(isSuccess);
     if (!email || !password) {
-      
- setMessage('400 - one or more of the fields were not provided');
- setSuccess(false);
- handleInfoToolTip();
+      setMessage('400 - one or more of the fields were not provided');
+      setSuccess(false);
+      handleInfoToolTip();
     }
     auth
       .authorize(email, password)
       .then((user) => {
-       setLoggedIn(true);
+        setLoggedIn(true);
       })
       .then(resetForm)
       .then(() => {
@@ -169,7 +124,7 @@ function App() {
       })
       .catch(() => {
         setSuccess(false);
-        setMessage("Oops, something went wrong! Please try again.");
+        setMessage('Oops, something went wrong! Please try again.');
         handleInfoToolTip();
       });
   };
@@ -183,9 +138,8 @@ function App() {
     auth
       .register(email, password, name)
       .then((res) => {
-  
         setSuccess(true);
-setMessage("Success! You have now been registered.");
+        setMessage('Success! You have now been registered.');
         handleInfoToolTip();
         return res;
       })
@@ -196,13 +150,11 @@ setMessage("Success! You have now been registered.");
           setMessage('One of the fields was filled in incorrectly');
           setSuccess(false);
           handleInfoToolTip();
-        }
-        else if (res.status === 403) {
+        } else if (res.status === 403) {
           setMessage('This user already exists!');
           setSuccess(false);
           handleInfoToolTip();
         }
-   
       });
   };
 
@@ -222,20 +174,15 @@ setMessage("Success! You have now been registered.");
 
   function handleLogOut() {
     localStorage.removeItem('token');
-    history.push('/login');
+    history.push('/main');
     setLoggedIn(false);
   }
 
   function closeAllPopups() {
-    setIsAddPlacePopupOpen(false);
-    setIsEditProfilePopupOpen(false);
-    setIsEditAvatarPopupOpen(false);
-    setIsDeleteCardPopupOpen(false);
     setSelectedCard(false);
-    setIsImagePopupOpen(false);
     setIsInfoToolTipOpen(false);
-    setIsNewLoginOpen(false);
-    setIsNewRegisterOpen(false);
+    setIsLoginPopupOpen(false);
+    setIsRegisterPopupOpen(false);
   }
 
   useEffect(() => {
@@ -282,19 +229,17 @@ setMessage("Success! You have now been registered.");
     <div className='page'>
       <CurrentUserContext.Provider value={currentUser}>
         <Switch>
-          <Main    
-                   path='/main'
+          <Main
+            path='/main'
             loggedIn={loggedIn}
             cards={cards}
             component={Main}
-            onEditProfile={handleEditProfileClick}
-            onAddPlace={handleAddPlaceClick}
-            onEditAvatar={handleEditAvatarClick}
-            onDeleteCard={handleDeleteCardClick}
             onCardClick={handleCardClick}
             onCardDelete={handleCardDelete}
             onCardLike={handleCardLike}
-            onSignOut={handleLogOut}></Main>
+            onLogOut={handleLogOut}
+            onSignIn={handleSignInClick}
+          ></Main>
           {/* <ProtectedRoute
             path='/main'
             loggedIn={loggedIn}
@@ -310,73 +255,41 @@ setMessage("Success! You have now been registered.");
             onSignOut={handleLogOut}
           ></ProtectedRoute> */}
 
-
-<Route path='/savedNewsPage'>
-            
-    <SavedNewsPage
-
-            />
+          <Route path='/savedNewsPage'>
+            <SavedNewsPage onLogOut={handleLogOut}/>
           </Route>
           <Route exact path='/'>
-            {loggedIn ? <Redirect to='/main' /> : <Redirect to='/login' />}
+            {loggedIn ? <Redirect to='/savednewspage' /> : <Redirect to='/main' />}
           </Route>
         </Switch>
         <NewRegister
-    
-          isOpen={isNewRegisterOpen}
-          // isOpen={isEditProfilePopupOpen}
-          // REFACTOR to is newlogin popup open
+          isOpen={isRegisterPopupOpen}
           message={message}
           onSetEmail={handleSetEmail}
           onSetPassword={handleSetPassword}
           onSetName={handleSetName}
           onRegister={handleRegisterSubmit}
           onClose={closeAllPopups}
+          onSwitchToLogin={handleSwitchToLogin}
+          
         />
- <NewLogin
-          isOpen={isNewLoginOpen}
-          // isOpen={isEditProfilePopupOpen}
-          // REFACTOR to is new register popup open
+        <NewLogin
+          isOpen={isLoginPopupOpen}
           message={message}
           onSetEmail={handleSetEmail}
           onSetPassword={handleSetPassword}
           onSetName={handleSetName}
           onLogin={handleLoginSubmit}
           onClose={closeAllPopups}
-        /> 
-        <EditAvatarPopup
-          isOpen={isEditAvatarPopupOpen}
-          onClose={closeAllPopups}
-          onUpdateAvatar={handleUpdateAvatar}
+          onSwitchToRegister={handleSwitchToRegister}
         />
 
-        <AddPlacePopup
-          isOpen={isAddPlacePopupOpen}
-          onClose={closeAllPopups}
-          onUpdateCard={handleUpdateCard}
-        />
-        
-        <PopupWithForm
-          isOpen={isDeleteCardPopupOpen}
-          onClose={closeAllPopups}
-          name='delete'
-          title='Are you sure?'
-        />
-        
-        <PopupWithImage
-          isOpen={isImagePopupOpen}
-          onClose={closeAllPopups}
-          figimage={selectedCard.link}
-          figcaption={selectedCard.name}
-        />
-        
         <InfoToolTip
           isOpen={isInfoToolTipOpen}
           isItSuccess={isSuccess}
           onClose={closeAllPopups}
           message={message}
         />
-        
       </CurrentUserContext.Provider>
     </div>
   );

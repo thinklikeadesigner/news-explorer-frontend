@@ -35,11 +35,14 @@
   line-height: 24px;
   margin-top: 11px;
   margin-bottom: 26px;
-  color: white;
 }
 
 .header__title_black {
   color: black;
+}
+
+.header__title_white {
+  color: white;
 }
 
 .header__home {
@@ -50,7 +53,6 @@
   line-height: 24px;
   margin-top: 11px;
   margin-right: 42px;
-  border-bottom: 3px solid white;
   width: 68px;
   text-align: center;
 }
@@ -59,9 +61,12 @@
   cursor: pointer;
 }
 
-.header__home_saved {
+.header__home_black {
   color: black;
-  border-bottom: none;
+}
+
+.header__home_underlined {
+  border-bottom: 3px solid white;
 }
 
 .header__button {
@@ -126,7 +131,7 @@
   cursor: pointer;
 }
 
-.header__saved-articles_black {
+.header__saved-articles_underlined {
   color: black;
   border-bottom: 3px solid black;
 }
@@ -181,13 +186,15 @@
 @media screen and (max-width: 750px) {
   .header__container {
     padding: 16px;
-    background-color: #1A1B22;
   }
   .header__container_white {
     background-color: white;
   }
   .header__container_transparent {
     background-color: transparent;
+  }
+  .header__container_black {
+    background-color: #1A1B22;
   }
   .header__title {
     font-size: 16px;
@@ -204,13 +211,15 @@
     height: 24px;
     width: 24px;
     margin: 0;
-    background-image: url("../../images/x.svg");
   }
   .header__icon_hamburger-white {
     background-image: url("../../images/hamburger-white.svg");
   }
   .header__icon_hamburger-black {
     background-image: url("../../images/hamburger-black.svg");
+  }
+  .header__icon_x {
+    background-image: url("../../images/x.svg");
   }
 }
 /*# sourceMappingURL=Header.css.map */

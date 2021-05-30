@@ -1,12 +1,12 @@
 const headerTitleBlack = 'header__title_black';
-const headerTitleWhite = '';
+const headerTitleWhite = 'header__title_white';
 const hamburger = 'header__icon_hamburger';
 const headerBgWhite= "header__container_white";
 const headerBgTransparent =  "header__container_transparent";
-const headerBgBlack =  "";
+const headerBgBlack =  "header__container_black";
 const hiddenNavDrawer = 'navigator__drawer_hidden';
 const showNavDrawer = '';
 const hamburgerBlack = 'header__icon_hamburger-black';
 const hamburgerWhite = 'header__icon_hamburger-white';
-
-export {headerBgBlack, headerBgTransparent, headerBgWhite, headerTitleBlack, headerTitleWhite, hamburger, hamburgerBlack, hamburgerWhite, hiddenNavDrawer, showNavDrawer };
+const iconX = 'header__icon_x';
+export {headerBgBlack, headerBgTransparent, iconX, headerBgWhite, headerTitleBlack, headerTitleWhite, hamburger, hamburgerBlack, hamburgerWhite, hiddenNavDrawer, showNavDrawer };

@@ -74,6 +74,8 @@
 .form__link {
   margin: 0;
   text-decoration: none;
+  border: none;
+  background-color: transparent;
   color: #2f71e5;
   font-family: Inter;
   font-style: normal;
