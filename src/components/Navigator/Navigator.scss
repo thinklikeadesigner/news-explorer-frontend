@@ -1,38 +1,35 @@
-@import "../../utils/constants/constants.scss";
+@import '../../utils/constants/constants.scss';
 .navigator {
-    display: none;
+  display: none;
 }
 @media screen and (max-width: 750px) {
-.navigator {
+  .navigator {
     display: flex;
-position: absolute;
-top: 0;
+    position: absolute;
+    top: 0;
     flex-direction: column;
     width: 100%;
-
-    
     &_hidden {
-        display:none;
+      display: none;
     }
     &__drawer {
-        display: flex;
-        flex-direction: column;
-        padding: 16px 16px 24px;
-        border-bottom-left-radius: 16px;
-border-bottom-right-radius: 16px;
-background-color: $navigator-bg-color;
-&_white {
-    background-color: white;
-}
-&_hidden {
-    display: none;
-}
+      display: flex;
+      flex-direction: column;
+      padding: 16px 16px 24px;
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+      background-color: $navigator-bg-color;
+      &_white {
+        background-color: white;
+      }
+      &_hidden {
+        display: none;
+      }
     }
     &__links {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
     }
-}
-
+  }
 }

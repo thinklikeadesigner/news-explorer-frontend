@@ -155,152 +155,32 @@
 }
 
 @media screen and (max-width: 1140px) {
-  .header {
-    width: 100%;
-    margin: 0 auto;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    border-bottom: 1px solid #c4c4c4;
-  }
   .header__container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100%;
     padding-left: 40px;
     padding-right: 40px;
     padding-top: 14px;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
   }
   .header__title {
-    font-family: Roboto Slab;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 24px;
     margin-top: 8px;
     margin-bottom: 18px;
-    color: white;
-  }
-  .header__title_black {
-    color: black;
   }
   .header__home {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
     font-size: 16px;
-    line-height: 24px;
     margin-top: 8px;
-    margin-right: 42px;
-    border-bottom: 3px solid white;
-    width: 68px;
-    text-align: center;
-  }
-  .header__home_saved {
-    color: black;
-    border-bottom: none;
   }
   .header__button {
-    border: 1px solid #ffffff;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    border-radius: 100px;
     height: 40px;
-    width: 176px;
-    background-color: transparent;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
     font-size: 16px;
-    line-height: 24px;
-    color: white;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  .header__button_black {
-    color: black;
-    border: 1px solid black;
-    width: auto;
-    padding-left: 19px;
-    padding-right: 19px;
   }
   .header__saved-articles {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
     font-size: 16px;
-    line-height: 24px;
-    color: #b6bcbf;
     margin-top: 8px;
-    margin-right: 64px;
-    width: 178px;
-    text-align: center;
-  }
-  .header__saved-articles_black {
-    color: black;
-    border-bottom: 3px solid black;
-  }
-  .header__icon {
-    min-height: 31px;
-    width: 25px;
-    margin-left: 25px;
-    border: none;
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
-    outline: none;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-image: url("../../images/logout-white.svg");
-  }
-  .header__icon_black {
-    background-image: url("../../images/logout-black.svg");
-  }
-  .header__nav {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
   }
 }
 
 @media screen and (max-width: 750px) {
-  .header {
-    width: 100%;
-    margin: 0 auto;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    border-bottom: 1px solid #c4c4c4;
-  }
   .header__container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100%;
     padding: 16px;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
     background-color: #1A1B22;
   }
   .header__container_white {
@@ -310,96 +190,20 @@
     background-color: transparent;
   }
   .header__title {
-    font-family: Roboto Slab;
-    font-style: normal;
-    font-weight: bold;
     font-size: 16px;
-    line-height: 24px;
     margin: 0;
-    color: white;
-  }
-  .header__title_black {
-    color: black;
-  }
-  .header__home {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 56px;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 22px;
-    border-bottom: 3px solid white;
-    text-align: center;
-  }
-  .header__home_saved {
-    color: black;
-    border-bottom: none;
-  }
-  .header__home_navigator {
-    color: white;
-    border-bottom: none;
   }
   .header__button {
-    border: 1px solid #ffffff;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    border-radius: 100px;
     height: 56px;
     width: 288px;
-    background-color: transparent;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-    color: white;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
     -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
         align-self: center;
-  }
-  .header__button_black {
-    color: black;
-    border: 1px solid black;
-    width: auto;
-    padding-left: 19px;
-    padding-right: 19px;
-  }
-  .header__saved-articles {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-    color: #b6bcbf;
-    margin-top: 11px;
-    margin-right: 64px;
-    width: 178px;
-    text-align: center;
-  }
-  .header__saved-articles_black {
-    color: black;
-    border-bottom: 3px solid black;
   }
   .header__icon {
     height: 24px;
     width: 24px;
     margin: 0;
-    border: none;
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
-    outline: none;
-    background-repeat: no-repeat;
-    background-position: center;
     background-image: url("../../images/x.svg");
   }
   .header__icon_hamburger-white {
@@ -407,11 +211,6 @@
   }
   .header__icon_hamburger-black {
     background-image: url("../../images/hamburger-black.svg");
-  }
-  .header__nav {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
   }
 }
 /*# sourceMappingURL=Header.css.map */
