@@ -44,12 +44,14 @@ function handleSignInClick() {
   setIsRegisterPopupOpen(true);
 }
 
-function handleSwitchToRegister() {
+function handleSwitchToRegister(e) {
+  e.preventDefault();
   setIsLoginPopupOpen(false);
   setIsRegisterPopupOpen(true);
   console.log('register');
 }
-function handleSwitchToLogin() {
+function handleSwitchToLogin(e) {
+  e.preventDefault();
   setIsRegisterPopupOpen(false);
   setIsLoginPopupOpen(true);
 }
@@ -296,3 +298,10 @@ function handleSwitchToLogin() {
 }
 
 export default App;
+
+
+// REFACTOR IMHO best practice would be to assign paths to the 
+// signin and signup modals, and use react router and its Link component 
+// (which is basically an <a>) to navigate to it. Would have to think about 
+// how to design the path scheme to work with keeping the backing page the same.
+// Or the cheap and easy route is to use javascript:void() or # or something
