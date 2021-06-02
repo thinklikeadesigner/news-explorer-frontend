@@ -9,6 +9,7 @@
     align-items: flex-start;
     box-sizing: border-box;
     padding-top: 80px;
+    padding-bottom: 80px;
   }
   &_pic {
     background-repeat: no-repeat;
@@ -19,7 +20,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 576px;
   }
   &__title {
     font-family: Roboto Slab;
@@ -29,7 +29,7 @@
     line-height: 64px;
     margin: 0;
     max-width: 608px;
-    margin-bottom: 42px;
+    margin-bottom: 32px;
   }
   &__subtitle {
     font-family: Roboto;
@@ -91,8 +91,6 @@
       padding-bottom: 48px;
     }
     &_pic {
-      padding-bottom: 48px;
-      max-height: 400px;
       box-sizing: border-box;
     }
     &__title {
@@ -113,7 +111,7 @@
     &__input {
       height: 56px;
       padding: 17px 0px 17px 24px;
-      max-width: 228px;
+      max-width: 275px;
       &:focus {
         outline: none;
       }
@@ -147,8 +145,6 @@
       padding-bottom: 32px;
     }
     &_pic {
-      padding-bottom: 32px;
-      min-height: 536px;
       box-sizing: border-box;
     }
     &__title {
@@ -166,10 +162,13 @@
   .search-bar {
     display: flex;
     flex-direction: column;
+    width: 288px;
+    height: 100%;
+    background-color: transparent;
     &__input {
       height: 56px;
       padding: 17px 0px 17px 24px;
-      max-width: 228px;
+     max-width: 100%;
       margin-bottom: 16px;
       &:focus {
         outline: none;
@@ -177,7 +176,7 @@
     }
     &__button {
       position: relative;
-      width: 160px;
+      width: 100%;
       height: 56px;
     }
   }

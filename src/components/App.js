@@ -33,6 +33,14 @@ function App() {
   const [isInfoToolTipOpen, setIsInfoToolTipOpen] = useState(false);
   const [isSuccess, setSuccess] = useState(false);
 
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  
+function handleNavOpen(e) {
+  e.preventDefault();
+  setIsNavOpen(!isNavOpen);
+}
+
+
   function resetForm() {
     setEmail('');
     setPassword('');
@@ -185,6 +193,7 @@ function handleSwitchToLogin(e) {
     setIsInfoToolTipOpen(false);
     setIsLoginPopupOpen(false);
     setIsRegisterPopupOpen(false);
+    setIsNavOpen(false);
   }
 
   useEffect(() => {
@@ -232,6 +241,7 @@ function handleSwitchToLogin(e) {
       <CurrentUserContext.Provider value={currentUser}>
         <Switch>
           <Main
+          isOpen={isNavOpen} 
             path='/main'
             loggedIn={loggedIn}
             cards={cards}
@@ -241,24 +251,13 @@ function handleSwitchToLogin(e) {
             onCardLike={handleCardLike}
             onLogOut={handleLogOut}
             onSignIn={handleSignInClick}
+            onNavBarClick={handleNavOpen}
           ></Main>
           {/* <ProtectedRoute
-            path='/main'
-            loggedIn={loggedIn}
-            cards={cards}
-            component={Main}
-            onEditProfile={handleEditProfileClick}
-            onAddPlace={handleAddPlaceClick}
-            onEditAvatar={handleEditAvatarClick}
-            onDeleteCard={handleDeleteCardClick}
-            onCardClick={handleCardClick}
-            onCardDelete={handleCardDelete}
-            onCardLike={handleCardLike}
-            onSignOut={handleLogOut}
           ></ProtectedRoute> */}
 
           <Route path='/savedNewsPage'>
-            <SavedNewsPage onLogOut={handleLogOut}/>
+            <SavedNewsPage onLogOut={handleLogOut} onNavBarClick={handleNavOpen}   isOpen={isNavOpen} />
           </Route>
           <Route exact path='/'>
             {loggedIn ? <Redirect to='/savednewspage' /> : <Redirect to='/main' />}

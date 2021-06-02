@@ -1,9 +1,11 @@
 @import '../../utils/constants/constants.scss';
 
 .about {
-  height: 624px;
+
   background-color: white;
   padding-top: 80px;
+  padding-bottom: 80px;
+  
   padding-left: 104px;
   display: flex;
   box-sizing: border-box;
@@ -42,9 +44,8 @@
 
 @media screen and (max-width: 1140px) {
   .about {
-    height: 354px;
-    padding-top: 40px;
-    padding-left: 40px;
+
+    padding: 40px 40px 60px;
     justify-content: center;
     &__pic {
       src: url('../../images/avatar.png');
@@ -54,7 +55,7 @@
     }
     &__text {
       margin-left: 32px;
-      max-width: 424px;
+
       &-title {
         margin-top: 0px;
         margin-bottom: 16px;

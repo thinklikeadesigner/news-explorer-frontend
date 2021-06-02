@@ -14,6 +14,7 @@ import { Navigator } from '../Navigator/Navigator';
 
 import {
   headerBgTransparent,
+  headerBgBlack,
   headerTitleWhite,
   hamburgerWhite,
 } from '../../utils/constants/constants.js';
@@ -32,12 +33,20 @@ export function Main(props) {
   ) : null;
 
   const headerButton = props.loggedIn ? (
-    <button onClick={props.onLogOut} className={`header__button header__button_white`}>
+    <button
+      onClick={props.onLogOut}
+      className={`header__button header__button_white`}
+    >
       Elise
       <div className={`header__icon `}></div>
     </button>
   ) : (
-    <button onClick={props.onSignIn} className={`header__button header__button_white`}>SignIn</button>
+    <button
+      onClick={props.onSignIn}
+      className={`header__button header__button_white header__button_sign-in`}
+    >
+      SignIn
+    </button>
   );
 
   return (
@@ -46,10 +55,14 @@ export function Main(props) {
         <div className='search-form_pic'>
           {isMobile ? (
             <Navigator
-              hamburgerColor={hamburgerWhite}
-              headerTitle={headerTitleWhite}
-              headerBg={headerBgTransparent}
-            />
+            isOpen={props.isOpen}
+            onNavBarClick={props.onNavBarClick}
+              onSignIn={props.onSignIn}
+            >
+              <Header headerTitle={headerTitleWhite} headerBg={props.isOpen ? headerBgBlack : headerBgTransparent} >
+<button onClick={props.onNavBarClick} className={`header__icon ${props.isOpen ?   'header__icon_x' : hamburgerWhite}`}></button> 
+    </Header>
+            </Navigator>
           ) : (
             <Header
               headerTitle={headerTitleWhite}
@@ -60,16 +73,9 @@ export function Main(props) {
               {headerButton}
             </Header>
           )}
-          <div className='search-form_container'>
-            <h1 className='search-form__title'>
-              What's going on in the world?
-            </h1>
-            <p className='search-form__subtitle'>
-              Find the latest news on any topic and save them in your personal
-              account.
-            </p>
+
             <SearchForm />
-          </div>
+    
         </div>
 
         <Results>

@@ -41,7 +41,16 @@
 }
 
 .search__show:hover {
-  background-color: #E8E8E8;
+  background-color: #e8e8e8;
   cursor: pointer;
+}
+
+@media screen and (max-width: 1140px) {
+  .search__title {
+    margin-bottom: 32px;
+  }
+  .search__show {
+    margin-top: 32px;
+  }
 }
 /*# sourceMappingURL=Search.css.map */

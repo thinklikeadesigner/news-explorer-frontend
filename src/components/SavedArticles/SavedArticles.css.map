@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,eAAe,CAAC;EACZ,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,gBAAgB,EAAE,OAAO;EACzB,WAAW,EAAE,MAAM;EACnB,OAAO,EAAE,UAAU;EACnB,UAAU,EAAE,UAAU;CACvB;;AAED,MAAM,CAAC,MAAM,MAAM,SAAS,EAAE,MAAM;EAClC,AAAA,eAAe,CAAC;IACd,OAAO,EAAE,SAAS;GAEnB",
+    "sources": [
+        "SavedArticles.scss",
+        "../../utils/constants/constants.scss"
+    ],
+    "names": [],
+    "file": "SavedArticles.css"
+}
