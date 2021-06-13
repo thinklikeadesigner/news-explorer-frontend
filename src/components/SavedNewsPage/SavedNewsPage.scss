@@ -17,7 +17,7 @@
   &__subtitle {
     color: $primary-text-color;
     opacity: 50%;
-    font-family: Roboto;
+    font-family: Roboto, arial, 'sans serif';
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -26,7 +26,7 @@
   }
   &__title {
     color: $primary-text-color;
-    font-family: Roboto Slab;
+    font-family: 'Roboto Slab', arial, 'sans serif';
     font-style: normal;
     font-weight: normal;
     font-size: 40px;
@@ -37,7 +37,7 @@
   }
   &__keywords {
     color: $primary-text-color;
-    font-family: Roboto;
+    font-family: Roboto, arial, 'sans serif';
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -48,7 +48,7 @@
   }
 }
 
-@media screen and (max-width: 1140px) {
+@media screen and (max-width: 1387px) {
   .saved-news {
     &__intro {
       padding: 24px 40px 32px;

@@ -24,7 +24,7 @@
     border-radius: 8px;
   }
   &__tag_text {
-    font-family: Roboto;
+    font-family: Roboto, arial, 'sans serif';
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -48,7 +48,7 @@
     margin-right: 5px;
   }
   &__delete_text {
-    font-family: Roboto;
+    font-family: Roboto, arial, 'sans serif';
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -124,7 +124,7 @@
     margin-bottom: 12px;
   }
   &__title {
-    font-family: Roboto Slab;
+    font-family: 'Roboto Slab', arial, 'sans serif';
     font-style: normal;
     font-weight: normal;
     font-size: 26px;
@@ -133,7 +133,7 @@
     margin-bottom: 16px;
   }
   &__paragraph {
-    font-family: Roboto;
+    font-family: Roboto, arial, 'sans serif';
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -146,7 +146,7 @@
     overflow: hidden;
   }
   &__source {
-    font-family: Roboto Slab;
+    font-family: 'Roboto Slab', arial, 'sans serif';
     font-style: normal;
     font-weight: bold;
     font-size: 16px;

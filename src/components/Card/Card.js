@@ -35,15 +35,14 @@ function Card(props) {
     // <li className={``}>
     <div className='card'>
       <div className='card__top-left_container'>
-        {' '}
         <div className='card__tag_container'>
           <p className='card__tag_text'>Nature</p>
-        </div>{' '}
-      </div>{' '}
+        </div>
+      </div>
       <div className='card__top-right_container'>
         {/* <div className='card__delete_container-text'> */}
-          {/* <p className='card__delete_text'>Remove from saved</p> */}
-          {/* <p className='card__delete_text'>Sign in to save articles</p> */}
+        {/* <p className='card__delete_text'>Remove from saved</p> */}
+        {/* <p className='card__delete_text'>Sign in to save articles</p> */}
         {/* </div>{' '} */}
         {/* <div className='card___container'>
           <button className='card__save-btn' />
@@ -53,7 +52,6 @@ function Card(props) {
           <button className='card__save-btn' />
         </div>
       </div>
-      {/* </div> */}
       <img
         // TEST this is a test link
         src='https://static.toiimg.com/photo/72975551.cms'

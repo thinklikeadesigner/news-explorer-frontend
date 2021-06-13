@@ -9,16 +9,16 @@ Please, note that the dev version of the project fails to start on Windows: http
 COMPLETE - [ ] <!--14.429--> The project is adapted for different screen resolutions and matches the designs for these resolutions. There is no horizontal scrolling on resolutions of 320px and up. The scrollbar can't be hidden using the overflow: hidden declaration.
 
 
-* The content of the page should have limited width. Currenlty, on large screen resolutions, it's stretched to the whole width (e.g. on 2800px the content in header, author, footer will occupy the whole screen width). The backround in the header however can be stretched to occupy the whole screen (or it can be limited, too, it's up to you)
-* Horizontal scroll on desktop resolutions: 1141px - 1252px
+REFACTOR * The content of the page should have limited width. Currenlty, on large screen resolutions, it's stretched to the whole width (e.g. on 2800px the content in header, author, footer will occupy the whole screen width). The backround in the header however can be stretched to occupy the whole screen (or it can be limited, too, it's up to you)
+COMPLETE * Horizontal scroll on desktop resolutions: 1141px - 1252px
 COMPLETE * Please, add a space on "Sign In" button
 COMPLETE The button closing the popup doesn't correspond to the design.
-* "Registration successfull" popup doesn't correspond to the design.
+MAKEME * "Registration successfull" popup doesn't correspond to the design.
 COMPLETE * On mobile screens, the footer should have the same width and margins as other sections.
 COMPLETE * Background image in header should be different on mobile screens.
-COMPLETE * Incorrect layout of nav menu on mobile screens: http://joxi.ru/a2XwjRjC4x4Oam. No margin between the link and the button, and also, the menu should provide `Saved articles` link when the user is logged in.
+REFACTOR * Incorrect layout of nav menu on mobile screens: http://joxi.ru/a2XwjRjC4x4Oam. No margin between the link and the button, and also, the menu should provide `Saved articles` link when the user is logged in.
 COMPLETE the title and the text shouldn't be shifted down when the burger menu opens.
-* The popup layout on mobile screens doesn't correspond to the design: http://joxi.ru/nAyyl4luwOwnVA Please check all popups.
+REFACTOR * The popup layout on mobile screens doesn't correspond to the design: http://joxi.ru/nAyyl4luwOwnVA Please check all popups.
 - [ ] <!--14.429--> All the blocks from the brief have been coded. Navigation between pages and links to external resources are working correctly: there are no broken links or links leading to an anchor on the page and external links open in a new tab.
 * Navigation menu in the footer should contain working links.
 * Should be a working link http://joxi.ru/1A58EPECbob892 http://joxi.ru/vAWBEaEUOYO4j2
@@ -62,7 +62,7 @@ All these modifiers should be key-value, not boolean: http://joxi.ru/nAyyl4luwOw
 ### Recommendations
 COMPLETE - [ ] <!--1.67--> Images have an alt attribute containing appropriate values.
 http://joxi.ru/VrwkG4Gh4B4EOr
-- [ ] <!--1.67--> System fonts are connected as alternatives to each of your fonts.
+COMPLETE - [ ] <!--1.67--> System fonts are connected as alternatives to each of your fonts.
 * Please correct all similar issues: http://joxi.ru/EA4l0P0Updp1OA
 - [x] <!--1.67--> Raster and vector images have been optimized.
 

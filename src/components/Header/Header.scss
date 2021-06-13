@@ -21,7 +21,7 @@
     justify-content: space-between;
   }
   &__title {
-    font-family: Roboto Slab;
+    font-family: 'Roboto Slab', arial, 'sans serif';
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
@@ -36,7 +36,7 @@
     }
   }
   &__home {
-    font-family: Roboto;
+    font-family: Roboto, arial, 'sans serif';
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
@@ -63,7 +63,7 @@
     height: 48px;
     width: 176px;
     background-color: transparent;
-    font-family: Roboto;
+    font-family: Roboto, arial, 'sans serif';
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
@@ -94,7 +94,7 @@
     }
   }
   &__saved-articles {
-    font-family: Roboto;
+    font-family: Roboto, arial, 'sans serif';
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
@@ -133,7 +133,7 @@
   }
 }
 
-@media screen and (max-width: 1140px) {
+@media screen and (max-width: 1387px) {
   .header {
     &__container {
       width: 90vw;

@@ -14,9 +14,8 @@ export function Search(props) {
   return (
     <>
 <section className="search">
-{/* <div className={`search_container
-    `}> */}
-{Children.props}
+{props.children}
+
 <CardsList />
 <button className="search__show">Show more</button>
 {/* </div> */}

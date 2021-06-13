@@ -33,7 +33,7 @@
       margin-top: 50px;
       margin-bottom: 24px;
       color: $primary-text-color;
-      font-family: Roboto Slab;
+      font-family: 'Roboto Slab', arial, 'sans serif';
       font-style: normal;
       font-weight: normal;
       font-size: 40px;
@@ -42,7 +42,7 @@
     &-body {
       color: $primary-text-color;
       margin-bottom: 24px;
-      font-family: Roboto;
+      font-family: Roboto, arial, 'sans serif';
       font-style: normal;
       font-weight: normal;
       font-size: 18px;
@@ -51,7 +51,7 @@
   }
 }
 
-@media screen and (max-width: 1140px) {
+@media screen and (max-width: 1387px) {
   .about {
 display: flex;
 justify-content: center;
@@ -59,7 +59,7 @@ justify-content: center;
 &_container {
   max-width: 668px;
   width: 90vw;
-      padding: 40px 0px 60px;
+      // padding: 40px 0px 60px;
       
     }
     &__pic {
@@ -83,8 +83,9 @@ justify-content: center;
 
 @media screen and (max-width: 750px) {
   .about {
-    height: 752px;
+    // height: 752px;
     padding-top: 32px;
+    padding-bottom: 100px;
     // padding-left: 16px;
     // padding-right: 16px;
     // max-width: 90vw;

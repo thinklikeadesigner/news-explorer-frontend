@@ -35,7 +35,7 @@
   margin-top: 50px;
   margin-bottom: 24px;
   color: #1A1B22;
-  font-family: Roboto Slab;
+  font-family: 'Roboto Slab', arial, 'sans serif';
   font-style: normal;
   font-weight: normal;
   font-size: 40px;
@@ -45,14 +45,14 @@
 .about__text-body {
   color: #1A1B22;
   margin-bottom: 24px;
-  font-family: Roboto;
+  font-family: Roboto, arial, 'sans serif';
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 24px;
 }
 
-@media screen and (max-width: 1140px) {
+@media screen and (max-width: 1387px) {
   .about {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -64,7 +64,6 @@
   .about_container {
     max-width: 668px;
     width: 90vw;
-    padding: 40px 0px 60px;
   }
   .about__pic {
     src: url("../../images/avatar.png");
@@ -85,8 +84,8 @@
 
 @media screen and (max-width: 750px) {
   .about {
-    height: 752px;
     padding-top: 32px;
+    padding-bottom: 100px;
   }
   .about_container {
     -webkit-box-orient: vertical;

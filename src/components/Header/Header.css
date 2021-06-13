@@ -166,7 +166,7 @@
   display: flex;
 }
 
-@media screen and (max-width: 1140px) {
+@media screen and (max-width: 1387px) {
   .header__container {
     width: 90vw;
     max-width: 668px;

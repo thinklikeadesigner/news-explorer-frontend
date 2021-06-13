@@ -75,10 +75,41 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 700px) {
   .modal__close-button {
     top: -33px;
-    right: -36px;
+  }
+  .modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 300ms, linear 300ms;
+    transition: opacity 300ms, linear 300ms;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .modal_open {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: opacity 300ms linear 100ms;
+    transition: opacity 300ms linear 100ms;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 
