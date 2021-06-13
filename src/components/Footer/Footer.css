@@ -136,6 +136,7 @@
 @media screen and (max-width: 750px) {
   .footer {
     height: 176px;
+    max-width: 90vw;
     max-width: 288px;
   }
   .footer__container {

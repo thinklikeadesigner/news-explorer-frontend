@@ -1,7 +1,7 @@
 /* @import url("./__container/header__container.css"); */
 /* @import url("./__logo/header__logo.css"); */
 .header {
-  width: 90vw;
+  width: 100%;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -16,13 +16,12 @@
 }
 
 .header__container {
+  max-width: 90vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  margin-top: 19px;
-  padding-left: 104px;
-  padding-right: 104px;
+  padding-top: 19px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-box-pack: justify;
@@ -169,8 +168,7 @@
 
 @media screen and (max-width: 1140px) {
   .header__container {
-    padding-left: 40px;
-    padding-right: 40px;
+    max-width: 90vw;
     padding-top: 14px;
   }
   .header__title {
@@ -203,8 +201,13 @@
 }
 
 @media screen and (max-width: 750px) {
+  .header {
+    max-width: 100%;
+  }
   .header__container {
-    padding: 16px;
+    max-width: 90vw;
+    max-width: 288px;
+    padding: 16px 0px;
   }
   .header__container_white {
     background-color: white;

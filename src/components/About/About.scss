@@ -55,7 +55,7 @@
   .about {
 display: flex;
 justify-content: center;
-max-width: 668px;
+max-width: 90vw;
 
 &_container {
       padding: 40px 0px 60px;
@@ -90,7 +90,7 @@ max-width: 668px;
     &_container {
       flex-direction: column;
       align-items: center;
-      max-width: 320px;
+      // max-width: 320px;
     }
     &__pic {
       height: 272px;
@@ -99,8 +99,7 @@ max-width: 668px;
       margin-bottom: 24px;
     }
     &__text {
-      margin-left: 16px;
-      margin-right: 16px;
+      margin: 0px;
       min-width: 240px;
       &-title {
         margin-top: 0px;

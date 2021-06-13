@@ -1,5 +1,5 @@
 .search-form {
-  width: 90vw;
+  max-width: 608px;
 }
 
 .search-form_container {
@@ -14,9 +14,9 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding-top: 80px;
@@ -27,7 +27,6 @@
   background-repeat: no-repeat;
   -o-object-fit: cover;
      object-fit: cover;
-  width: 100vw;
   background-image: url("../../images/hero.png");
   background-size: cover;
   display: -webkit-box;
@@ -112,6 +111,9 @@
 }
 
 @media screen and (max-width: 1140px) {
+  .search-form {
+    max-width: 448px;
+  }
   .search-form_container {
     padding-top: 38px;
     padding-bottom: 48px;
@@ -160,6 +162,9 @@
 }
 
 @media screen and (max-width: 750px) {
+  .search-form {
+    max-width: 288px;
+  }
   .search-form_container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -178,7 +183,6 @@
             box-sizing: border-box;
     background-position: center center;
     background-repeat: no-repeat;
-    width: 100vw;
   }
   .search-form__title {
     font-size: 36px;

@@ -1,13 +1,13 @@
 @import '../../utils/constants/constants.scss';
 
 .search-form {
-  width: 90vw;
+  max-width: 608px;
   &_container {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     box-sizing: border-box;
     padding-top: 80px;
     padding-bottom: 80px;
@@ -15,7 +15,7 @@
   &_pic {
     background-repeat: no-repeat;
     object-fit: cover;
-    width: 100vw;
+    // width: 100vw;
     background-image: url('../../images/hero.png');
     background-size: cover;
     display: flex;
@@ -87,6 +87,7 @@
 
 @media screen and (max-width: 1140px) {
   .search-form {
+    max-width: 448px;
     &_container {
       padding-top: 38px;
       padding-bottom: 48px;
@@ -137,6 +138,7 @@
 
 @media screen and (max-width: 750px) {
   .search-form {
+    max-width: 288px;
     &_container {
       display: flex;
       flex-direction: column;
@@ -148,7 +150,7 @@
       box-sizing: border-box;
       background-position: center center;
       background-repeat: no-repeat;
-      width: 100vw;
+      // width: 100vw;
     }
     &__title {
       font-size: 36px;

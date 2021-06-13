@@ -3,17 +3,17 @@
 /* @import url("./__logo/header__logo.css"); */
 
 .header {
-  max-width: 1232px;
   width: 100%;
-margin: 0 auto;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid #c4c4c4;
   &__container {
+    max-width: 90vw;
     display: flex;
     width: 100%;
-    margin-top: 19px;
+    padding-top: 19px;
     // padding-left: 104px;
     // padding-right: 104px;
     box-sizing: border-box;
@@ -134,10 +134,8 @@ margin: 0 auto;
 
 @media screen and (max-width: 1140px) {
   .header {
-    min-width: 668px;
     &__container {
-      // padding-left: 40px;
-      // padding-right: 40px;
+      max-width: 90vw;
       padding-top: 14px;
     }
     &__title {
@@ -172,10 +170,11 @@ margin: 0 auto;
 
 @media screen and (max-width: 750px) {
   .header {
-    width: 100%;
-    min-width: 288px;
+    max-width: 100%;
     &__container {
-      padding: 16px;
+      max-width: 90vw;
+      max-width: 288px;
+      padding: 16px 0px;
       &_white {
         background-color: white;
       }

@@ -160,7 +160,7 @@
 @media screen and (max-width: 1140px) {
   .card {
     height: 420px;
-    width: 224px;
+    min-width: 224px;
     &__top-left_container {
       top: 8px;
       left: 8px;
@@ -202,7 +202,7 @@
 @media screen and (max-width: 750px) {
   .card {
     height: 440px;
-    width: 288px;
+    min-width: 288px;
     &__top-left_container {
       top: 16px;
       left: 16px;

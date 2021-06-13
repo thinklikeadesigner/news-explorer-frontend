@@ -16,6 +16,8 @@
 }
 
 .search_container {
+  margin: 0 auto;
+  max-width: 1232px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -77,7 +79,8 @@
 
 @media screen and (max-width: 750px) {
   .search_container {
-    max-width: 320px;
+    max-width: 90vw;
+    max-width: 288px;
   }
 }
 /*# sourceMappingURL=Search.css.map */
