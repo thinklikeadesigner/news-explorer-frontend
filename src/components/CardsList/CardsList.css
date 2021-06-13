@@ -11,13 +11,13 @@
 
 @media screen and (max-width: 1140px) {
   .cards__list {
-    -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
     gap: 8px;
   }
 }
 
-@media screen and (max-width: 730px) {
+@media screen and (max-width: 750px) {
   .cards__list {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;

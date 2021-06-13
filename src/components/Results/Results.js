@@ -1,23 +1,23 @@
 
-import React from 'react';
+// import React from 'react';
 
 
-import './Results.css';
+// import './Results.css';
 
 
 
-export function Results(props) { 
+// export function Results(props) { 
   
   
 
   
-  return (
-    <>
-    <div className={`results
-    `}>
-     {props.children}
-</div>
-</>
+//   return (
+//     <>
+//     <div className={`results
+//     `}>
+//      {props.children}
+// </div>
+// </>
 
-);}
+// );}
 

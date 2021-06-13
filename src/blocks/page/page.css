@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   }
@@ -10,8 +10,7 @@
   flex-direction: column;
   margin: 0;
   padding: 0;
-  background-color: #000000;
+  background-color: white;
   align-items: center;
-  width: 100%;
   min-height: 100vh;
-}
+} */

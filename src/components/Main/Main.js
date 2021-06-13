@@ -45,7 +45,7 @@ export function Main(props) {
       onClick={props.onSignIn}
       className={`header__button header__button_white header__button_sign-in`}
     >
-      SignIn
+      Sign in
     </button>
   );
 
@@ -78,11 +78,13 @@ export function Main(props) {
     
         </div>
 
-        <Results>
-          <Search />
+        
+          <Search>  
+          <h2 className="search__title">Search results</h2>
           {/* <Preloader /> */}
           {/* <NothingFound /> */}
-        </Results>
+          </Search>
+        
 
         <About />
         <Footer />

@@ -1,4 +1,4 @@
-@import url("./__close-button/modal__close-button.css");
+/* @import url("./__close-button/modal__close-button.css");
 @import url("./__caption/modal__caption.css");
 @import url("./__container/modal__container.css");
 @import url("./__img/modal__img.css");
@@ -20,3 +20,54 @@
   padding: 0;
 }
 
+
+.modal_open {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 300ms linear 100ms;
+  display: flex;
+}
+
+.modal__img {
+  max-width: 75vw;
+  max-height: 75vh;
+  object-fit: cover;
+}
+
+.modal__figure {
+  margin: 0;
+}
+
+.modal__container {
+  position: relative;
+}
+
+
+.modal__close-button {
+  position: absolute;
+  top: -33px;
+  right: -36px;
+  min-height: 31px;
+  width: 31px;
+  background-color: transparent;
+  border: none;
+  background-image: url("../../images/x.svg");
+  background-position: center;
+}
+
+.modal__close-button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 880px) {
+  .modal__close-button {
+    top: -33px;
+    right: -36px;
+  }
+}
+
+.modal__caption {
+  font-size: 12px;
+  line-height: 15px;
+} */

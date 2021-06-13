@@ -1,12 +1,13 @@
 @import '../../utils/constants/constants.scss';
 
 .search-form {
-  display: flex;
-  width: 100%;
+  width: 90vw;
   &_container {
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     box-sizing: border-box;
     padding-top: 80px;
     padding-bottom: 80px;
@@ -14,7 +15,7 @@
   &_pic {
     background-repeat: no-repeat;
     object-fit: cover;
-    width: 100%;
+    width: 100vw;
     background-image: url('../../images/hero.png');
     background-size: cover;
     display: flex;
@@ -43,7 +44,7 @@
 }
 
 .search-bar {
-  width: 609px;
+  min-width: 609px;
   position: relative;
   background-color: white;
   border-radius: 100px;
@@ -51,7 +52,7 @@
     border: none;
     position: relative;
     background: #ffffff;
-    width: 439px;
+    max-width: 439px;
     height: 64px;
     box-sizing: border-box;
     border-radius: 100px;
@@ -106,7 +107,7 @@
   }
 
   .search-bar {
-    width: 448px;
+    min-width: 448px;
     height: 56px;
     &__input {
       height: 56px;
@@ -139,13 +140,15 @@
     &_container {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
       box-sizing: border-box;
       padding-top: 30px;
       padding-bottom: 32px;
     }
     &_pic {
       box-sizing: border-box;
+      background-position: center center;
+      background-repeat: no-repeat;
+      width: 100vw;
     }
     &__title {
       font-size: 36px;
@@ -162,7 +165,7 @@
   .search-bar {
     display: flex;
     flex-direction: column;
-    width: 288px;
+    min-width: 288px;
     height: 100%;
     background-color: transparent;
     &__input {
@@ -180,4 +183,12 @@
       height: 56px;
     }
   }
+}
+
+
+@media screen and (min-width: 1920px) {
+.search-form_pic {
+  min-height: 750px;
+}
+
 }

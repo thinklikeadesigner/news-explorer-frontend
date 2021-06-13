@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch, useHistory, Redirect } from 'react-router-dom';
 
-import { CurrentUserContext } from '../contexts/CurrentUserContext';
-import * as api from '../utils/api';
-import * as auth from '../utils/auth';
-import InfoToolTip from './InfoToolTip';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import * as api from '../../utils/api';
+import * as auth from '../../utils/auth';
+import InfoToolTip from '../InfoToolTip';
 
 
-import { NewRegister } from './NewRegister/NewRegister';
-import { NewLogin } from './NewLogin/NewLogin';
-import { Main } from './Main/Main';
-import SavedNewsPage from './SavedNewsPage/SavedNewsPage';
+import { NewRegister } from '../NewRegister/NewRegister';
+import { NewLogin } from '../NewLogin/NewLogin';
+import { Main } from '../Main/Main';
+import SavedNewsPage from '../SavedNewsPage/SavedNewsPage';
+import './App.css';
+
 
 function App() {
   const history = useHistory();
@@ -237,7 +239,7 @@ function handleSwitchToLogin(e) {
   }, [history]);
 
   return (
-    <div className='page'>
+    <div className='app'>
       <CurrentUserContext.Provider value={currentUser}>
         <Switch>
           <Main

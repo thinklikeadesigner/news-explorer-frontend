@@ -1,18 +1,27 @@
 @import '../../utils/constants/constants.scss';
 
 .about {
-
   background-color: white;
   padding-top: 80px;
   padding-bottom: 80px;
-  
-  padding-left: 104px;
-  display: flex;
+  margin: 0 auto;
   box-sizing: border-box;
+  width: 100%;
+  max-width: 1232px;
+  
+  &_container {
+    justify-content: flex-start;
+    display: flex;
+
+
+
+
+    
+  }
   &__pic {
     src: url('../../images/avatar.png');
     height: 464px;
-    width: 464px;
+    max-width: 464px;
     object-fit: cover;
   }
   &__text {
@@ -44,13 +53,18 @@
 
 @media screen and (max-width: 1140px) {
   .about {
+display: flex;
+justify-content: center;
+max-width: 668px;
 
-    padding: 40px 40px 60px;
-    justify-content: center;
+&_container {
+      padding: 40px 0px 60px;
+      
+    }
     &__pic {
       src: url('../../images/avatar.png');
       height: 232px;
-      width: 232px;
+      max-width: 232px;
       margin-top: 21px;
     }
     &__text {
@@ -70,14 +84,17 @@
   .about {
     height: 752px;
     padding-top: 32px;
-    padding-left: 16px;
-    padding-right: 16px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    // padding-left: 16px;
+    // padding-right: 16px;
+    max-width: 288px;
+    &_container {
+      flex-direction: column;
+      align-items: center;
+      max-width: 320px;
+    }
     &__pic {
       height: 272px;
-      width: 272px;
+      max-width: 272px;
       margin-top: 0px;
       margin-bottom: 24px;
     }

@@ -11,6 +11,7 @@ function SearchForm() {
 
 
 
+<section className="search-form">
 <div className='search-form_container'>
             <h1 className='search-form__title'>
               What's going on in the world?
@@ -24,6 +25,7 @@ function SearchForm() {
 <button className='search-bar__button' type='submit'>Search</button>
 </div>
             </div>
+</section>
   </>
   );
 }

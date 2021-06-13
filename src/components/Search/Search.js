@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { Children } from 'react';
 import Card from '../Card/Card';
 import { CardsList } from '../CardsList/CardsList';
 
@@ -13,12 +13,14 @@ export function Search(props) {
 
   return (
     <>
-    <div className={`search
+<section className="search">
+<div className={`search_container
     `}>
-<h2 className="search__title">Search results</h2>
+{Children.props}
 <CardsList />
 <button className="search__show">Show more</button>
 </div>
+</section>
 </>
 
 );}
