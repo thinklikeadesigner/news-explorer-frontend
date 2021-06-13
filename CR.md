@@ -20,8 +20,8 @@ REFACTOR * Incorrect layout of nav menu on mobile screens: http://joxi.ru/a2XwjR
 COMPLETE the title and the text shouldn't be shifted down when the burger menu opens.
 REFACTOR * The popup layout on mobile screens doesn't correspond to the design: http://joxi.ru/nAyyl4luwOwnVA Please check all popups.
 - [ ] <!--14.429--> All the blocks from the brief have been coded. Navigation between pages and links to external resources are working correctly: there are no broken links or links leading to an anchor on the page and external links open in a new tab.
-* Navigation menu in the footer should contain working links.
-* Should be a working link http://joxi.ru/1A58EPECbob892 http://joxi.ru/vAWBEaEUOYO4j2
+MAKEME * Navigation menu in the footer should contain working links.
+MAKEME * Should be a working link http://joxi.ru/1A58EPECbob892 http://joxi.ru/vAWBEaEUOYO4j2
 * On saved-articles page, the card should have a trash can icon instead of a bookmark.
 - [ ] <!--14.429--> The layout is responsive and displays correctly at all intermediate resolutions.
 * The content is too narrow: http://joxi.ru/brRwqWqCOwObLm, please check other resolutions too, the content should adapt to the screen width.
