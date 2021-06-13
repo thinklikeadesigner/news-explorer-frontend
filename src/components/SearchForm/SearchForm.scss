@@ -138,7 +138,10 @@
 
 @media screen and (max-width: 750px) {
   .search-form {
-    max-width: 288px;
+    // max-width: 288px;
+    width: 90vw;
+    max-width: 400px;
+    min-width: 288px;
     &_container {
       display: flex;
       flex-direction: column;
@@ -155,18 +158,21 @@
     &__title {
       font-size: 36px;
       line-height: 40px;
-      max-width: 285px;
+      // max-width: 285px;
       margin-bottom: 16px;
     }
     &__subtitle {
       margin-bottom: 122px;
-      max-width: 288px;
+      // max-width: 288px;
     }
   }
 
   .search-bar {
     display: flex;
     flex-direction: column;
+    // min-width: 288px;  
+      width: 90vw;
+    max-width: 400px;
     min-width: 288px;
     height: 100%;
     background-color: transparent;

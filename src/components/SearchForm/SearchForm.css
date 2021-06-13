@@ -163,7 +163,9 @@
 
 @media screen and (max-width: 750px) {
   .search-form {
-    max-width: 288px;
+    width: 90vw;
+    max-width: 400px;
+    min-width: 288px;
   }
   .search-form_container {
     display: -webkit-box;
@@ -187,12 +189,10 @@
   .search-form__title {
     font-size: 36px;
     line-height: 40px;
-    max-width: 285px;
     margin-bottom: 16px;
   }
   .search-form__subtitle {
     margin-bottom: 122px;
-    max-width: 288px;
   }
   .search-bar {
     display: -webkit-box;
@@ -202,6 +202,8 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    width: 90vw;
+    max-width: 400px;
     min-width: 288px;
     height: 100%;
     background-color: transparent;

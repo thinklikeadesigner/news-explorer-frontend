@@ -1,6 +1,6 @@
 .card {
   height: 576px;
-  max-width: 400px;
+  width: 400px;
   background-color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -214,10 +214,10 @@
   text-transform: uppercase;
 }
 
-@media screen and (max-width: 1140px) {
+@media screen and (max-width: 1387px) {
   .card {
     height: 420px;
-    min-width: 224px;
+    width: 224px;
   }
   .card__top-left_container {
     top: 8px;
@@ -259,7 +259,7 @@
 @media screen and (max-width: 750px) {
   .card {
     height: 440px;
-    min-width: 288px;
+    width: 288px;
   }
   .card__top-left_container {
     top: 16px;

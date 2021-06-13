@@ -6,7 +6,7 @@
   padding-bottom: 80px;
   margin: 0 auto;
   box-sizing: border-box;
-  width: 100%;
+  // width: 100vx/w;
   max-width: 1232px;
   
   &_container {
@@ -55,9 +55,10 @@
   .about {
 display: flex;
 justify-content: center;
-max-width: 90vw;
 
 &_container {
+  max-width: 668px;
+  width: 90vw;
       padding: 40px 0px 60px;
       
     }
@@ -86,11 +87,14 @@ max-width: 90vw;
     padding-top: 32px;
     // padding-left: 16px;
     // padding-right: 16px;
-    max-width: 288px;
+    // max-width: 90vw;
     &_container {
       flex-direction: column;
       align-items: center;
       // max-width: 320px;
+      width: 90vw;
+      max-width: 400px;
+      min-width: 288px;
     }
     &__pic {
       height: 272px;

@@ -1,6 +1,5 @@
 .footer {
   width: 100%;
-  max-width: 1232px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10,9 +9,11 @@
           justify-content: center;
   height: 85px;
   margin: 0 auto;
+  max-width: 90vw;
 }
 
 .footer__container {
+  max-width: 1232px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -107,6 +108,7 @@
   .footer {
     height: 64px;
     max-width: 688px;
+    width: 90vw;
   }
   .footer__container {
     padding: 24px 0px 18px;
@@ -136,8 +138,9 @@
 @media screen and (max-width: 750px) {
   .footer {
     height: 176px;
-    max-width: 90vw;
-    max-width: 288px;
+    width: 90vw;
+    max-width: 400px;
+    min-width: 288px;
   }
   .footer__container {
     -webkit-box-orient: vertical;

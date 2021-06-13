@@ -11,23 +11,37 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    width: 100%;
+    position: absolute;
+    background-color: #1A1B22;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 300ms, linear 300ms;
+    transition: opacity 300ms, linear 300ms;
   }
   .navigator_hidden {
-    display: none;
-  }
-  .navigator__drawer {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: opacity 300ms linear 100ms;
+    transition: opacity 300ms linear 100ms;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    padding: 16px 16px 24px;
+  }
+  .navigator_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100vw;
+  }
+  .navigator__drawer {
+    max-width: 288px;
+    padding: 16px 0px 24px;
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
-    background-color: #1A1B22;
   }
   .navigator__drawer_white {
     background-color: white;

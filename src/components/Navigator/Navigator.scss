@@ -6,17 +6,31 @@
   .navigator {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    position: absolute;
+    background-color: $navigator-bg-color;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 300ms, linear 300ms;
     &_hidden {
-      display: none;
-    }
-    &__drawer {
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 300ms linear 100ms;
       display: flex;
-      flex-direction: column;
-      padding: 16px 16px 24px;
+    }
+    &_container {
+      display: flex;
+      justify-content: center;
+      
+      width: 100vw;
+      
+    }
+    
+    &__drawer {
+      max-width: 288px;
+      padding: 16px 0px 24px;
       border-bottom-left-radius: 16px;
       border-bottom-right-radius: 16px;
-      background-color: $navigator-bg-color;
       &_white {
         background-color: white;
       }

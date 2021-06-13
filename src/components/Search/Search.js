@@ -14,12 +14,12 @@ export function Search(props) {
   return (
     <>
 <section className="search">
-<div className={`search_container
-    `}>
+{/* <div className={`search_container
+    `}> */}
 {Children.props}
 <CardsList />
 <button className="search__show">Show more</button>
-</div>
+{/* </div> */}
 </section>
 </>
 

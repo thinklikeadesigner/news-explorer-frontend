@@ -9,14 +9,14 @@
 .cards__list {
     list-style: none;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr auto;
     gap: 18px;
     padding: 0;
 
     
   }
   
-  @media screen and (max-width: 1140px) {
+  @media screen and (max-width: 1387px) {
     .cards__list {
       grid-template-columns: 1fr 1fr 1fr;
       gap: 8px;

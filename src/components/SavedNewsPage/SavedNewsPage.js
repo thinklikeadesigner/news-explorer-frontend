@@ -29,16 +29,28 @@ function SavedNewsPage(props) {
     <>
       <div className={`saved-news`}>
         {isMobile ? (
-            <Navigator
-            isOpen={props.isOpen}
-            onNavBarClick={props.onNavBarClick}
-              onSignIn={props.onSignIn}
-            >
-              <Header headerTitle={props.isOpen ? headerTitleWhite : headerTitleBlack} headerBg={props.isOpen ? headerBgBlack : headerBgWhite} >
-<button onClick={props.onNavBarClick} className={`header__icon ${props.isOpen ?   'header__icon_x' : hamburgerBlack}`}></button> 
-    </Header>
-    <div></div>
-            </Navigator>
+//             <Navigator
+//             isOpen={props.isOpen}
+//             onNavBarClick={props.onNavBarClick}
+//               onSignIn={props.onSignIn}
+//             >
+//               <Header headerTitle={props.isOpen ? headerTitleWhite : headerTitleBlack} headerBg={props.isOpen ? headerBgBlack : headerBgWhite} >
+// <button onClick={props.onNavBarClick} className={`header__icon ${props.isOpen ?   'header__icon_x' : hamburgerBlack}`}></button> 
+//     </Header>
+//     <div></div>
+//             </Navigator>
+<>
+<Header headerTitle={headerTitleBlack} headerBg={headerBgWhite} >
+<button onClick={props.onNavBarClick} className={`header__icon ${ hamburgerBlack}`}></button> 
+</Header>
+<Navigator
+isOpen={props.isOpen}
+onNavBarClick={props.onNavBarClick}
+onSignIn={props.onSignIn}
+>
+
+</Navigator>
+</>
         ) : (
           <Header headerTitle={headerTitleBlack} headerBg={headerBgWhite}>
             <p className={`header__home header__home_black`}>Home</p>

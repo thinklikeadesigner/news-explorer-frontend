@@ -54,15 +54,18 @@ export function Main(props) {
       <main className='main'>
         <div className='search-form_pic'>
           {isMobile ? (
+            <>
+              <Header headerTitle={headerTitleWhite} headerBg={headerBgTransparent} >
+<button onClick={props.onNavBarClick} className={`header__icon ${ hamburgerWhite}`}></button> 
+    </Header>
             <Navigator
             isOpen={props.isOpen}
             onNavBarClick={props.onNavBarClick}
               onSignIn={props.onSignIn}
             >
-              <Header headerTitle={headerTitleWhite} headerBg={props.isOpen ? headerBgBlack : headerBgTransparent} >
-<button onClick={props.onNavBarClick} className={`header__icon ${props.isOpen ?   'header__icon_x' : hamburgerWhite}`}></button> 
-    </Header>
+
             </Navigator>
+            </>
           ) : (
             <Header
               headerTitle={headerTitleWhite}
