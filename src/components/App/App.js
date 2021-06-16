@@ -4,7 +4,7 @@ import { Route, Switch, useHistory, Redirect } from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import * as api from '../../utils/api';
 import * as auth from '../../utils/auth';
-import InfoToolTip from '../InfoToolTip';
+import InfoToolTip from '../InfoToolTip/InfoToolTip';
 
 import { NewRegister } from '../NewRegister/NewRegister';
 import { Popup } from '../Popup/Popup';

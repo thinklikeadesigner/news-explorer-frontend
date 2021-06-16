@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import { PopupWithForm } from '../PopupWithForm';
 import '../NewRegister/form.css';
 
 export function NewLogin(props) {

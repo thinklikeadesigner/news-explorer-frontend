@@ -1,7 +1,6 @@
 import React, { Children } from 'react';
 import { Link } from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import { PopupWithForm } from '../PopupWithForms';
 import '../NewRegister/form.css';
 
 export function Popup(props) {
