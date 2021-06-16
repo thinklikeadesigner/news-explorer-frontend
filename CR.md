@@ -95,4 +95,5 @@ COMPLETE
 
 ## Additional comments:
 
-MAKEME No need to render several modals on the page: http://joxi.ru/82QwJ6JC9P9odr. Render just one of them, and change its type with key-value modifiers: `modal_type_sign-in`
+COMPLETE
+ No need to render several modals on the page: http://joxi.ru/82QwJ6JC9P9odr. Render just one of them, and change its type with key-value modifiers: `modal_type_sign-in`
