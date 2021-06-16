@@ -39,7 +39,7 @@
 }
 
 .card__tag_text {
-  font-family: Roboto;
+  font-family: Roboto, arial, 'sans serif';
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -74,7 +74,7 @@
 }
 
 .card__delete_text {
-  font-family: Roboto;
+  font-family: Roboto, arial, 'sans serif';
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -178,7 +178,7 @@
 }
 
 .card__title {
-  font-family: Roboto Slab;
+  font-family: 'Roboto Slab', arial, 'sans serif';
   font-style: normal;
   font-weight: normal;
   font-size: 26px;
@@ -188,7 +188,7 @@
 }
 
 .card__paragraph {
-  font-family: Roboto;
+  font-family: Roboto, arial, 'sans serif';
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -204,7 +204,7 @@
 }
 
 .card__source {
-  font-family: Roboto Slab;
+  font-family: 'Roboto Slab', arial, 'sans serif';
   font-style: normal;
   font-weight: bold;
   font-size: 16px;

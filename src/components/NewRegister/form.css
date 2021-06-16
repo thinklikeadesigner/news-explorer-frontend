@@ -45,6 +45,10 @@
   border-right: none;
 }
 
+.form__input:focus {
+  outline: 3px solid #2f71e5;
+}
+
 .form__input-title {
   color: #2f71e5;
   margin: 0;

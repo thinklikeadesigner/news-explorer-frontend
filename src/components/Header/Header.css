@@ -30,7 +30,7 @@
 }
 
 .header__title {
-  font-family: Roboto Slab;
+  font-family: 'Roboto Slab', arial, 'sans serif';
   font-style: normal;
   font-weight: bold;
   font-size: 20px;
@@ -48,7 +48,7 @@
 }
 
 .header__home {
-  font-family: Roboto;
+  font-family: Roboto, arial, 'sans serif';
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -57,6 +57,7 @@
   margin-right: 42px;
   width: 68px;
   text-align: center;
+  text-decoration: none;
 }
 
 .header__home:hover {
@@ -79,7 +80,7 @@
   height: 48px;
   width: 176px;
   background-color: transparent;
-  font-family: Roboto;
+  font-family: Roboto, arial, 'sans serif';
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -121,7 +122,7 @@
 }
 
 .header__saved-articles {
-  font-family: Roboto;
+  font-family: Roboto, arial, 'sans serif';
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -131,6 +132,7 @@
   margin-right: 32px;
   width: 178px;
   text-align: center;
+  text-decoration: none;
 }
 
 .header__saved-articles:hover {

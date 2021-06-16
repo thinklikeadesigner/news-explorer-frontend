@@ -35,6 +35,11 @@
     border-top: none;
     border-left: none;
     border-right: none;
+    &:focus {
+      outline: 3px solid $primary-color;
+      // box-shadow: 20px 15px 30px yellow, -20px 15px 30px lime, -20px -15px 30px blue, 20px -15px 30px red;
+      
+    }
     &-title {
       color: $primary-color;
       margin: 0;
@@ -133,6 +138,7 @@
   color: $white-text-color;
   align-self: center;
   /* font-style: normal; */
+  
 }
 
 .form__input_sign_up {

@@ -29,7 +29,8 @@ export function Main(props) {
   const isTable = useMediaQuery('(max-width: 1140px)');
 
   const savedArticles = props.loggedIn ? (
-    <p className={`header__saved-articles `}>Saved articles</p>
+    <Link  to='savedNewsPage' className={`header__saved-articles `}>Saved articles
+    </Link>
   ) : null;
 
   const headerButton = props.loggedIn ? (

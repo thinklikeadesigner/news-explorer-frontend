@@ -32,8 +32,8 @@ function Card(props) {
   // }`;
 
   return (
-    // <li className={``}>
-    <div className='card'>
+    
+    <li className='card'>
       <div className='card__top-left_container'>
         <div className='card__tag_container'>
           <p className='card__tag_text'>Nature</p>
@@ -49,7 +49,8 @@ function Card(props) {
         </div> */}
         <div className='card__icon-text_container'>
           {/* <button className='card__delete-btn' /> */}
-          <button className='card__save-btn' />
+          <button className='card__save-btn' 
+          />
         </div>
       </div>
       <img
@@ -86,8 +87,8 @@ function Card(props) {
           }</p>
         </div> */}
       </div>
-      {/* </li> */}
-    </div>
+    </li>
+     
   );
 }
 

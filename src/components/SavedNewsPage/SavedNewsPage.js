@@ -4,6 +4,7 @@ import Card from '../Card/Card';
 import { Footer } from '../Footer/Footer';
 import { Header } from '../Header/Header';
 import { Navigator } from '../Navigator/Navigator';
+import { Link } from "react-router-dom";
 
 import {
   headerBgBlack,
@@ -53,7 +54,8 @@ onSignIn={props.onSignIn}
 </>
         ) : (
           <Header headerTitle={headerTitleBlack} headerBg={headerBgWhite}>
-            <p className={`header__home header__home_black`}>Home</p>
+            <Link to='/main'
+             className={`header__home header__home_black`}>Home</Link>
             <p
               className={`header__saved-articles header__saved-articles_underlined`}
             >

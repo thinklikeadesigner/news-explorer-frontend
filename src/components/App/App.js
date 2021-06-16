@@ -6,13 +6,12 @@ import * as api from '../../utils/api';
 import * as auth from '../../utils/auth';
 import InfoToolTip from '../InfoToolTip';
 
-
 import { NewRegister } from '../NewRegister/NewRegister';
+import { Popup } from '../Popup/Popup';
 import { NewLogin } from '../NewLogin/NewLogin';
 import { Main } from '../Main/Main';
 import SavedNewsPage from '../SavedNewsPage/SavedNewsPage';
 import './App.css';
-
 
 function App() {
   const history = useHistory();
@@ -22,6 +21,7 @@ function App() {
 
   const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false);
   const [isRegisterPopupOpen, setIsRegisterPopupOpen] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const [currentUser, setCurrentUser] = useState({});
 
@@ -36,12 +36,11 @@ function App() {
   const [isSuccess, setSuccess] = useState(false);
 
   const [isNavOpen, setIsNavOpen] = useState(false);
-  
-function handleNavOpen(e) {
-  e.preventDefault();
-  setIsNavOpen(!isNavOpen);
-}
 
+  function handleNavOpen(e) {
+    e.preventDefault();
+    setIsNavOpen(!isNavOpen);
+  }
 
   function resetForm() {
     setEmail('');
@@ -50,23 +49,22 @@ function handleNavOpen(e) {
     setMessage('');
   }
 
-function handleSignInClick() {
-  setIsRegisterPopupOpen(true);
-}
+  function handleSignInClick() {
+    setIsPopupOpen(true);
+    setIsLoginPopupOpen(true);
+  }
 
-function handleSwitchToRegister(e) {
-  e.preventDefault();
-  setIsLoginPopupOpen(false);
-  setIsRegisterPopupOpen(true);
-  console.log('register');
-}
-function handleSwitchToLogin(e) {
-  e.preventDefault();
-  setIsRegisterPopupOpen(false);
-  setIsLoginPopupOpen(true);
-}
-
-
+  function handleSwitchToRegister(e) {
+    e.preventDefault();
+    console.log(isLoginPopupOpen);
+    setIsLoginPopupOpen(false);
+    console.log(isLoginPopupOpen);
+    console.log('register');
+  }
+  function handleSwitchToLogin(e) {
+    e.preventDefault();
+    setIsLoginPopupOpen(true);
+  }
 
   //NOTE card functions
 
@@ -119,55 +117,58 @@ function handleSwitchToLogin(e) {
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    console.log(isSuccess);
-    if (!email || !password) {
-      setMessage('400 - one or more of the fields were not provided');
-      setSuccess(false);
-      handleInfoToolTip();
-    }
-    auth
-      .authorize(email, password)
-      .then((user) => {
-        setLoggedIn(true);
-      })
-      .then(resetForm)
-      .then(() => {
-        history.push('/login');
-      })
-      .catch(() => {
-        setSuccess(false);
-        setMessage('Oops, something went wrong! Please try again.');
-        handleInfoToolTip();
-      });
+    setLoggedIn(true);
+    closeAllPopups();
+    // console.log(isSuccess);
+    // if (!email || !password) {
+    //   setMessage('400 - one or more of the fields were not provided');
+    //   setSuccess(false);
+    //   handleInfoToolTip();
+    // }
+    // auth
+    //   .authorize(email, password)
+    //   .then((user) => {
+    //     setLoggedIn(true);
+    //   })
+    //   .then(resetForm)
+    //   .then(() => {
+    //     history.push('/login');
+    //   })
+    //   .catch(() => {
+    //     setSuccess(false);
+    //     setMessage('Oops, something went wrong! Please try again.');
+    //     handleInfoToolTip();
+    //   });
   };
 
   const handleRegisterSubmit = (e) => {
     e.preventDefault();
-
-    if (!password || !email || !name) {
-      return;
-    }
-    auth
-      .register(email, password, name)
-      .then((res) => {
-        setSuccess(true);
-        setMessage('Success! You have now been registered.');
-        handleInfoToolTip();
-        return res;
-      })
-      .then(resetForm)
-      .then(history.push('/login'))
-      .catch((res) => {
-        if (res.status === 400) {
-          setMessage('One of the fields was filled in incorrectly');
-          setSuccess(false);
-          handleInfoToolTip();
-        } else if (res.status === 403) {
-          setMessage('This user already exists!');
-          setSuccess(false);
-          handleInfoToolTip();
-        }
-      });
+    setLoggedIn(true);
+    closeAllPopups();
+    // if (!password || !email || !name) {
+    //   return;
+    // }
+    // auth
+    //   .register(email, password, name)
+    //   .then((res) => {
+    //     setSuccess(true);
+    //     setMessage('Success! You have now been registered.');
+    //     handleInfoToolTip();
+    //     return res;
+    //   })
+    //   .then(resetForm)
+    //   .then(history.push('/login'))
+    //   .catch((res) => {
+    //     if (res.status === 400) {
+    //       setMessage('One of the fields was filled in incorrectly');
+    //       setSuccess(false);
+    //       handleInfoToolTip();
+    //     } else if (res.status === 403) {
+    //       setMessage('This user already exists!');
+    //       setSuccess(false);
+    //       handleInfoToolTip();
+    //     }
+    //   });
   };
 
   function handleSetPassword(e) {
@@ -195,6 +196,7 @@ function handleSwitchToLogin(e) {
     setIsInfoToolTipOpen(false);
     setIsLoginPopupOpen(false);
     setIsRegisterPopupOpen(false);
+    setIsPopupOpen(false);
     setIsNavOpen(false);
   }
 
@@ -242,50 +244,61 @@ function handleSwitchToLogin(e) {
     <div className='app'>
       <CurrentUserContext.Provider value={currentUser}>
         <Switch>
-          <Main
-          isOpen={isNavOpen} 
-            path='/main'
-            loggedIn={loggedIn}
-            cards={cards}
-            component={Main}
-            onCardClick={handleCardClick}
-            onCardDelete={handleCardDelete}
-            onCardLike={handleCardLike}
-            onLogOut={handleLogOut}
-            onSignIn={handleSignInClick}
-            onNavBarClick={handleNavOpen}
-          ></Main>
+          <Route path='/main'>
+            <Main
+              isOpen={isNavOpen}
+              loggedIn={loggedIn}
+              cards={cards}
+              component={Main}
+              onCardClick={handleCardClick}
+              onCardDelete={handleCardDelete}
+              onCardLike={handleCardLike}
+              onLogOut={handleLogOut}
+              onSignIn={handleSignInClick}
+              onNavBarClick={handleNavOpen}
+            ></Main>
+          </Route>
           {/* <ProtectedRoute
           ></ProtectedRoute> */}
 
           <Route path='/savedNewsPage'>
-            <SavedNewsPage onLogOut={handleLogOut} onNavBarClick={handleNavOpen}   isOpen={isNavOpen} />
+            <SavedNewsPage
+              onLogOut={handleLogOut}
+              onNavBarClick={handleNavOpen}
+              isOpen={isNavOpen}
+            />
           </Route>
           <Route exact path='/'>
-            {loggedIn ? <Redirect to='/savednewspage' /> : <Redirect to='/main' />}
+            {loggedIn ? (
+              <Redirect to='/savedNewsPage' />
+            ) : (
+              <Redirect to='/main' />
+            )}
           </Route>
         </Switch>
-        <NewRegister
-          isOpen={isRegisterPopupOpen}
+        <Popup
+          isOpen={isPopupOpen}
           message={message}
           onSetEmail={handleSetEmail}
           onSetPassword={handleSetPassword}
           onSetName={handleSetName}
-          onRegister={handleRegisterSubmit}
           onClose={closeAllPopups}
-          onSwitchToLogin={handleSwitchToLogin}
-          
-        />
-        <NewLogin
-          isOpen={isLoginPopupOpen}
-          message={message}
-          onSetEmail={handleSetEmail}
-          onSetPassword={handleSetPassword}
-          onSetName={handleSetName}
-          onLogin={handleLoginSubmit}
-          onClose={closeAllPopups}
-          onSwitchToRegister={handleSwitchToRegister}
-        />
+        >
+          {isLoginPopupOpen ? (
+      
+            <NewLogin
+              // isOpen={isLoginPopupOpen}
+              onLogin={handleLoginSubmit}
+              onSwitchToRegister={handleSwitchToRegister}
+            />
+          ) : (
+            <NewRegister
+            // isOpen={isRegisterPopupOpen}
+            onRegister={handleRegisterSubmit}
+            onSwitchToLogin={handleSwitchToLogin}
+          ></NewRegister>
+          )}
+        </Popup>
 
         <InfoToolTip
           isOpen={isInfoToolTipOpen}
@@ -300,9 +313,8 @@ function handleSwitchToLogin(e) {
 
 export default App;
 
-
-// REFACTOR IMHO best practice would be to assign paths to the 
-// signin and signup modals, and use react router and its Link component 
-// (which is basically an <a>) to navigate to it. Would have to think about 
+// REFACTOR IMHO best practice would be to assign paths to the
+// signin and signup modals, and use react router and its Link component
+// (which is basically an <a>) to navigate to it. Would have to think about
 // how to design the path scheme to work with keeping the backing page the same.
 // Or the cheap and easy route is to use javascript:void() or # or something
