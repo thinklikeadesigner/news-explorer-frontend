@@ -5,7 +5,7 @@ Good job! Some corrections need to be made, but on the whole, the project is ver
 Please, note that the dev version of the project fails to start on Windows: http://joxi.ru/KAx1040uKWKe3r Please, check your package.json file
 
 # Project review summary:
-### Performance Criteria
+### Performance Criteria 
 TEST 
 - [x] <!--14.429--> The project is adapted for different screen resolutions and matches the designs for these resolutions. There is no horizontal scrolling on resolutions of 320px and up. The scrollbar can't be hidden using the overflow: hidden declaration.
 
