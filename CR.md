@@ -43,10 +43,10 @@ COMPLETE
  - [X] <!--3.38--> There are no validation errors.
 COMPLETE http://joxi.ru/V2Vw0Z0Ck1kn5A invalid css value: http://joxi.ru/xAe4ZqZcXWXy92 Incorrect class name: http://joxi.ru/Q2KwkNkCvzvea2, pseudo-classes should be assigned only in css
 COMPLETE `<div>` can't be a direct descendant of `ul`: http://joxi.ru/823yGPGu8E8dlr Please, correct all similar issues
-- [ ] <!--3.38--> Semantic HTML is used, meaning that semantic tags are used. All elements are used correctly (e.g. a paragraph must be a paragraph, a list must be a list). 
-FIXME The DOM tree structure doesn't consist only of <div> containers.
-MAKEME The links in the footer should be inside a list. Optional, but highly recommended: the list inside nav.
-MAKEME The "search" form should be a `<form>`
+- [x] <!--3.38--> Semantic HTML is used, meaning that semantic tags are used. All elements are used correctly (e.g. a paragraph must be a paragraph, a list must be a list). 
+COMPLETE The DOM tree structure doesn't consist only of <div> containers.
+ The links in the footer should be inside a list. Optional, but highly recommended: the list inside nav.
+COMPLETE The "search" form should be a `<form>`
 - [x] <!--3.38--> The correct approach is chosen for positioning elements, and is described using the correct syntax. For example, when positioning an element absolutely, its parent block is relatively positioned.
 - [x] <!--3.38--> flex or grid layout are used to arrange elements.
 - [x] <!--3.38--> Infrastructural project files are created using CRA.
@@ -57,7 +57,7 @@ COMPLETE * Button "Sign In" opens "Sign Up" popup.
 	- [x] <!--3.38--> The markup has been moved into the corresponding components.
 - Your project contains:
 	- [x] <!--3.38--> An images folder
-REFACTOR
+COMPLETE
 	- [ ] <!--3.38--> A components folder with JS and CSS files for the components.
 	http://joxi.ru/gmvxM4MH1p1WyA
 	- [x] <!--3.38--> A fonts folder.

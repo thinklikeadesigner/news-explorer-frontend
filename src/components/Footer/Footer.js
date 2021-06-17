@@ -12,27 +12,38 @@ export class Footer extends React.Component {
               © 2021 Supersite, Powered by News API
             </p>
           </div>
-          <div className='footer__content'>
-            <div className='footer__links_container'>
-   
-              <Link to='/'>
+          <nav className='footer__content'>
+            <ul className='footer__links_container'>
+   <li className='footer__links-item'>
+
+              <Link className='footer__link' to='/'>
               <p className='footer__links'>Home</p>
               </Link>
+   </li>
+   <li className='footer__links-item'>
+
             
-              <a href='https://practicum.yandex.com/'>
+              <a className='footer__link' href='https://practicum.yandex.com/'>
               <p className='footer__links'>Practicum by Yandex</p>
               </a>
-            </div>
-            <div className='footer__social-icon_container'>
-           
+   </li>
+   <li className='footer__links-item'>
+
                 <a href='https://www.facebook.com/'>
                 <div className='footer__social-icon footer__social-icon_facebook ' />
               </a>
+   </li>
+   <li className='footer__links-item'>
+
               <a href='https://github.com/'>
                 <div className='footer__social-icon footer__social-icon_github' />
               </a>
-            </div>
-          </div>
+   </li>
+            </ul>
+      
+           
+      
+          </nav>
         </div>
       </footer>
     );

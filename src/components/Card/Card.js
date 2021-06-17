@@ -1,6 +1,9 @@
 import React from 'react';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+// import TrashCan  from '../Delete/Delete.js';
+// import Save  from '../Save/Save.js';
 import './card.css';
+import CardButton from './CardButton/CardButton';
 
 function Card(props) {
   function handleClick() {
@@ -30,7 +33,7 @@ function Card(props) {
   // const cardLikeButtonClassName = `card__heart ${
   //   isLiked ? " card__heart_active" : "card__heart"
   // }`;
-
+  console.log('cards 1 ', props.isSaved);
   return (
     
     <li className='card'>
@@ -40,18 +43,8 @@ function Card(props) {
         </div>
       </div>
       <div className='card__top-right_container'>
-        {/* <div className='card__delete_container-text'> */}
-        {/* <p className='card__delete_text'>Remove from saved</p> */}
-        {/* <p className='card__delete_text'>Sign in to save articles</p> */}
-        {/* </div>{' '} */}
-        {/* <div className='card___container'>
-          <button className='card__save-btn' />
-        </div> */}
-        <div className='card__icon-text_container'>
-          {/* <button className='card__delete-btn' /> */}
-          <button className='card__save-btn' 
-          />
-        </div>
+<CardButton isSaved={props.isSaved} />
+
       </div>
       <img
         // TEST this is a test link

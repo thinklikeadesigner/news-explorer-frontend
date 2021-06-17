@@ -34,8 +34,19 @@ function App() {
   const [message, setMessage] = useState('');
   const [isInfoToolTipOpen, setIsInfoToolTipOpen] = useState(false);
   const [isSuccess, setSuccess] = useState(false);
-
+  
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isSavedNewsPage, setIsSavedNewsPage] = useState(false);
+
+  function handleSavedNewsClick()
+  {
+    setIsSavedNewsPage(true);
+  }
+
+  function handleHomeClick() {
+    setIsSavedNewsPage(false);
+  }
+
 
   function handleNavOpen(e) {
     e.preventDefault();
@@ -240,12 +251,15 @@ function App() {
     }
   }, [history]);
 
+  
+
   return (
     <div className='app'>
       <CurrentUserContext.Provider value={currentUser}>
         <Switch>
           <Route path='/main'>
             <Main
+            isSaved={isSavedNewsPage}
               isOpen={isNavOpen}
               loggedIn={loggedIn}
               cards={cards}
@@ -256,6 +270,7 @@ function App() {
               onLogOut={handleLogOut}
               onSignIn={handleSignInClick}
               onNavBarClick={handleNavOpen}
+              onSavedNewsClick={handleSavedNewsClick}
             ></Main>
           </Route>
           {/* <ProtectedRoute
@@ -263,9 +278,11 @@ function App() {
 
           <Route path='/savedNewsPage'>
             <SavedNewsPage
+                        isSaved={isSavedNewsPage}
               onLogOut={handleLogOut}
               onNavBarClick={handleNavOpen}
               isOpen={isNavOpen}
+              onHomeClick={handleHomeClick}
             />
           </Route>
           <Route exact path='/'>

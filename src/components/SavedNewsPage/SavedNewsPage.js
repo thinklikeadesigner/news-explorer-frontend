@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from '../../utils/hooks/mediaquery';
 import Card from '../Card/Card';
 import { Footer } from '../Footer/Footer';
@@ -25,6 +25,8 @@ import { SavedArticles } from '../SavedArticles/SavedArticles';
 function SavedNewsPage(props) {
   const isMobile = useMediaQuery('(max-width: 750px)');
   const isTable = useMediaQuery('(max-width: 1140px)');
+
+  console.log('cardslist 2', props.isSaved);
 
   return (
     <>
@@ -54,7 +56,7 @@ onSignIn={props.onSignIn}
 </>
         ) : (
           <Header headerTitle={headerTitleBlack} headerBg={headerBgWhite}>
-            <Link to='/main'
+            <Link onClick={props.onHomeClick} to='/main'
              className={`header__home header__home_black`}>Home</Link>
             <p
               className={`header__saved-articles header__saved-articles_underlined`}
@@ -85,7 +87,7 @@ onSignIn={props.onSignIn}
         </div>
 
         <SavedArticles>
-          <CardsList />
+          <CardsList isSaved={props.isSaved} />
         </SavedArticles>
         <Footer />
       </div>

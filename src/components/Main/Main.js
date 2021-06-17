@@ -28,8 +28,10 @@ export function Main(props) {
   const isMobile = useMediaQuery('(max-width: 750px)');
   const isTable = useMediaQuery('(max-width: 1140px)');
 
+  console.log('main', props.isSaved);
+
   const savedArticles = props.loggedIn ? (
-    <Link  to='savedNewsPage' className={`header__saved-articles `}>Saved articles
+    <Link onClick={props.onSavedNewsClick} to='savedNewsPage' className={`header__saved-articles `}>Saved articles
     </Link>
   ) : null;
 
@@ -83,7 +85,7 @@ export function Main(props) {
         </div>
 
         
-          <Search>  
+          <Search isSaved={props.isSaved} >  
           <h2 className="search__title">Search results</h2>
           {/* <Preloader /> */}
           {/* <NothingFound /> */}

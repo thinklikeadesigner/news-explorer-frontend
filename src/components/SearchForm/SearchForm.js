@@ -20,10 +20,10 @@ function SearchForm() {
               Find the latest news on any topic and save them in your personal
               account.
             </p>
-            <div className="search-bar">    
+            <form className="search-bar">    
 <input className='search-bar__input search-form__input_text' placeholder='Enter topic' />
 <button className='search-bar__button' type='submit'>Search</button>
-</div>
+</form>
             </div>
 </section>
   </>

@@ -10,13 +10,14 @@ import './Search.css';
 
 export function Search(props) { 
   
+  console.log('search', props.isSaved);
 
   return (
     <>
 <section className="search">
 {props.children}
 
-<CardsList />
+<CardsList isSaved={props.isSaved} />
 <button className="search__show">Show more</button>
 {/* </div> */}
 </section>

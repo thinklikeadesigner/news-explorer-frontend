@@ -56,7 +56,7 @@
   right: 24px;
 }
 
-.card__delete_container-text {
+.card__hoverbox {
   background: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -73,7 +73,7 @@
   margin-right: 5px;
 }
 
-.card__delete_text {
+.card__hoverbox-text {
   font-family: Roboto, arial, 'sans serif';
   font-style: normal;
   font-weight: 500;

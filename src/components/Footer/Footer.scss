@@ -21,6 +21,10 @@
   &__content {
     display: flex;
   }
+  &__link {
+    text-decoration: none;
+    
+  }
   &__links {
     font-family: Roboto, arial, 'sans serif';
     font-style: normal;
@@ -29,6 +33,11 @@
     margin-right: 0px;
     margin-left: 30px;
     color: $primary-text-color;
+    &-item {
+      list-style: none;
+      text-decoration: none;
+      
+    }
     &_container {
       display: flex;
       align-items: center;

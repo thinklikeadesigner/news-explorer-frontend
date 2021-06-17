@@ -9,7 +9,7 @@ import './CardsList.css';
 
 export function CardsList(props) { 
   
-
+  console.log('cardslist 1 ', props.isSaved);
   return (
     <>
 
@@ -19,7 +19,7 @@ export function CardsList(props) {
           <ul className='cards__list'>
    
               <Card
-          
+        isSaved={props.isSaved}
                 // key={card._id}
                 onCardLike={props.onCardLike}
                 onCardDelete={props.onCardDelete}
@@ -27,7 +27,7 @@ export function CardsList(props) {
                 // card={card}
               />
               <Card
-          
+               isSaved={props.isSaved}
                 // key={card._id}
                 onCardLike={props.onCardLike}
                 onCardDelete={props.onCardDelete}
@@ -35,7 +35,7 @@ export function CardsList(props) {
                 // card={card}
               />
               <Card
-          
+               isSaved={props.isSaved}
                 // key={card._id}
                 onCardLike={props.onCardLike}
                 onCardDelete={props.onCardDelete}
