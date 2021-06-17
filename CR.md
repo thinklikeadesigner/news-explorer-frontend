@@ -7,7 +7,7 @@ Please, note that the dev version of the project fails to start on Windows: http
 # Project review summary:
 ### Performance Criteria
 TEST 
-- [ ] <!--14.429--> The project is adapted for different screen resolutions and matches the designs for these resolutions. There is no horizontal scrolling on resolutions of 320px and up. The scrollbar can't be hidden using the overflow: hidden declaration.
+- [x] <!--14.429--> The project is adapted for different screen resolutions and matches the designs for these resolutions. There is no horizontal scrolling on resolutions of 320px and up. The scrollbar can't be hidden using the overflow: hidden declaration.
 
 
 TEST 
