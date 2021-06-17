@@ -54,6 +54,7 @@ isSaved={props.isSaved}
 loggedIn={props.loggedIn}
 onLogOut={props.onLogOut}
 onSavedNewsClick={props.onSavedNewsClick}
+onClose={props.onClose}
 >
 
 </Navigator>

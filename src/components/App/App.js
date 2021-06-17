@@ -273,6 +273,8 @@ function App() {
               onSignIn={handleSignInClick}
               onNavBarClick={handleNavOpen}
               onSavedNewsClick={handleSavedNewsClick}
+              onClose={closeAllPopups}
+              
             ></Main>
           </Route>
           {/* <ProtectedRoute
@@ -286,6 +288,7 @@ function App() {
               isOpen={isNavOpen}
               onHomeClick={handleHomeClick}
               loggedIn={loggedIn}
+              onClose={closeAllPopups}
             />
           </Route>
           <Route exact path='/'>

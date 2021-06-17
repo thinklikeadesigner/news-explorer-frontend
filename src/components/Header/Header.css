@@ -247,10 +247,10 @@
     width: 24px;
     margin: 0;
   }
-  .header__icon_hamburger-white {
+  .header__icon_hamburger_white {
     background-image: url("../../images/hamburger-white.svg");
   }
-  .header__icon_hamburger-black {
+  .header__icon_hamburger_black {
     background-image: url("../../images/hamburger-black.svg");
   }
   .header__icon_x {

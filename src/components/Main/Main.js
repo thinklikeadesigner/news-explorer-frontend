@@ -57,7 +57,7 @@ export function Main(props) {
   return (
     <>
       <main className='main'>
-        <div className='search-form_pic'>
+        <div className='search-form__pic'>
           {isMobile ? (
             <>
               <Header headerTitle={headerTitleWhite} headerBg={headerBgTransparent} >
@@ -71,6 +71,7 @@ export function Main(props) {
               loggedIn={props.loggedIn}
               onLogOut={props.onLogOut}
               onSavedNewsClick={props.onSavedNewsClick}
+              onClose={props.onClose}
             >
 
             </Navigator>

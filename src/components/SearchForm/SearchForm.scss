@@ -12,7 +12,7 @@
     padding-top: 80px;
     padding-bottom: 80px;
   }
-  &_pic {
+  &__pic {
     background-repeat: no-repeat;
     object-fit: cover;
     // width: 100vw;
@@ -100,7 +100,7 @@
       padding-top: 38px;
       padding-bottom: 48px;
     }
-    &_pic {
+    &__pic {
       box-sizing: border-box;
     }
     &__title {
@@ -162,7 +162,7 @@
       padding-top: 30px;
       padding-bottom: 32px;
     }
-    &_pic {
+    &__pic {
       box-sizing: border-box;
       background-position: center center;
       background-repeat: no-repeat;
@@ -215,7 +215,7 @@
 
 
 // @media screen and (min-width: 1920px) {
-// .search-form_pic {
+// .search-form__pic {
 //   min-height: 750px;
 // }
 

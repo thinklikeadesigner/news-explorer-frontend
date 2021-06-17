@@ -10,11 +10,11 @@ export function Navigator(props) {
   console.log('logged in?', props.loggedIn);
 
   const navBarLink = props.loggedIn ? (<>
-    <Link to='/main' className={`navigator__link`}>Home</Link>
-    <Link  to='/savedNewsPage' className={`navigator__link navigator__link_bottom`}>Saved articles
+    <Link onClick={props.onClose} to='/main' className={`navigator__link`}>Home</Link>
+    <Link onClick={props.onClose} to='/savedNewsPage' className={`navigator__link navigator__link_bottom`}>Saved articles
     </Link>
     </>
-  ) :  ( <Link to='/main' className={`navigator__link `}>Home</Link>);
+  ) :  ( <Link onClick={props.onClose} to='/main' className={`navigator__link `}>Home</Link>);
 
   
   return (
