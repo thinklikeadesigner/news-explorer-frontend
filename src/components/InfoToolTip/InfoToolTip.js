@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { Link } from "react-router-dom";
 import './InfoToolTip.css'
 
 
@@ -15,16 +16,19 @@ export function InfoToolTip(props) {
           <div
             className={
               props.isItSuccess
-                ? "info-tool-tip-success"
+                ? null
                 : "info-tool-tip-failure"
             }
           ></div>
-          <h1 className='infotooltip__message'>
+   
             {props.isItSuccess
-              ? "Success! You have now been registered."
-              : "Oops, something went wrong! Please try again."}
+              ? (     <>
+               <h1 className='infotooltip__message'> "Registration successfully completed."    </h1>
+              <Link       onClick={props.onClose} className='infotooltip__link'to='main' >Sign in </Link>
+              </>)
+              : ( <h1 className='infotooltip__message'>"Oops, something went wrong! Please try again."    </h1>)}
               {/* {props.message} */}
-          </h1>
+      
         </div>
         <button
           aria-label='Close Button'

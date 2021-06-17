@@ -30,12 +30,12 @@ COMPLETE
  the title and the text shouldn't be shifted down when the burger menu opens.
 FIXME 
 * The popup layout on mobile screens doesn't correspond to the design: http://joxi.ru/nAyyl4luwOwnVA Please check all popups.
-- [ ] <!--14.429--> All the blocks from the brief have been coded. Navigation between pages and links to external resources are working correctly: there are no broken links or links leading to an anchor on the page and external links open in a new tab.
-MAKEME
+- [x] <!--14.429--> All the blocks from the brief have been coded. Navigation between pages and links to external resources are working correctly: there are no broken links or links leading to an anchor on the page and external links open in a new tab.
+COMPLETE
  * Navigation menu in the footer should contain working links.
 COMPLETE
  * Should be a working link http://joxi.ru/1A58EPECbob892 http://joxi.ru/vAWBEaEUOYO4j2
-FIXME
+COMPLETE
  * On saved-articles page, the card should have a trash can icon instead of a bookmark.
 - [x] <!--14.429--> The layout is responsive and displays correctly at all intermediate resolutions.
 COMPLETE 
@@ -67,11 +67,11 @@ REFACTOR
  - [ ] <!--2.143--> Classes are named according to BEM specifications.
 Incorrectly used elements and a modifier: http://joxi.ru/1A58EPECbobP92 http://joxi.ru/GrqR848TG1GWPm Elements shouldn't be used outside of their block, the modifier can't be used on its own without the block or element it modifies. Please, correct all similar issues (check footer and modals for BEM naming thoroughly, there are multiple similar BEM issues there)
 All these modifiers should be key-value, not boolean: http://joxi.ru/nAyyl4luwOwLVA. The same for `search-form__input_text`
-MAKEME
- - [ ] <!--2.143--> Buttons, input fields, and links are implemented in all of the states specified in the design.
-MAKEME
+COMPLETE
+ - [x] <!--2.143--> Buttons, input fields, and links are implemented in all of the states specified in the design.
+COMPLETE
  * When not logged in, the bookmark on the card on hover: http://joxi.ru/Dr8qz5zcMVkezm
-MAKEME
+COMPLETE
  * Trash can icon on hover: http://joxi.ru/YmEwlxlCMnZ8jA
 - [x] <!--2.143--> The design reuses components wherever possible.
 - [x] <!--2.143--> Fonts are connected using @font-face.

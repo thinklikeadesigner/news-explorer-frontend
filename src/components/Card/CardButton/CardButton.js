@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CurrentUserContext } from '../../../contexts/CurrentUserContext';
 import '../../Card/card.css';
 
@@ -31,22 +31,27 @@ function CardButton(props) {
   //   isLiked ? " card__heart_active" : "card__heart"
   // }`;
 
+  const [isShown, setIsShown] = useState(false);
   
 console.log('cardbutton', props.isSaved);
   return (
     <>
-            <div className='card__hoverbox'> 
+           {isShown &&  <div className='card__hoverbox'> 
         <p className='card__hoverbox-text'>
        { props.isSaved?
             'Remove from saved' : 'Sign in to save articles' }
         
         </p>
         </div>
+        }
      <div className='card___container'>
 
         </div>
         <div className='card__icon-text_container'>
-        <button className={
+        <button 
+         onMouseEnter={() => setIsShown(true)}
+         onMouseLeave={() => setIsShown(false)}
+        className={
             props.isSaved? 'card__delete-btn' : 'card__save-btn'
          } /> 
         </div>

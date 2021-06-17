@@ -32,8 +32,8 @@ function App() {
   const [name, setName] = useState('');
 
   const [message, setMessage] = useState('');
-  const [isInfoToolTipOpen, setIsInfoToolTipOpen] = useState(false);
-  const [isSuccess, setSuccess] = useState(false);
+  const [isInfoToolTipOpen, setIsInfoToolTipOpen] = useState(true);
+  const [isSuccess, setSuccess] = useState(true);
   
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isSavedNewsPage, setIsSavedNewsPage] = useState(false);
