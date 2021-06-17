@@ -15,11 +15,12 @@ export function Search(props) {
   return (
     <>
 <section className="search">
+  <div className="search__container">
 {props.children}
 
 <CardsList isSaved={props.isSaved} />
 <button className="search__show">Show more</button>
-{/* </div> */}
+</div>
 </section>
 </>
 

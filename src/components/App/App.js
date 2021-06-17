@@ -32,10 +32,10 @@ function App() {
   const [name, setName] = useState('');
 
   const [message, setMessage] = useState('');
-  const [isInfoToolTipOpen, setIsInfoToolTipOpen] = useState(true);
-  const [isSuccess, setSuccess] = useState(true);
+  const [isInfoToolTipOpen, setIsInfoToolTipOpen] = useState(false);
+  const [isSuccess, setSuccess] = useState(false);
   
-  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState(true);
   const [isSavedNewsPage, setIsSavedNewsPage] = useState(false);
 
   function handleSavedNewsClick()
@@ -181,7 +181,7 @@ function App() {
     //     }
     //   });
   };
-
+  console.log('app logged in?', loggedIn);
   function handleSetPassword(e) {
     setPassword(e.target.value);
   }
@@ -197,9 +197,11 @@ function App() {
   }
 
   function handleLogOut() {
+    console.log('logged out');
     localStorage.removeItem('token');
     history.push('/main');
     setLoggedIn(false);
+    closeAllPopups();
   }
 
   function closeAllPopups() {
@@ -208,7 +210,7 @@ function App() {
     setIsLoginPopupOpen(false);
     setIsRegisterPopupOpen(false);
     setIsPopupOpen(false);
-    setIsNavOpen(false);
+    setIsNavOpen(true);
   }
 
   useEffect(() => {
@@ -283,6 +285,7 @@ function App() {
               onNavBarClick={handleNavOpen}
               isOpen={isNavOpen}
               onHomeClick={handleHomeClick}
+              loggedIn={loggedIn}
             />
           </Route>
           <Route exact path='/'>

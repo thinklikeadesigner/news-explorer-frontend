@@ -28,7 +28,9 @@ export function Main(props) {
   const isMobile = useMediaQuery('(max-width: 750px)');
   const isTable = useMediaQuery('(max-width: 1140px)');
 
-  console.log('main', props.isSaved);
+  console.log('main', props.onLogOut);
+  console.log('main is loggedin', props.loggedIn);
+  
 
   const savedArticles = props.loggedIn ? (
     <Link onClick={props.onSavedNewsClick} to='savedNewsPage' className={`header__saved-articles `}>Saved articles
@@ -65,6 +67,10 @@ export function Main(props) {
             isOpen={props.isOpen}
             onNavBarClick={props.onNavBarClick}
               onSignIn={props.onSignIn}
+              isSaved={props.isSaved}
+              loggedIn={props.loggedIn}
+              onLogOut={props.onLogOut}
+              onSavedNewsClick={props.onSavedNewsClick}
             >
 
             </Navigator>

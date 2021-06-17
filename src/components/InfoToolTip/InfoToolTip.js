@@ -13,14 +13,6 @@ export function InfoToolTip(props) {
     >
       <div className='modal__container'>
         <div className='infotooltip__container'>
-          <div
-            className={
-              props.isItSuccess
-                ? null
-                : "info-tool-tip-failure"
-            }
-          ></div>
-   
             {props.isItSuccess
               ? (     <>
                <h1 className='infotooltip__message'> "Registration successfully completed."    </h1>

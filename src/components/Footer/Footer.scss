@@ -10,6 +10,9 @@
   height: 85px;
   margin: 0 auto;
   max-width: 90vw;
+  &__links-container {
+    display: flex;
+  }
   &__container {
     max-width: 1232px;
     display: flex;
@@ -132,6 +135,8 @@
     }
     &__social-icon {
       margin-left: 24px;
+      margin-bottom: 20px;
+      
       &_container {
         align-items: flex-start;
       }
@@ -139,16 +144,22 @@
     &__content {
       width: 100%;
       justify-content: space-between;
+      margin-bottom: 20px;
+   
     }
     &__links {
       font-size: 18px;
-      margin-bottom: 20px;
       margin-left: 0;
       margin-top: 0;
+      margin-bottom: 20px;
       &_container {
         flex-direction: column;
         margin: 0;
         align-items: flex-start;
+        &_social {
+          flex-direction: row;
+  
+        }
       }
     }
   }

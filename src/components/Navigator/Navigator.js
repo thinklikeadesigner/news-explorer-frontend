@@ -7,11 +7,14 @@ import '../SavedNewsPage/SavedNewsPage.css';
 import {headerBgBlack, headerBgTransparent, headerBgWhite, headerTitleBlack, headerTitleWhite, hamburger, hamburgerBlack, hamburgerWhite, hiddenNavDrawer, showNavDrawer } from '../../utils/constants/constants.js';
 export function Navigator(props) { 
 
+  console.log('logged in?', props.loggedIn);
 
-  const navBarLink = props.loggedIn ? (
-    <Link  to='/savedNewsPage' className={`header__saved-articles `}>Saved articles
+  const navBarLink = props.loggedIn ? (<>
+    <Link to='/main' className={`navigator__link`}>Home</Link>
+    <Link  to='/savedNewsPage' className={`navigator__link navigator__link_bottom`}>Saved articles
     </Link>
-  ) :  ( <Link to='/main' className={`header__home header__home_navigator`}>Home</Link>);
+    </>
+  ) :  ( <Link to='/main' className={`navigator__link `}>Home</Link>);
 
   
   return (
@@ -24,7 +27,7 @@ export function Navigator(props) {
 <div className={`navigator__drawer `}>
   <div className="navigator__links">
 {navBarLink}
-  <button onClick={props.onSignIn} className={`header__button`}>Sign in
+ <button onClick={props.loggedIn ? props.onLogOut : props.onSignIn} className={`header__button`}>{ props.loggedIn ? 'Log out': 'Sign in'}
 </button>
 </div>
 </div>

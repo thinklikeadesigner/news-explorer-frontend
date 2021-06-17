@@ -19,6 +19,21 @@
     -webkit-transition: opacity 300ms, linear 300ms;
     transition: opacity 300ms, linear 300ms;
   }
+  .navigator__link {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 56px;
+    color: white;
+    text-decoration: none;
+  }
+  .navigator__link_bottom {
+    margin-bottom: 22px;
+  }
+  .navigator__link_underlined {
+    text-decoration: underline;
+  }
   .navigator_hidden {
     visibility: visible;
     opacity: 1;

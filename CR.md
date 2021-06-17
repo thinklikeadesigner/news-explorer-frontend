@@ -17,18 +17,18 @@ COMPLETE
 COMPLETE
  * Please, add a space on "Sign In" button
 COMPLETE The button closing the popup doesn't correspond to the design.
-FIXME
+COMPLETE
  * "Registration successfull" popup doesn't correspond to the design.
 COMPLETE
  * On mobile screens, the footer should have the same width and margins as other sections.
 COMPLETE
  * Background image in header should be different on mobile screens.
  * Incorrect layout of nav menu on mobile screens: http://joxi.ru/a2XwjRjC4x4Oam. No margin between the link and the button, and     
- FIXME 
+COMPLETE
  also, the menu should provide `Saved articles` link when the user is logged in.
 COMPLETE
  the title and the text shouldn't be shifted down when the burger menu opens.
-FIXME 
+COMPLETE
 * The popup layout on mobile screens doesn't correspond to the design: http://joxi.ru/nAyyl4luwOwnVA Please check all popups.
 - [x] <!--14.429--> All the blocks from the brief have been coded. Navigation between pages and links to external resources are working correctly: there are no broken links or links leading to an anchor on the page and external links open in a new tab.
 COMPLETE
@@ -40,7 +40,7 @@ COMPLETE
 - [x] <!--14.429--> The layout is responsive and displays correctly at all intermediate resolutions.
 COMPLETE 
 * The content is too narrow: http://joxi.ru/brRwqWqCOwObLm, please check other resolutions too, the content should adapt to the screen width.
- - [X] <!--3.38--> There are no validation errors.
+ - [x] <!--3.38--> There are no validation errors.
 COMPLETE http://joxi.ru/V2Vw0Z0Ck1kn5A invalid css value: http://joxi.ru/xAe4ZqZcXWXy92 Incorrect class name: http://joxi.ru/Q2KwkNkCvzvea2, pseudo-classes should be assigned only in css
 COMPLETE `<div>` can't be a direct descendant of `ul`: http://joxi.ru/823yGPGu8E8dlr Please, correct all similar issues
 - [x] <!--3.38--> Semantic HTML is used, meaning that semantic tags are used. All elements are used correctly (e.g. a paragraph must be a paragraph, a list must be a list). 
@@ -58,7 +58,7 @@ COMPLETE * Button "Sign In" opens "Sign Up" popup.
 - Your project contains:
 	- [x] <!--3.38--> An images folder
 COMPLETE
-	- [ ] <!--3.38--> A components folder with JS and CSS files for the components.
+	- [x] <!--3.38--> A components folder with JS and CSS files for the components.
 	http://joxi.ru/gmvxM4MH1p1WyA
 	- [x] <!--3.38--> A fonts folder.
 	

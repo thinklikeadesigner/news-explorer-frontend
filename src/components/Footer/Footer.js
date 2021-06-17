@@ -27,6 +27,8 @@ export class Footer extends React.Component {
               <p className='footer__links'>Practicum by Yandex</p>
               </a>
    </li>
+   </ul>
+   <ul className='footer__links_container footer__links_container_social'>
    <li className='footer__links-item'>
 
                 <a href='https://www.facebook.com/'>
