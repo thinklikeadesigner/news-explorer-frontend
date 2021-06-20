@@ -1,20 +1,17 @@
 .about {
   background-color: white;
-  padding-top: 80px;
-  padding-bottom: 80px;
   margin: 0 auto;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  max-width: 1232px;
 }
 
 .about_container {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  max-width: 1232px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 80px 104px;
 }
 
 .about__pic {
@@ -52,7 +49,7 @@
   line-height: 24px;
 }
 
-@media screen and (max-width: 1387px) {
+@media screen and (max-width: 1140px) {
   .about {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -62,8 +59,7 @@
             justify-content: center;
   }
   .about_container {
-    max-width: 668px;
-    width: 90vw;
+    padding: 40px 40px 61px;
   }
   .about__pic {
     src: url("../../images/avatar.png");
@@ -83,10 +79,6 @@
 }
 
 @media screen and (max-width: 750px) {
-  .about {
-    padding-top: 32px;
-    padding-bottom: 100px;
-  }
   .about_container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -95,9 +87,7 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    width: 90vw;
-    max-width: 400px;
-    min-width: 288px;
+    padding: 32px 24px 128px;
   }
   .about__pic {
     height: 272px;
