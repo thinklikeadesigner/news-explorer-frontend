@@ -92,10 +92,14 @@ export function Main(props) {
         </div>
 
         
-          <Search isSaved={props.isSaved} >  
+          <Search isSaved={props.isSaved} 
+          loggedIn={props.loggedIn}
+          buttonType={'card__save-btn'}
+          >  
           <h2 className="search__title">Search results</h2>
           {/* <Preloader /> */}
           {/* <NothingFound /> */}
+      
           </Search>
         
 

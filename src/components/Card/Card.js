@@ -43,7 +43,10 @@ function Card(props) {
         </div>
       </div>
       <div className='card__top-right_container'>
-<CardButton isSaved={props.isSaved} />
+<CardButton isSaved={props.isSaved} 
+loggedIn={props.loggedIn}
+buttonType={props.buttonType}
+/>
 
       </div>
       <img

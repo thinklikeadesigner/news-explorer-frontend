@@ -1,4 +1,4 @@
-.infotooltip__container {
+.infotooltip {
   color: black;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -30,7 +30,7 @@
   border: none;
   background-color: transparent;
   color: #2f71e5;
-  font-family: Inter;
+  font-family: Inter, arial, 'sans serif';
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -39,7 +39,7 @@
 }
 
 .infotooltip__message {
-  font-family: Roboto;
+  font-family: Roboto, arial, 'sans serif';
   font-style: normal;
   font-weight: 900;
   font-size: 24px;

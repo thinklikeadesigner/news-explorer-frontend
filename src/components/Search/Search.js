@@ -18,7 +18,10 @@ export function Search(props) {
   <div className="search__container">
 {props.children}
 
-<CardsList isSaved={props.isSaved} />
+<CardsList isSaved={props.isSaved} 
+loggedIn={props.loggedIn}
+buttonType={props.buttonType}
+/>
 <button className="search__show">Show more</button>
 </div>
 </section>

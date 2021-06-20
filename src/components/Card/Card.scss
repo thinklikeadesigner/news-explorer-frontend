@@ -89,18 +89,20 @@
     }
   }
   &__delete-btn {
-    width: 24px;
-    height: 24px;
-    background-color: transparent;
-    border: none;
-    background-image: url('../../images/delete.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    &:hover {
-      cursor: pointer;
-    }
-  }
+width: 24px;
+height: 24px;
+background-color: transparent;
+border: none;
+background-image: url('../../images/delete.svg');
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+&:hover {
+  cursor: pointer;
+  background-image: url('../../images/delete-hover.svg');
+}
+}
+
   &__pic {
     object-fit: cover;
     height: 272px;

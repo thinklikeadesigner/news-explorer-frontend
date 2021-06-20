@@ -51,8 +51,7 @@ console.log('cardbutton', props.isSaved);
         <button 
          onMouseEnter={() => setIsShown(true)}
          onMouseLeave={() => setIsShown(false)}
-        className={
-            props.isSaved? 'card__delete-btn' : 'card__save-btn'
+        className={props.buttonType
          } /> 
         </div>
         </>

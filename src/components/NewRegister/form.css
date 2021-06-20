@@ -18,7 +18,7 @@
   padding: 36px 34px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: Inter;
+  font-family: Inter, arial, 'sans serif';
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -81,7 +81,7 @@
   border: none;
   background-color: transparent;
   color: #2f71e5;
-  font-family: Inter;
+  font-family: Inter, arial, 'sans serif';
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -101,7 +101,7 @@
 
 .form__link-span {
   color: black;
-  font-family: Inter;
+  font-family: Inter, arial, 'sans serif';
   font-style: normal;
   font-weight: normal;
   font-size: 14px;

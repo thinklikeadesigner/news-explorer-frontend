@@ -143,6 +143,7 @@
 
 .card__delete-btn:hover {
   cursor: pointer;
+  background-image: url("../../images/delete-hover.svg");
 }
 
 .card__pic {

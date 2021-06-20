@@ -23,7 +23,7 @@ export class Footer extends React.Component {
    <li className='footer__links-item'>
 
             
-              <a className='footer__link' href='https://practicum.yandex.com/'>
+              <a className='footer__link' href='https://practicum.yandex.com/' target="_" rel="noreferrer">
               <p className='footer__links'>Practicum by Yandex</p>
               </a>
    </li>
@@ -31,13 +31,13 @@ export class Footer extends React.Component {
    <ul className='footer__links_container footer__links_container_social'>
    <li className='footer__links-item'>
 
-                <a href='https://www.facebook.com/'>
+                <a href='https://www.facebook.com/' target="_" rel="noreferrer">
                 <div className='footer__social-icon footer__social-icon_facebook ' />
               </a>
    </li>
    <li className='footer__links-item'>
 
-              <a href='https://github.com/'>
+              <a href='https://github.com/' target="_" rel="noreferrer">
                 <div className='footer__social-icon footer__social-icon_github' />
               </a>
    </li>

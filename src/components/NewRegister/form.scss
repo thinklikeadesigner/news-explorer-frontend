@@ -12,7 +12,7 @@
   align-items: flex-start;
   padding: 36px 34px;
   box-sizing: border-box;
-  font-family: Inter;
+  font-family: Inter, arial, 'sans serif';
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -69,7 +69,7 @@
     border: none;
     background-color: transparent;
     color: $primary-color;
-    font-family: Inter;
+    font-family: Inter, arial, 'sans serif';
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -82,7 +82,7 @@
     }
     &-span {
       color: $black-text-color;
-      font-family: Inter;
+      font-family: Inter, arial, 'sans serif';
       font-style: normal;
       font-weight: normal;
       font-size: 14px;

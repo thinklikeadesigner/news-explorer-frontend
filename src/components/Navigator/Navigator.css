@@ -20,7 +20,7 @@
     transition: opacity 300ms, linear 300ms;
   }
   .navigator__link {
-    font-family: Roboto;
+    font-family: Roboto, arial, 'sans serif';
     font-style: normal;
     font-weight: 500;
     font-size: 18px;

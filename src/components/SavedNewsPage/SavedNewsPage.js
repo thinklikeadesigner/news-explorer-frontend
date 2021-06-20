@@ -92,7 +92,9 @@ onClose={props.onClose}
         </div>
 
         <SavedArticles>
-          <CardsList isSaved={props.isSaved} />
+          <CardsList isSaved={props.isSaved} 
+          buttonType={'card__delete-btn'}
+          />
         </SavedArticles>
         <Footer />
       </div>
