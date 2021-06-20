@@ -22,7 +22,7 @@ function SearchForm() {
             </p>
 <div className="search-bar__container">
 <form className="search-bar__form">    
-<input className='search-bar__input search-form__input_text' placeholder='Enter topic' />
+<input className='search-bar__input' placeholder='Enter topic' />
 <button className='search-bar__button' type='submit'>Search</button>
 </form>
 </div>

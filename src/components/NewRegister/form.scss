@@ -12,24 +12,27 @@
   align-items: flex-start;
   padding: 36px 34px;
   box-sizing: border-box;
-  font-family: Inter, arial, 'sans serif';
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 15px;
+
   &__title {
     color: $primary-text-color;
     margin: 0 0 22px;
+    font-family: Roboto, arial, 'sans serif';
+    font-style: normal;
     font-weight: 900;
     font-size: 24px;
-    line-height: calc(29 / 24);
+    line-height: 28px;
+    
   }
 
   &__input {
     padding: 0;
     margin: 0;
+    font-family: Inter, arial, 'sans serif';
+    font-style: normal;
+    font-weight: normal;
     font-size: 14px;
-    line-height: calc(17 / 14);
+    line-height: 17px;
+    color: black;
     width: 100%;
     border-bottom: 1px solid $form-border-bottom-color;
     border-top: none;
@@ -44,11 +47,20 @@
       color: $primary-color;
       margin: 0;
       margin-bottom: 10px;
+      font-family: Inter, arial, 'sans serif';
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 15px;
     }
     &-error {
       visibility: hidden;
+      font-family: Inter, arial, 'sans serif';
+      font-style: normal;
+      font-weight: normal;
       font-size: 12px;
       line-height: 15px;
+      
       color: $error-color;
       margin: 0 0 13px;
       &_visible {
@@ -96,8 +108,11 @@
     min-height: 50.15px;
     background: $primary-color;
     color: $white-text-color;
+    font-family: Roboto, arial, 'sans serif';
+    font-style: normal;
+    font-weight: 500;
     font-size: 18px;
-    line-height: calc(22 / 18);
+    line-height: 24px;
     border-radius: 100px;
     justify-self: center;
     align-self: center;

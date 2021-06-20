@@ -235,14 +235,14 @@ function App() {
           console.log(err.message);
         });
 
-      api
-        .getCardList()
-        .then((res) => {
-          setCards(res);
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
+      // api
+      //   .getCardList()
+      //   .then((res) => {
+      //     setCards(res);
+      //   })
+      //   .catch((err) => {
+      //     console.log(err.message);
+      //   });
     }
   }, [history, loggedIn]);
 

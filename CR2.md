@@ -2,9 +2,10 @@ Great job with corrections! Some more issues still require your attention. Pleas
 
 # Project review summary:
 ### Performance Criteria    
-- [ ] <!--14.429--> The project is adapted for different screen resolutions and matches the designs for these resolutions. There is no horizontal scrolling on resolutions of 320px and up. The scrollbar can't be hidden using the overflow: hidden declaration.
+- [x] <!--14.429--> The project is adapted for different screen resolutions and matches the designs for these resolutions. There is no horizontal scrolling on resolutions of 320px and up. The scrollbar can't be hidden using the overflow: hidden declaration.
 
 * Incorrect font-family for text elements inside popups(please check all popups): http://joxi.ru/Drldx4xUGv3a0r and inside the "search" input: http://joxi.ru/V2Vw0Z0C8xv6gA Please, check the design.
+COMPLETE
 * On "saved-articles" page, the card should contain a trash can, not a bookmark: http://joxi.ru/Dr8qz5zcJ4yVJm
 
 - [x] <!--14.429--> All the blocks from the brief have been coded. Navigation between pages and links to external resources are working correctly: there are no broken links or links leading to an anchor on the page and external links open in a new tab.
