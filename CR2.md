@@ -11,8 +11,8 @@ COMPLETE
 - [x] <!--14.429--> All the blocks from the brief have been coded. Navigation between pages and links to external resources are working correctly: there are no broken links or links leading to an anchor on the page and external links open in a new tab.
 COMPLETE
 * Links to external resources should open in new tabs (links in the footer)
-
-- [ ] <!--14.429--> The layout is responsive and displays correctly at all intermediate resolutions.
+COMPLETE
+- [x] <!--14.429--> The layout is responsive and displays correctly at all intermediate resolutions.
 
 * The content has fixed width, the layout isn't responsive: http://joxi.ru/BA0xqPqHvJ4LlA
 
