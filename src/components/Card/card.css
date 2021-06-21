@@ -1,6 +1,8 @@
 .card {
   height: 576px;
-  width: 400px;
+  min-width: 224px;
+  max-width: 400px;
+  width: 100%;
   background-color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11,6 +13,7 @@
           flex-direction: column;
   position: relative;
   border-radius: 20px;
+  gap: 16px;
 }
 
 .card__top-left_container {
@@ -215,10 +218,10 @@
   text-transform: uppercase;
 }
 
-@media screen and (max-width: 1387px) {
+@media screen and (max-width: 1140px) {
   .card {
     height: 420px;
-    width: 224px;
+    max-width: 300px;
   }
   .card__top-left_container {
     top: 8px;
@@ -260,7 +263,7 @@
 @media screen and (max-width: 750px) {
   .card {
     height: 440px;
-    width: 288px;
+    max-width: 288px;
   }
   .card__top-left_container {
     top: 16px;

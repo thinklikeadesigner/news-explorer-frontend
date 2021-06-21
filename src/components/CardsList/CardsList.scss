@@ -3,29 +3,31 @@
   display: flex;
   justify-content: center;
   // align-self: center;
-  max-width: 90vw;
+  // max-width: 90vw;
 }
 
 .cards__list {
+
     list-style: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr auto;
-    gap: 18px;
-    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+
+
 
     
   }
-  
   @media screen and (max-width: 1140px) {
     .cards__list {
-      grid-template-columns: 1fr 1fr 1fr;
       gap: 8px;
     }
   }
-  
+
   @media screen and (max-width: 750px) {
     .cards__list {
-      grid-template-columns: 1fr;
+      gap: 10px;
     }
   }
+
   

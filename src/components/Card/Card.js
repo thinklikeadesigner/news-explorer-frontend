@@ -54,7 +54,7 @@ buttonType={props.buttonType}
         src='https://static.toiimg.com/photo/72975551.cms'
         // src={props.card.link}
         className='card__pic'
-        onClick={handleClick}
+        
         // alt={props.card.name}
         alt={'test card'}
       />

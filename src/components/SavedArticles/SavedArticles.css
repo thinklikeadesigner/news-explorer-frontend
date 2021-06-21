@@ -15,7 +15,7 @@
           box-sizing: border-box;
 }
 
-@media screen and (max-width: 1387px) {
+@media screen and (max-width: 1140px) {
   .saved-articles {
     padding: 32px 40px;
   }

@@ -5,31 +5,30 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  max-width: 90vw;
 }
 
 .cards__list {
   list-style: none;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr auto;
-      grid-template-columns: 1fr 1fr auto;
-  gap: 18px;
-  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 16px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-@media screen and (max-width: 1387px) {
+@media screen and (max-width: 1140px) {
   .cards__list {
-    -ms-grid-columns: 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr;
     gap: 8px;
   }
 }
 
 @media screen and (max-width: 750px) {
   .cards__list {
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
+    gap: 10px;
   }
 }
 /*# sourceMappingURL=CardsList.css.map */

@@ -61,7 +61,7 @@
   font-weight: bold;
 }
 
-@media screen and (max-width: 1387px) {
+@media screen and (max-width: 1140px) {
   .saved-news__intro {
     padding: 24px 40px 32px;
   }

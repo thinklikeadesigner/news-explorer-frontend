@@ -43,13 +43,13 @@
     align-self: flex-start;
   }
   &__container {
-    margin: 0 auto;
-    max-width: 1232px;
+    max-width: 1254px;
     display: flex;
   flex-direction: column;
-  
+  padding: 0px 104px;
+
   align-items: center;
-  box-sizing: border-box;
+
 
 }
 }
@@ -69,6 +69,8 @@ line-height: 34px;
     }
   &__container {
     margin-bottom: 32px;
+    padding: 0px 40px;
+    
   }
   }
 
@@ -83,6 +85,7 @@ line-height: 34px;
     
 &__container {
   margin-bottom: 58px;
+  padding: 0px 16px;
 }
   }
 }
