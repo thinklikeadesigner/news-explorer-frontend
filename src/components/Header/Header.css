@@ -2,7 +2,6 @@
 /* @import url("./__logo/header__logo.css"); */
 .header {
   width: 100%;
-  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -20,8 +19,8 @@
   display: -ms-flexbox;
   display: flex;
   max-width: 1230px;
-  width: 90vw;
-  padding-top: 19px;
+  width: 100%;
+  padding: 19px 104px 0px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-box-pack: justify;
@@ -170,9 +169,7 @@
 
 @media screen and (max-width: 1140px) {
   .header__container {
-    width: 90vw;
-    max-width: 668px;
-    padding-top: 14px;
+    padding: 14px 40px 0px;
   }
   .header__title {
     margin-top: 8px;
@@ -211,10 +208,7 @@
     margin-bottom: 22px;
   }
   .header__container {
-    width: 90vw;
-    max-width: 400px;
-    min-width: 288px;
-    padding: 16px 0px;
+    padding: 16px 16px 24px;
   }
   .header__container_white {
     background-color: white;
