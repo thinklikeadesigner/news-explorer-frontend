@@ -1,50 +1,107 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import useForm from '../../utils/hooks/useForm';
-import './form.css';
+// import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import '../../Popup/NewRegister/form.css';
 import Input from '../Input';
-
+import { Popup } from '../Popup';
 
 export function NewRegister(props) {
 
-const {handleChange, values, handleSubmit, errors, isValid} = useForm();
 
+  const [isEmailValid, setIsEmailValid] = useState(true);
+  const [email, setEmail] = useState('');
+  const [isUserValid, setIsUserValid] = useState(true);
+  const [user, setUser] = useState('');
+  const [isPasswordValid, setIsPasswordValid] = useState(false);
+  const [password, setPassword] = useState('');
+  const [formValid, setFormValid] = useState(true);
+
+  function validateEmail(email) {
+    const regex = /\S+@\S+\.\S+/;
+    return regex.test(email);
+  }
+
+  function handleEmailChange(e) {
+    setEmail(e.target.value);
+    setIsEmailValid(validateEmail(email));
+    allValid(e);
+  }
+  function handlePasswordChange(e) {
+    setPassword(e.target.value);
+    if (password.length > 6) {
+      setIsPasswordValid(true);
+    } else {
+      setIsPasswordValid(false);
+    }
+    allValid(e);
+  }
+  function handleUserChange(e) {
+    setUser(e.target.value);
+    setIsUserValid(true);
+
+    allValid(e);
+  }
+  function allValid(e) {
+    setFormValid(e.target.closest('form').checkValidity());
+  }
+  function signUpSubmit(e) {
+    e.preventDefault();
+    props.handleSubmit({ email, password, name: user });
+  }
 
   return (
-    
-    <form
-    onSubmit={handleSubmit}
-    action='#'
-    className={`form`}
-    name='register'
-    noValidate
-  >
-    <h2 className='form__title '>Sign Up</h2>
-    <Input minlength='2' errorText={errors.email} noValidate value={values.email} maxlength='40' type="email" name="Email" form="sign-up" handleChange={handleChange} 
-    // valid={true}
-     placeholderText="Enter email" />
+    <Popup
+      isOpen={props.isRegisterPopupOpen}
+      buttonText='Sign up'
+      onClose={props.onClose}
+      title='Sign up'
+      link='Sign in'
+      linkClick={props.linkClick}
+      handleSubmit={signUpSubmit}
+      valid={formValid}
+      message={props.message}
+    >
+      <Input
+        type='email'
+        name='Email'
+        form='sign-up'
+        handleChange={handleEmailChange}
+        errorText='Invalid email address'
+        placeholderText='Enter email'
+        valid={isEmailValid}
+        minlength='2'
+        noValidate
+        value={email}
+        maxlength='40'
 
-<Input minlength='2' errorText={errors.password} noValidate value={values.password} maxlength='200' type="password" name="Password" form="sign-up" handleChange={handleChange} 
-    // valid={true}
-     placeholderText="Enter Password" />
+      />
 
-<Input minlength='2' errorText={errors.password} noValidate value={values.name} maxlength='200' type="text" name="Name" form="sign-up" handleChange={handleChange} 
-    // valid={true}
-     placeholderText="Enter Name" />
+      <Input
+        minlength='2'
+        valid={isPasswordValid}
+        errorText='Password requires additional characters'
+        noValidate
+        value={password}
+        maxlength='200'
+        type='password'
+        name='Password'
+        form='sign-up'
+        handleChange={handlePasswordChange}
+        placeholderText='Enter Password'
+      />
 
-    <button type='submit' className={`form__button ${isValid ? '' : 'form__button_disabled'}`}>
-      Sign up
-      
-    </button>
-    <div className='form__link_container'>
-      <span className='form__link-span'>
-        or{' '}
-        <button onClick={props.onSwitchToLogin} className={`form__link`}>
-          Sign in
-        </button>
-      </span>
-    </div>
-  </form>
+      <Input
+        minlength='2'
+        errorText='name required'
+        noValidate
+        value={user}
+        maxlength='200'
+        type='text'
+        name='Name'
+        form='sign-up'
+        handleChange={handleUserChange}
+        valid={isUserValid}
+        placeholderText='Enter Name'
+      />
+    </Popup>
   );
 }

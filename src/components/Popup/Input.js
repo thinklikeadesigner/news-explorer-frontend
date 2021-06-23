@@ -24,4 +24,15 @@ export default Input;
 
 
 
+// type='password'
+// name='Password'
+// form='sign-in'
+// handleChange={handlePasswordChange}
+// placeholderText='Enter Password'
+// valid={isPasswordValid}
+// errorText='Password requires additional characters'
+// minlength='2'
+// noValidate
+// value={password}
+// maxlength='200'
 

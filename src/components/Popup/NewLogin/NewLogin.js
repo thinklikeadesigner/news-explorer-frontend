@@ -1,64 +1,82 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+// import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import '../NewRegister/form.css';
-
+import { Popup } from '../Popup';
+import Input from '../Input';
 export function NewLogin(props) {
+  const [isEmailValid, setIsEmailValid] = useState(true);
+  const [email, setEmail] = useState('');
+  const [isPasswordValid, setIsPasswordValid] = useState(false);
+  const [password, setPassword] = useState('');
+  const [formValid, setFormValid] = useState(false);
+
+  function validateEmail(email) {
+    const regex = /\S+@\S+\.\S+/;
+    return regex.test(email);
+  }
+  function handleEmailChange(e) {
+    setEmail(e.target.value);
+    setIsEmailValid(validateEmail(email));
+    allValid(e);
+  }
+
+  function handlePasswordChange(e) {
+    setPassword(e.target.value);
+    if (password.length > 7) {
+      setIsPasswordValid(true);
+    }
+    allValid(e);
+  }
+
+  function allValid(e) {
+    setFormValid(e.target.closest('form').checkValidity());
+  }
+  function handleSignInSubmit(e) {
+    e.preventDefault();
+    props.handleSubmit({ email, password });
+  }
+
   return (
-    <form
-    onSubmit={props.onLogin}
-    action='#'
-    className={`form`}
-    name='register'
-    noValidate
-  >
-    <h2 className='form__title '>Sign In</h2>
-    <p className='form__input-title'>Email</p>
+    <Popup
+      isOpen={props.isLoginPopupOpen}
+      buttonText='Sign in'
+      onClose={props.onClose}
+      title='Sign in'
+      link='Sign up'
+      linkClick={props.linkClick}
+      handleSubmit={handleSignInSubmit}
+      valid={formValid}
+      message={props.message}
+    >
+      <Input
+        // GOOGLE how to catch the celebrate errors, or do live validation
+        type='email'
+        name='Email'
+        form='sign-in'
+        handleChange={handleEmailChange}
+        errorText='Invalid email address'
+        valid={isEmailValid}
+        placeholderText='Enter email'
+        minlength='2'
+        noValidate
+        value={email}
+        maxlength='40'
+      />
 
-    <input
-      // GOOGLE how to catch the celebrate errors, or do live validation
-      id='email-input'
-      minLength='2'
-      maxLength='40'
-      name='email'
-      type='text'
-      className='form__input'
-      placeholder='Email'
-      required
-      value={props.email}
-      onChange={props.onSetEmail}
-    />
-    <span className='form__input-error' id='name-input-error'>
-      error
-    </span>
-    <p className='form__input-title'>Password</p>
-    <input
-      id='password-input'
-      minLength='2'
-      maxLength='200'
-      name='password'
-      type='password'
-      className='form__input'
-      placeholder='Password'
-      required
-      value={props.password}
-      onChange={props.onSetPassword}
-    />
-    <span className='form__input-error' id='name-input-error'>
-      error
-    </span>
-
-    <button type='submit' className={`form__button `}>
-      Sign in
-    </button>
-    <div className='form__link_container'>
-      <span className='form__link-span'>
-        or{' '}
-        <button onClick={props.onSwitchToRegister} className={`form__link`}>
-          Sign up
-        </button>
-      </span>
-    </div>
-  </form>
+      <Input
+        type='password'
+        name='Password'
+        form='sign-in'
+        handleChange={handlePasswordChange}
+        placeholderText='Enter Password'
+        valid={isPasswordValid}
+        minlength='2'
+        errorText='Password requires additional characters'
+        noValidate
+        value={password}
+        maxlength='200'
+      />
+    </Popup>
   );
 }
