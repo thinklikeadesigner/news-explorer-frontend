@@ -6,9 +6,9 @@ import * as api from '../../utils/api';
 import * as auth from '../../utils/auth';
 import InfoToolTip from '../InfoToolTip/InfoToolTip';
 
-import { NewRegister } from '../NewRegister/NewRegister';
+import { NewRegister } from '../Popup/NewRegister/NewRegister';
 import { Popup } from '../Popup/Popup';
-import { NewLogin } from '../NewLogin/NewLogin';
+import { NewLogin } from '../Popup/NewLogin/NewLogin';
 import { Main } from '../Main/Main';
 import SavedNewsPage from '../SavedNewsPage/SavedNewsPage';
 import './App.css';
@@ -63,18 +63,21 @@ function App() {
   function handleSignInClick() {
     setIsPopupOpen(true);
     setIsLoginPopupOpen(true);
+    setIsRegisterPopupOpen(false);
   }
 
   function handleSwitchToRegister(e) {
     e.preventDefault();
-    console.log(isLoginPopupOpen);
+    setIsPopupOpen(true);
     setIsLoginPopupOpen(false);
-    console.log(isLoginPopupOpen);
-    console.log('register');
+    setIsRegisterPopupOpen(true);
+    
   }
   function handleSwitchToLogin(e) {
     e.preventDefault();
     setIsLoginPopupOpen(true);
+    setIsRegisterPopupOpen(false);
+    setIsPopupOpen(true);
   }
 
   //NOTE card functions
@@ -299,7 +302,7 @@ function App() {
             )}
           </Route>
         </Switch>
-        <Popup
+        {/* <Popup
           isOpen={isPopupOpen}
           message={message}
           onSetEmail={handleSetEmail}
@@ -308,20 +311,26 @@ function App() {
           onClose={closeAllPopups}
         >
           {isLoginPopupOpen ? (
-      
+                     ) : (     )}
+            </Popup> */}
+            {console.log('log', isLoginPopupOpen)}
             <NewLogin
-              // isOpen={isLoginPopupOpen}
+              isLoginPopupOpen={isLoginPopupOpen}
               onLogin={handleLoginSubmit}
               onSwitchToRegister={handleSwitchToRegister}
+              onClose={closeAllPopups}
+              linkClick={handleSwitchToRegister}
             />
-          ) : (
+
             <NewRegister
-            // isOpen={isRegisterPopupOpen}
-            onRegister={handleRegisterSubmit}
+            isRegisterPopupOpen={isRegisterPopupOpen}
+            handleSubmit={handleRegisterSubmit}
             onSwitchToLogin={handleSwitchToLogin}
-          ></NewRegister>
-          )}
-        </Popup>
+            onClose={closeAllPopups}
+            linkClick={handleSwitchToLogin}
+          ></NewRegister> 
+     
+
 
         <InfoToolTip
           isOpen={isInfoToolTipOpen}
