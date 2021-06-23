@@ -33,7 +33,7 @@ function Card(props) {
   // const cardLikeButtonClassName = `card__heart ${
   //   isLiked ? " card__heart_active" : "card__heart"
   // }`;
-  console.log('cards 1 ', props.isSaved);
+  // console.log('cards 1 ', props.isSaved);
   return (
     
     <li className='card'>

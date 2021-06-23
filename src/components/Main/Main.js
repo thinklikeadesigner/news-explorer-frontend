@@ -11,6 +11,7 @@ import { Footer } from '../Footer/Footer';
 import SearchForm from '../SearchForm/SearchForm';
 import SavedNewsPage from '../SavedNewsPage/SavedNewsPage';
 import { Navigator } from '../Navigator/Navigator';
+import { CardsList } from '../CardsList/CardsList';
 
 import {
   headerBgTransparent,
@@ -28,12 +29,16 @@ export function Main(props) {
   const isMobile = useMediaQuery('(max-width: 750px)');
   const isTable = useMediaQuery('(max-width: 1140px)');
 
-  console.log('main', props.onLogOut);
-  console.log('main is loggedin', props.loggedIn);
-  
+  // console.log('main', props.onLogOut);
+  // console.log('main is loggedin', props.loggedIn);
 
   const savedArticles = props.loggedIn ? (
-    <Link onClick={props.onSavedNewsClick} to='savedNewsPage' className={`header__saved-articles `}>Saved articles
+    <Link
+      onClick={props.onSavedNewsClick}
+      to='savedNewsPage'
+      className={`header__saved-articles `}
+    >
+      Saved articles
     </Link>
   ) : null;
 
@@ -60,21 +65,25 @@ export function Main(props) {
         <div className='search-form__pic'>
           {isMobile ? (
             <>
-              <Header headerTitle={headerTitleWhite} headerBg={headerBgTransparent} >
-<button onClick={props.onNavBarClick} className={`header__icon ${ hamburgerWhite}`}></button> 
-    </Header>
-            <Navigator
-            isOpen={props.isOpen}
-            onNavBarClick={props.onNavBarClick}
-              onSignIn={props.onSignIn}
-              isSaved={props.isSaved}
-              loggedIn={props.loggedIn}
-              onLogOut={props.onLogOut}
-              onSavedNewsClick={props.onSavedNewsClick}
-              onClose={props.onClose}
-            >
-
-            </Navigator>
+              <Header
+                headerTitle={headerTitleWhite}
+                headerBg={headerBgTransparent}
+              >
+                <button
+                  onClick={props.onNavBarClick}
+                  className={`header__icon ${hamburgerWhite}`}
+                ></button>
+              </Header>
+              <Navigator
+                isOpen={props.isOpen}
+                onNavBarClick={props.onNavBarClick}
+                onSignIn={props.onSignIn}
+                isSaved={props.isSaved}
+                loggedIn={props.loggedIn}
+                onLogOut={props.onLogOut}
+                onSavedNewsClick={props.onSavedNewsClick}
+                onClose={props.onClose}
+              ></Navigator>
             </>
           ) : (
             <Header
@@ -87,21 +96,24 @@ export function Main(props) {
             </Header>
           )}
 
-            <SearchForm />
-    
+          <SearchForm />
         </div>
 
-        
-          <Search isSaved={props.isSaved} 
+        <Search
+          isSaved={props.isSaved}
           loggedIn={props.loggedIn}
           buttonType={'card__save-btn'}
-          >  
-          <h2 className="search__title">Search results</h2>
+        >
+          <h2 className='search__title'>Search results</h2>
+
+          <CardsList
+            isSaved={props.isSaved}
+            loggedIn={props.loggedIn}
+            buttonType={props.buttonType}
+          />
           {/* <Preloader /> */}
           {/* <NothingFound /> */}
-      
-          </Search>
-        
+        </Search>
 
         <About />
         <Footer />

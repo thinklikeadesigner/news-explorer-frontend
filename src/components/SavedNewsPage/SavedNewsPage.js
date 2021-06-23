@@ -25,8 +25,8 @@ import { SavedArticles } from '../SavedArticles/SavedArticles';
 function SavedNewsPage(props) {
   const isMobile = useMediaQuery('(max-width: 750px)');
   const isTable = useMediaQuery('(max-width: 1140px)');
-  console.log('saved is loggedin', props.loggedIn);
-  console.log('cardslist 2', props.isSaved);
+  // console.log('saved is loggedin', props.loggedIn);
+  // console.log('cardslist 2', props.isSaved);
 
   return (
     <>

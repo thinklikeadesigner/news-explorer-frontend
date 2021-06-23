@@ -33,7 +33,7 @@ function CardButton(props) {
 
   const [isShown, setIsShown] = useState(false);
   
-console.log('cardbutton', props.isSaved);
+// console.log('cardbutton', props.isSaved);
   return (
     <>
            {isShown &&  <div className='card__hoverbox'> 

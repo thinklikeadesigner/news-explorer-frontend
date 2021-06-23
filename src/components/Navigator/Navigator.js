@@ -7,7 +7,7 @@ import '../SavedNewsPage/SavedNewsPage.css';
 import {headerBgBlack, headerBgTransparent, headerBgWhite, headerTitleBlack, headerTitleWhite, hamburger, hamburgerBlack, hamburgerWhite, hiddenNavDrawer, showNavDrawer } from '../../utils/constants/constants.js';
 export function Navigator(props) { 
 
-  console.log('logged in?', props.loggedIn);
+  // console.log('logged in?', props.loggedIn);
 
   const navBarLink = props.loggedIn ? (<>
     <Link onClick={props.onClose} to='/main' className={`navigator__link`}>Home</Link>

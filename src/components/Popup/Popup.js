@@ -4,6 +4,7 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import '../NewRegister/form.css';
 
 export function Popup(props) {
+  console.log('isopen', props.isOpen);
   return (
     <div className={`modal  ${props.isOpen ? 'modal_open' : ''}`}>
       <div className='modal__container'>

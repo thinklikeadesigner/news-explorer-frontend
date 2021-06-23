@@ -9,7 +9,7 @@ import './CardsList.css';
 
 export function CardsList(props) { 
   
-  console.log('cardslist 1 ', props.isSaved);
+  // console.log('cardslist 1 ', props.isSaved);
   return (
     <>
 
