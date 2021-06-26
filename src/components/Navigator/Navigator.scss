@@ -1,0 +1,63 @@
+@import '../../utils/constants/constants.scss';
+.navigator {
+  display: none;
+}
+@media screen and (max-width: 750px) {
+  .navigator {
+
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: $navigator-bg-color;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 300ms, linear 300ms;
+    &__link {
+      font-family: Roboto, arial, 'sans serif';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 56px;
+      color: white;
+      text-decoration: none;
+      &_bottom {
+        margin-bottom: 22px;
+      }
+      &_underlined {
+        text-decoration: underline;
+      }
+    }
+    &_hidden {
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 300ms linear 100ms;
+      display: flex;
+    }
+    &_container {
+      display: flex;
+      justify-content: center;
+      
+      width: 100vw;
+      
+    }
+    
+    &__drawer {
+      max-width: 288px;
+      padding: 16px 0px 24px;
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+      &_white {
+        background-color: white;
+      }
+      &_hidden {
+        display: none;
+      }
+    }
+    &__links {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+  }
+}
