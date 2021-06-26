@@ -13,6 +13,8 @@ import { Main } from '../Main/Main';
 import SavedNewsPage from '../SavedNewsPage/SavedNewsPage';
 import './App.css';
 
+
+
 function App() {
   const history = useHistory();
 
@@ -34,19 +36,17 @@ function App() {
   const [message, setMessage] = useState('');
   const [isInfoToolTipOpen, setIsInfoToolTipOpen] = useState(false);
   const [isSuccess, setSuccess] = useState(false);
-  
+
   const [isNavOpen, setIsNavOpen] = useState(true);
   const [isSavedNewsPage, setIsSavedNewsPage] = useState(false);
 
-  function handleSavedNewsClick()
-  {
+  function handleSavedNewsClick() {
     setIsSavedNewsPage(true);
   }
 
   function handleHomeClick() {
     setIsSavedNewsPage(false);
   }
-
 
   function handleNavOpen(e) {
     e.preventDefault();
@@ -71,7 +71,6 @@ function App() {
     setIsPopupOpen(true);
     setIsLoginPopupOpen(false);
     setIsRegisterPopupOpen(true);
-    
   }
   function handleSwitchToLogin(e) {
     e.preventDefault();
@@ -129,71 +128,62 @@ function App() {
 
   //NOTE sign up log in functions
 
-  const handleLoginSubmit = (e) => {
-    e.preventDefault();
-    setLoggedIn(true);
-    closeAllPopups();
-    // console.log(isSuccess);
-    // if (!email || !password) {
-    //   setMessage('400 - one or more of the fields were not provided');
-    //   setSuccess(false);
-    //   handleInfoToolTip();
-    // }
-    // auth
-    //   .authorize(email, password)
-    //   .then((user) => {
-    //     setLoggedIn(true);
-    //   })
-    //   .then(resetForm)
-    //   .then(() => {
-    //     history.push('/login');
-    //   })
-    //   .catch(() => {
-    //     setSuccess(false);
-    //     setMessage('Oops, something went wrong! Please try again.');
-    //     handleInfoToolTip();
-    //   });
+  const handleLoginSubmit = ({ email, password }) => {
+    console.log(isSuccess);
+    if (!email || !password) {
+      setMessage('400 - one or more of the fields were not provided');
+      setSuccess(false);
+      handleInfoToolTip();
+      console.log('no email or password');
+    }
+    auth
+      .authorize(email, password)
+      .then((user) => {
+        setLoggedIn(true);
+        console.log('user', user);
+      })
+      .then(resetForm)
+      .then(() => {
+        history.push('/login');
+        closeAllPopups();
+      })
+      .catch(() => {
+        setSuccess(false);
+        setMessage('Oops, something went wrong! Please try again.');
+        handleInfoToolTip();
+      });
   };
 
-  const handleRegisterSubmit = (e) => {
-    e.preventDefault();
-    setLoggedIn(true);
-    closeAllPopups();
-    // if (!password || !email || !name) {
-    //   return;
-    // }
-    // auth
-    //   .register(email, password, name)
-    //   .then((res) => {
-    //     setSuccess(true);
-    //     setMessage('Success! You have now been registered.');
-    //     handleInfoToolTip();
-    //     return res;
-    //   })
-    //   .then(resetForm)
-    //   .then(history.push('/login'))
-    //   .catch((res) => {
-    //     if (res.status === 400) {
-    //       setMessage('One of the fields was filled in incorrectly');
-    //       setSuccess(false);
-    //       handleInfoToolTip();
-    //     } else if (res.status === 403) {
-    //       setMessage('This user already exists!');
-    //       setSuccess(false);
-    //       handleInfoToolTip();
-    //     }
-    //   });
+  const handleRegisterSubmit = ({ email, password, name }) => {
+    if (!password || !email || !name) {
+      console.log('no email or password');
+      console.log(email);
+      return;
+    }
+    auth
+      .register(email, password, name)
+      .then((res) => {
+        setSuccess(true);
+        setMessage('Success! You have now been registered.');
+        handleInfoToolTip();
+
+        return res;
+      })
+      .then(resetForm)
+      .then(history.push('/login'))
+      .catch((res) => {
+        if (res.status === 400) {
+          setMessage('One of the fields was filled in incorrectly');
+          setSuccess(false);
+          handleInfoToolTip();
+        } else if (res.status === 403) {
+          setMessage('This user already exists!');
+          setSuccess(false);
+          handleInfoToolTip();
+        }
+      });
   };
   console.log('app logged in?', loggedIn);
-  function handleSetPassword(e) {
-    setPassword(e.target.value);
-  }
-  function handleSetEmail(e) {
-    setEmail(e.target.value);
-  }
-  function handleSetName(e) {
-    setName(e.target.value);
-  }
 
   function handleInfoToolTip() {
     setIsInfoToolTipOpen(true);
@@ -216,11 +206,51 @@ function App() {
     setIsNavOpen(true);
   }
 
+
+const [keyword, setKeyword] = useState('');
+const [noResults, setNoResults] = useState(true);
+const [resultError, setResultError] = useState(false);
+const [results, setResults] = useState(false);
+const [loading, setLoading] = useState(true);
+
+
+
+  function handleSearchSubmit() {
+    setKeyword(keyword);
+    console.log('hello');
+    setNoResults(false);
+    setResultError(false);
+    setResults(false);
+    setLoading(true);
+    api
+      .search()
+      .then((res) => {
+        console.log(res);
+        setCards(res);
+        setLoading(false);
+        if (res.length === 0) {
+          setNoResults(true);
+        } else {
+          setNoResults(false);
+          setResults(true);
+        }
+      })
+
+      .catch((err) => {
+        setLoading(false);
+        setResultError(true);
+        console.log(err);
+      });
+  }
+
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
       console.log('token', token);
       console.log('has token', token);
+
+
+
       auth
         .getContent(token)
         .then((res) => {
@@ -238,25 +268,17 @@ function App() {
           console.log(err.message);
         });
 
-      // api
-      //   .getCardList()
-      //   .then((res) => {
-      //     setCards(res);
-      //   })
-      //   .catch((err) => {
-      //     console.log(err.message);
-      //   });
+ 
     }
   }, [history, loggedIn]);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
+    handleSearchSubmit();
     if (token) {
       history.push('/login');
     }
   }, [history]);
-
-  
 
   return (
     <div className='app'>
@@ -264,7 +286,8 @@ function App() {
         <Switch>
           <Route path='/main'>
             <Main
-            isSaved={isSavedNewsPage}
+            onSearch={handleSearchSubmit}
+              isSaved={isSavedNewsPage}
               isOpen={isNavOpen}
               loggedIn={loggedIn}
               cards={cards}
@@ -277,7 +300,6 @@ function App() {
               onNavBarClick={handleNavOpen}
               onSavedNewsClick={handleSavedNewsClick}
               onClose={closeAllPopups}
-              
             ></Main>
           </Route>
           {/* <ProtectedRoute
@@ -285,7 +307,7 @@ function App() {
 
           <Route path='/savedNewsPage'>
             <SavedNewsPage
-                        isSaved={isSavedNewsPage}
+              isSaved={isSavedNewsPage}
               onLogOut={handleLogOut}
               onNavBarClick={handleNavOpen}
               isOpen={isNavOpen}
@@ -302,35 +324,21 @@ function App() {
             )}
           </Route>
         </Switch>
-        {/* <Popup
-          isOpen={isPopupOpen}
-          message={message}
-          onSetEmail={handleSetEmail}
-          onSetPassword={handleSetPassword}
-          onSetName={handleSetName}
+
+        {console.log('log', isLoginPopupOpen)}
+        <NewLogin
+          isLoginPopupOpen={isLoginPopupOpen}
+          handleSubmit={handleLoginSubmit}
           onClose={closeAllPopups}
-        >
-          {isLoginPopupOpen ? (
-                     ) : (     )}
-            </Popup> */}
-            {console.log('log', isLoginPopupOpen)}
-            <NewLogin
-              isLoginPopupOpen={isLoginPopupOpen}
-              onLogin={handleLoginSubmit}
-              onSwitchToRegister={handleSwitchToRegister}
-              onClose={closeAllPopups}
-              linkClick={handleSwitchToRegister}
-            />
+          linkClick={handleSwitchToRegister}
+        />
 
-            <NewRegister
-            isRegisterPopupOpen={isRegisterPopupOpen}
-            handleSubmit={handleRegisterSubmit}
-            onSwitchToLogin={handleSwitchToLogin}
-            onClose={closeAllPopups}
-            linkClick={handleSwitchToLogin}
-          ></NewRegister> 
-     
-
+        <NewRegister
+          isRegisterPopupOpen={isRegisterPopupOpen}
+          handleSubmit={handleRegisterSubmit}
+          onClose={closeAllPopups}
+          linkClick={handleSwitchToLogin}
+        ></NewRegister>
 
         <InfoToolTip
           isOpen={isInfoToolTipOpen}
