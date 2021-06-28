@@ -19,7 +19,7 @@ export function Search(props) {
 {props.children}
 
 
-<button className="search__show">Show more</button>
+
 </div>
 </section>
 </>

@@ -7,7 +7,7 @@ import './NothingFound.css';
 
 export function NothingFound(props) { 
   
-//BUG for some reason the picture isnt showing
+  
 
   
   return (
@@ -23,4 +23,3 @@ your search terms.</p>
 </>
 
 );}
-

@@ -23,8 +23,13 @@ export const search = (keyword) => {
   var today = new Date();
   var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
 
-  // return fetch( baseUrl + '?q=' + keyword  + '&from=' + lastWeek +  '&to=' + today + '&' + 'sortBy=popularity&apiKey=' + 'af2333dae49940699539bd20bbcb969a', {
-  return fetch( 'https://www.boredapi.com/api/activity?type=education'
+  return fetch( baseUrl
+     + '?q=' + keyword  + '&from=' + lastWeek +  '&to=' + today + '&' + 'sortBy=popularity'
+   + '&pageSize=100&apiKey=' + 'af2333dae49940699539bd20bbcb969a', {
+  }
+  ).then((res) => checkResponse(res)).then((res) => res.articles);
+  };
+  // return fetch( 'https://datausa.io/api/data?drilldowns=Nation&measures=' + keyword
   //  {
     
   // headers: {
@@ -32,9 +37,6 @@ export const search = (keyword) => {
       // 'Content-Type': 'application/json',
       // Authorization: 'af2333dae49940699539bd20bbcb969a',
     // },
-  // }
-  ).then((res) => checkResponse(res)).then((res) => res);
-};
 
 
 // https://newsapi.org/v2/everything?q=dog&from=2021-06-17T05:00:00.000Z&to=2021-06-24T23:53:26.089Z&sortBy=popularity&apiKey=af2333dae49940699539bd20bbcb969a

@@ -111,6 +111,19 @@
   color: white;
 }
 
+.search-bar__button_disabled {
+  color: #B6BCBF;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #E6E8EB;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 .search-bar__button:hover {
   background-color: #347eff;
 }
@@ -169,6 +182,18 @@
     font-size: 18px;
     line-height: 24px;
     color: white;
+  }
+  .search-bar__button_disabled {
+    color: #B6BCBF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    background: #E6E8EB;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 }
 
@@ -235,6 +260,18 @@
     position: relative;
     width: 100%;
     height: 56px;
+  }
+  .search-bar__button_disabled {
+    color: #B6BCBF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    background: #E6E8EB;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 }
 /*# sourceMappingURL=SearchForm.css.map */

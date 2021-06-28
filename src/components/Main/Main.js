@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import React, { useState } from 'react';
 // import Card from "./Card/Card";
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
@@ -29,6 +30,7 @@ export function Main(props) {
   const isMobile = useMediaQuery('(max-width: 750px)');
   const isTable = useMediaQuery('(max-width: 1140px)');
 
+  
   // console.log('main', props.onLogOut);
   // console.log('main is loggedin', props.loggedIn);
 
@@ -96,9 +98,9 @@ export function Main(props) {
             </Header>
           )}
 
-          <SearchForm />
+          <SearchForm onSearch={props.onSearch}/>
         </div>
-
+{props.results ? (
         <Search
           isSaved={props.isSaved}
           loggedIn={props.loggedIn}
@@ -107,13 +109,30 @@ export function Main(props) {
           <h2 className='search__title'>Search results</h2>
 
           <CardsList
+            buttonType={'card__save-btn'}
+             cards={props.cards} 
+             keyword={props.keyword}
             isSaved={props.isSaved}
             loggedIn={props.loggedIn}
-            buttonType={props.buttonType}
+            
           />
-          {/* <Preloader /> */}
+{/* FIXME preloader */}
+       {/* FIXME nothing found pic not showing */}
+ 
+          {/* Once the data is received, the preloader should disappear from the results block, and proper cards should appear. Cards should be arranged in a row of three at screen width of 1280px or more. If the browser window is resized smaller than that, the cards that don't fit should be moved to the next line. */}
+ 
+
           {/* <NothingFound /> */}
-        </Search>
+                   {props.noResults ? <NothingFound /> : ''}
+
+          {props.loading ? <Preloader /> : ''}
+
+          {/* {props.resultError ? <ResultError /> : ''} */}
+     
+          
+
+ 
+        </Search>) : null }
 
         <About />
         <Footer />
@@ -121,3 +140,7 @@ export function Main(props) {
     </>
   );
 }
+
+
+
+

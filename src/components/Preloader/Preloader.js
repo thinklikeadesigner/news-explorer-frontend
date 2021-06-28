@@ -15,7 +15,7 @@ export function Preloader(props) {
     <div className={`preloader
     `}>
 <div className='circle-preloader_container'>
-    <i class="circle-preloader"></i>
+    <i className="circle-preloader"></i>
 </div>
         <p className="preloader__subtitle">Searching for news...</p>
 

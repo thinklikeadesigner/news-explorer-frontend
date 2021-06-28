@@ -27,10 +27,15 @@
     width: 288px;
     height: 64px;
     margin-top: 64px;
+    &_hidden {
+      visibility: hidden;
+ 
+    }
     &:hover {
       background-color: #e8e8e8;
       cursor: pointer;
     }
+    
   }
   &__title {
     font-family: 'Roboto Slab', arial, 'sans serif';

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Route, Switch, useHistory, Redirect } from 'react-router-dom';
 
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import * as api from '../../utils/api';
+import * as api from '../../utils/NewsApi';
 import * as auth from '../../utils/auth';
 import InfoToolTip from '../InfoToolTip/InfoToolTip';
 
@@ -215,7 +215,7 @@ const [loading, setLoading] = useState(true);
 
 
 
-  function handleSearchSubmit() {
+  function handleSearchSubmit(keyword) {
     setKeyword(keyword);
     console.log('hello');
     setNoResults(false);
@@ -223,10 +223,11 @@ const [loading, setLoading] = useState(true);
     setResults(false);
     setLoading(true);
     api
-      .search()
+      .search(keyword)
       .then((res) => {
         console.log(res);
         setCards(res);
+        // console.log('cards', cards);
         setLoading(false);
         if (res.length === 0) {
           setNoResults(true);
@@ -242,6 +243,8 @@ const [loading, setLoading] = useState(true);
         console.log(err);
       });
   }
+
+
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -274,7 +277,7 @@ const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    handleSearchSubmit();
+  
     if (token) {
       history.push('/login');
     }
@@ -285,7 +288,13 @@ const [loading, setLoading] = useState(true);
       <CurrentUserContext.Provider value={currentUser}>
         <Switch>
           <Route path='/main'>
+
+         
             <Main
+            results={results}
+            noResults={noResults}
+            laoding={loading}
+            resultError={resultError}
             onSearch={handleSearchSubmit}
               isSaved={isSavedNewsPage}
               isOpen={isNavOpen}
@@ -300,6 +309,10 @@ const [loading, setLoading] = useState(true);
               onNavBarClick={handleNavOpen}
               onSavedNewsClick={handleSavedNewsClick}
               onClose={closeAllPopups}
+              cards={cards} 
+              keyword={keyword}
+
+
             ></Main>
           </Route>
           {/* <ProtectedRoute
