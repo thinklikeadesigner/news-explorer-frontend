@@ -13,8 +13,6 @@ import { Main } from '../Main/Main';
 import SavedNewsPage from '../SavedNewsPage/SavedNewsPage';
 import './App.css';
 
-
-
 function App() {
   const history = useHistory();
 
@@ -206,14 +204,11 @@ function App() {
     setIsNavOpen(true);
   }
 
-
-const [keyword, setKeyword] = useState('');
-const [noResults, setNoResults] = useState(true);
-const [resultError, setResultError] = useState(false);
-const [results, setResults] = useState(false);
-const [loading, setLoading] = useState(true);
-
-
+  const [keyword, setKeyword] = useState('');
+  const [noResults, setNoResults] = useState(true);
+  const [resultError, setResultError] = useState(false);
+  const [results, setResults] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   function handleSearchSubmit(keyword) {
     setKeyword(keyword);
@@ -244,15 +239,11 @@ const [loading, setLoading] = useState(true);
       });
   }
 
-
-
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
       console.log('token', token);
       console.log('has token', token);
-
-
 
       auth
         .getContent(token)
@@ -270,14 +261,12 @@ const [loading, setLoading] = useState(true);
         .catch((err) => {
           console.log(err.message);
         });
-
- 
     }
   }, [history, loggedIn]);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-  
+
     if (token) {
       history.push('/login');
     }
@@ -288,14 +277,12 @@ const [loading, setLoading] = useState(true);
       <CurrentUserContext.Provider value={currentUser}>
         <Switch>
           <Route path='/main'>
-
-         
             <Main
-            results={results}
-            noResults={noResults}
-            laoding={loading}
-            resultError={resultError}
-            onSearch={handleSearchSubmit}
+              results={results}
+              noResults={noResults}
+              laoding={loading}
+              resultError={resultError}
+              onSearch={handleSearchSubmit}
               isSaved={isSavedNewsPage}
               isOpen={isNavOpen}
               loggedIn={loggedIn}
@@ -309,10 +296,8 @@ const [loading, setLoading] = useState(true);
               onNavBarClick={handleNavOpen}
               onSavedNewsClick={handleSavedNewsClick}
               onClose={closeAllPopups}
-              cards={cards} 
+              cards={cards}
               keyword={keyword}
-
-
             ></Main>
           </Route>
           {/* <ProtectedRoute

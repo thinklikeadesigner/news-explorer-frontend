@@ -1,38 +1,27 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
-import React, { useState } from 'react';
-// import Card from "./Card/Card";
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-// import { Footer } from "./Footer";
-import { useHistory, Link } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { Header } from '../Header/Header';
-import Card from '../Card/Card';
 import About from '../About/About';
 import './Main.css';
 import { Footer } from '../Footer/Footer';
 import SearchForm from '../SearchForm/SearchForm';
-import SavedNewsPage from '../SavedNewsPage/SavedNewsPage';
 import { Navigator } from '../Navigator/Navigator';
 import { CardsList } from '../CardsList/CardsList';
 
 import {
   headerBgTransparent,
-  headerBgBlack,
   headerTitleWhite,
   hamburgerWhite,
 } from '../../utils/constants/constants.js';
 import { useMediaQuery } from '../../utils/hooks/mediaquery';
 import { NothingFound } from '../NothingFound/NothingFound';
 import { Preloader } from '../Preloader/Preloader';
-import { Results } from '../Results/Results';
 import { Search } from '../Search/Search';
 
 export function Main(props) {
   const isMobile = useMediaQuery('(max-width: 750px)');
   const isTable = useMediaQuery('(max-width: 1140px)');
-
-  
-  // console.log('main', props.onLogOut);
-  // console.log('main is loggedin', props.loggedIn);
 
   const savedArticles = props.loggedIn ? (
     <Link
@@ -98,41 +87,36 @@ export function Main(props) {
             </Header>
           )}
 
-          <SearchForm onSearch={props.onSearch}/>
+          <SearchForm onSearch={props.onSearch} />
         </div>
-{props.results ? (
-        <Search
-          isSaved={props.isSaved}
-          loggedIn={props.loggedIn}
-          buttonType={'card__save-btn'}
-        >
-          <h2 className='search__title'>Search results</h2>
-
-          <CardsList
-            buttonType={'card__save-btn'}
-             cards={props.cards} 
-             keyword={props.keyword}
+        {props.results ? (
+          <Search
             isSaved={props.isSaved}
             loggedIn={props.loggedIn}
-            
-          />
-{/* FIXME preloader */}
-       {/* FIXME nothing found pic not showing */}
- 
-          {/* Once the data is received, the preloader should disappear from the results block, and proper cards should appear. Cards should be arranged in a row of three at screen width of 1280px or more. If the browser window is resized smaller than that, the cards that don't fit should be moved to the next line. */}
- 
+            buttonType={'card__save-btn'}
+          >
+            <h2 className='search__title'>Search results</h2>
 
-          {/* <NothingFound /> */}
-                   {props.noResults ? <NothingFound /> : ''}
+            <CardsList
+              buttonType={'card__save-btn'}
+              cards={props.cards}
+              keyword={props.keyword}
+              isSaved={props.isSaved}
+              loggedIn={props.loggedIn}
+            />
+            {/* FIXME preloader */}
+            {/* FIXME nothing found pic not showing */}
 
-          {props.loading ? <Preloader /> : ''}
+            {/* Once the data is received, the preloader should disappear from the results block, and proper cards should appear. Cards should be arranged in a row of three at screen width of 1280px or more. If the browser window is resized smaller than that, the cards that don't fit should be moved to the next line. */}
 
-          {/* {props.resultError ? <ResultError /> : ''} */}
-     
-          
+            {/* <NothingFound /> */}
+            {props.noResults ? <NothingFound /> : ''}
 
- 
-        </Search>) : null }
+            {props.loading ? <Preloader /> : ''}
+
+            {/* {props.resultError ? <ResultError /> : ''} */}
+          </Search>
+        ) : null}
 
         <About />
         <Footer />
@@ -140,7 +124,3 @@ export function Main(props) {
     </>
   );
 }
-
-
-
-

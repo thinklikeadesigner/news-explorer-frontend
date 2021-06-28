@@ -7,8 +7,6 @@ function SearchForm(props) {
   const [keywordValid, setKeywordValid] = useState(true);
   const searchField = document.querySelector('.search-bar__input');
 
-
-
   function onSearchChange(e) {
     setKeyword(e.target.value);
     if (keyword !== '') {
@@ -53,7 +51,7 @@ function SearchForm(props) {
                 className='search-bar__input'
                 placeholder='Enter topic'
               />
-             
+
               <button
                 className={`search-bar__button ${
                   keywordValid ? '' : 'search-bar__button_disabled'
@@ -64,14 +62,14 @@ function SearchForm(props) {
                 Search
               </button>
             </form>
-              <span
-                className={`form__input-error ${
-                  keywordValid ? '' : 'form__input-error_visible'
-                }`}
-                id='name-input-error'
-              >
-        Please enter a keyword
-              </span>
+            <span
+              className={`form__input-error ${
+                keywordValid ? '' : 'form__input-error_visible'
+              }`}
+              id='name-input-error'
+            >
+              Please enter a keyword
+            </span>
           </div>
         </div>
       </section>

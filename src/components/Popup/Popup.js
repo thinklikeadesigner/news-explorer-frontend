@@ -8,7 +8,6 @@ export function Popup(props) {
   }
   return (
     <div className={`modal  ${props.isOpen ? 'modal_open' : ''}`}  
-    //  onClick={props.onClose}
     >
       <div className='modal__container'>
         <form

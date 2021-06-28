@@ -1,22 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useMediaQuery } from '../../utils/hooks/mediaquery';
-import Card from '../Card/Card';
 import { Footer } from '../Footer/Footer';
 import { Header } from '../Header/Header';
 import { Navigator } from '../Navigator/Navigator';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 import {
-  headerBgBlack,
-  headerBgTransparent,
   headerBgWhite,
   headerTitleBlack,
-  headerTitleWhite,
-  hamburger,
   hamburgerBlack,
-  hamburgerWhite,
-  hiddenNavDrawer,
-  showNavDrawer,
 } from '../../utils/constants/constants.js';
 import './SavedNewsPage.css';
 import { CardsList } from '../CardsList/CardsList';
@@ -25,44 +17,38 @@ import { SavedArticles } from '../SavedArticles/SavedArticles';
 function SavedNewsPage(props) {
   const isMobile = useMediaQuery('(max-width: 750px)');
   const isTable = useMediaQuery('(max-width: 1140px)');
-  // console.log('saved is loggedin', props.loggedIn);
-  // console.log('cardslist 2', props.isSaved);
 
   return (
     <>
       <div className={`saved-news`}>
         {isMobile ? (
-//             <Navigator
-//             isOpen={props.isOpen}
-//             onNavBarClick={props.onNavBarClick}
-//               onSignIn={props.onSignIn}
-//             >
-//               <Header headerTitle={props.isOpen ? headerTitleWhite : headerTitleBlack} headerBg={props.isOpen ? headerBgBlack : headerBgWhite} >
-// <button onClick={props.onNavBarClick} className={`header__icon ${props.isOpen ?   'header__icon_x' : hamburgerBlack}`}></button> 
-//     </Header>
-//     <div></div>
-//             </Navigator>
-<>
-<Header headerTitle={headerTitleBlack} headerBg={headerBgWhite} >
-<button onClick={props.onNavBarClick} className={`header__icon ${ hamburgerBlack}`}></button> 
-</Header>
-<Navigator
-isOpen={props.isOpen}
-onNavBarClick={props.onNavBarClick}
-onSignIn={props.onSignIn}
-isSaved={props.isSaved}
-loggedIn={props.loggedIn}
-onLogOut={props.onLogOut}
-onSavedNewsClick={props.onSavedNewsClick}
-onClose={props.onClose}
->
-
-</Navigator>
-</>
+          <>
+            <Header headerTitle={headerTitleBlack} headerBg={headerBgWhite}>
+              <button
+                onClick={props.onNavBarClick}
+                className={`header__icon ${hamburgerBlack}`}
+              ></button>
+            </Header>
+            <Navigator
+              isOpen={props.isOpen}
+              onNavBarClick={props.onNavBarClick}
+              onSignIn={props.onSignIn}
+              isSaved={props.isSaved}
+              loggedIn={props.loggedIn}
+              onLogOut={props.onLogOut}
+              onSavedNewsClick={props.onSavedNewsClick}
+              onClose={props.onClose}
+            ></Navigator>
+          </>
         ) : (
           <Header headerTitle={headerTitleBlack} headerBg={headerBgWhite}>
-            <Link onClick={props.onHomeClick} to='/main'
-             className={`header__home header__home_black`}>Home</Link>
+            <Link
+              onClick={props.onHomeClick}
+              to='/main'
+              className={`header__home header__home_black`}
+            >
+              Home
+            </Link>
             <p
               className={`header__saved-articles header__saved-articles_underlined`}
             >
@@ -92,9 +78,7 @@ onClose={props.onClose}
         </div>
 
         <SavedArticles>
-          <CardsList isSaved={props.isSaved} 
-          buttonType={'card__delete-btn'}
-          />
+          <CardsList isSaved={props.isSaved} buttonType={'card__delete-btn'} />
         </SavedArticles>
         <Footer />
       </div>
