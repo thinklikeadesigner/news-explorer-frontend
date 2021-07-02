@@ -46,6 +46,14 @@ export function NewRegister(props) {
   function signUpSubmit(e) {
     e.preventDefault();
     props.handleSubmit({ email, password, name: user });
+    resetForm();
+  }
+
+  function resetForm() {
+    setEmail('');
+    setPassword('');
+    setUser('');
+    // setMessage('');
   }
 
   return (
@@ -59,6 +67,7 @@ export function NewRegister(props) {
       handleSubmit={signUpSubmit}
       valid={formValid}
       message={props.message}
+      
     >
       <Input
         type='email'

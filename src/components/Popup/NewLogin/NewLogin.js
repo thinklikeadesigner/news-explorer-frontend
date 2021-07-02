@@ -35,6 +35,14 @@ export function NewLogin(props) {
   function handleSignInSubmit(e) {
     e.preventDefault();
     props.handleSubmit({ email, password });
+    resetForm();
+  }
+
+  function resetForm() {
+    setEmail('');
+    setPassword('');
+    // setUser('');
+    // setMessage('');
   }
 
   return (

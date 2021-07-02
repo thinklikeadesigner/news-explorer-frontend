@@ -51,12 +51,7 @@ function App() {
     setIsNavOpen(!isNavOpen);
   }
 
-  function resetForm() {
-    setEmail('');
-    setPassword('');
-    setName('');
-    setMessage('');
-  }
+
 
   function handleSignInClick() {
     setIsPopupOpen(true);
@@ -140,7 +135,7 @@ function App() {
         setLoggedIn(true);
         console.log('user', user);
       })
-      .then(resetForm)
+      // .then(resetForm)
       .then(() => {
         history.push('/login');
         closeAllPopups();
@@ -167,7 +162,7 @@ function App() {
 
         return res;
       })
-      .then(resetForm)
+      // .then(resetForm)
       .then(history.push('/login'))
       .catch((res) => {
         if (res.status === 400) {
@@ -268,7 +263,7 @@ function App() {
     const token = localStorage.getItem('token');
 
     if (token) {
-      history.push('/login');
+      history.push('/main');
     }
   }, [history]);
 
@@ -321,6 +316,9 @@ function App() {
               <Redirect to='/main' />
             )}
           </Route>
+          <Route path="/*">
+          <Redirect to="/" />
+        </Route>
         </Switch>
 
         {console.log('log', isLoginPopupOpen)}
