@@ -90,6 +90,9 @@
     &:active {
       background-image: url('../../images/saved-blue.svg');
     }
+    &_saved {
+      background-image: url('../../images/saved-blue.svg');
+    }
   }
   &__delete-btn {
 width: 24px;

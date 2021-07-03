@@ -18,8 +18,10 @@ import { useMediaQuery } from '../../utils/hooks/mediaquery';
 import { NothingFound } from '../NothingFound/NothingFound';
 import { Preloader } from '../Preloader/Preloader';
 import { Search } from '../Search/Search';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 export function Main(props) {
+  const currentUser = React.useContext(CurrentUserContext)
   const isMobile = useMediaQuery('(max-width: 750px)');
   const isTable = useMediaQuery('(max-width: 1140px)');
 
@@ -38,7 +40,7 @@ export function Main(props) {
       onClick={props.onLogOut}
       className={`header__button header__button_white`}
     >
-      Elise
+      {currentUser.name}
       <div className={`header__icon `}></div>
     </button>
   ) : (
@@ -110,11 +112,11 @@ export function Main(props) {
             {/* Once the data is received, the preloader should disappear from the results block, and proper cards should appear. Cards should be arranged in a row of three at screen width of 1280px or more. If the browser window is resized smaller than that, the cards that don't fit should be moved to the next line. */}
 
             {/* <NothingFound /> */}
-            {props.noResults ? <NothingFound /> : ''}
+            {props.noResults ? <NothingFound noResults={props.noResults} /> : ''}
 
             {props.loading ? <Preloader /> : ''}
 
-            {/* {props.resultError ? <ResultError /> : ''} */}
+            {props.resultError ? <NothingFound resultError={props.resultError} /> : ''}
           </Search>
         ) : null}
 

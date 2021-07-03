@@ -1,7 +1,8 @@
 // MAKEME add name input 
 
 // const   baseUrl = 'http://api.last-call.students.nomoreparties.site';
-const   baseUrl = process.env.NODE_ENV === 'production' ? "http://api.last-call.students.nomoreparties.site" : "http://localhost:3000";
+// const   baseUrl = process.env.NODE_ENV === 'production' ? "http://api.last-call.students.nomoreparties.site" : "http://localhost:3000";
+const   baseUrl = "http://localhost:3000";
 
 function checkResponse(res) {
   if (res.ok) {
@@ -40,6 +41,7 @@ export const authorize = (email, password) => {
   .then(checkResponse)
     .then((res) => {
       if (res.token) {
+        console.log(res.token)
         localStorage.setItem('token', res.token);
         return res;
       }
