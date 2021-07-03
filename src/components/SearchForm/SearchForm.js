@@ -33,7 +33,7 @@ function SearchForm(props) {
     setTimeout(enableSearch, 1000);
   }
 
-  console.log('keyword valid', keywordValid);
+  // console.log('keyword valid', keywordValid);
   return (
     <>
       <section className='search-form'>

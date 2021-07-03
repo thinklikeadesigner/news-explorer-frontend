@@ -21,7 +21,7 @@ function handleSaveClick(e) {
     if (props.cardId) {
       console.log(props.cardId)
       setCardId(props.cardId);
-      console.log(props.cardId)
+      // console.log('card', props.cardId)
       saveApi
         .removeArticle(props.cardId)
         .then(() => {
@@ -82,6 +82,15 @@ function handleSaveClick(e) {
   // return;
 }
 
+
+
+function handleDelete(cardID) {
+  console.log('new cards', cardID)
+  // const newCards = props.savedCards.filter((c) =>  c._id !== cardID );
+  // props.setSavedCards(newCards)
+  // console.log('new cards', newCards)
+
+}
 
 
 function handleRemoveClick() {
@@ -148,7 +157,7 @@ function handleRemoveClick() {
           onMouseEnter={() => setIsShown(true)}
           onMouseLeave={() => setIsShown(false)}
           className={`card__save-btn ${isCardSaved ? 'card__save-btn_saved' : null}`}
-          onClick={handleSaveClick}
+          onClick={handleDelete(props.cardId)}
           />
 
       </div>

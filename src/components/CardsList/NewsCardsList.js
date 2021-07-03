@@ -9,6 +9,7 @@ import './CardsList.css';
 
 export function NewsCardsList(props) {
   const [displayedCards, setDisplayedCards] = useState([]);
+//   const [savedCards, setSavedCards] = useState([]);
 
   const [isButtonVisible, setIsButtonVisible] = useState(true);
   const [count, setCount] = useState(3);
@@ -34,21 +35,24 @@ export function NewsCardsList(props) {
   
 //   }
   
-console.log('aaaaaaa', props.savedCards)
+// console.log('aaaaaaa', props.savedCards)
 
   return (
     <>
       <section className='cards'>
         <ul className='cards__list'>
           { props.savedCards?.map((card, index) => {
+              console.log('card id is ', card._id)
                 return (
                   <NewsCard
                     key={index}
                     keyword={card.keyword}
                     buttonType={'card__save-btn'}
+                    onDelete={props.onChange}
                     title={card.title}
                     text={card.text}
                     date={card.date}
+                    cardId={card._id}
                     source={card.source}
                     image={card.link}
                     image={card.image}

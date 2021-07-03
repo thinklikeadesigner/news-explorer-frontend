@@ -22,14 +22,14 @@ export function CardsList(props) {
 
   }, [count]);
 
-  console.log('cards  ', props.savedCards);
+  // console.log('cards  ', props.savedCards);
 
 
   function handleDelete(cardID) {
-    console.log('new cards', cardID)
+    // console.log('new cards', cardID)
     const newCards = props.savedCards.filter((c) =>  c._id !== cardID );
     props.setSavedCards(newCards)
-    console.log('new cards', newCards)
+    // console.log('new cards', newCards)
   
   }
   

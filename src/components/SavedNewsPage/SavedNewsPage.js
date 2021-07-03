@@ -25,7 +25,12 @@ function SavedNewsPage(props) {
   const [savedCards, setSavedCards] = useState([]);
   const [isSaved, setIsSaved] = useState(false);
   
-  
+  function handleChange(cardID) {
+    console.log('handleee')
+    const newCards = savedCards.filter((c) =>  c._id !== cardID );
+    setSavedCards(newCards)
+
+}
   useEffect(() => {
     setIsSaved(true);
     articles.getSavedArticles()
@@ -102,7 +107,7 @@ console.log(currentUser)
 
         <SavedArticles>
           {/* <CardsList loggedIn={props.loggedIn} savedCards={savedCards} isSaved={isSaved}/> */}
-  <NewsCardsList loggedIn={props.loggedIn} savedCards={savedCards} isSaved={isSaved}/>
+  <NewsCardsList     onChange={handleChange} loggedIn={props.loggedIn} savedCards={savedCards} isSaved={isSaved}/>
         </SavedArticles>
         <Footer />
       </div>

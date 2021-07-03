@@ -12,26 +12,30 @@ function NewsCard(props) {
   const [isShown, setIsShown] = useState(false);
   // const [isSaved, setIsSaved] = useState(false);
 
+  useEffect(() => {
+setCardId(props.cardId)
+}, []);
 
 
 function handleDeleteClick(e) {
   e.preventDefault();
+}
+// props.onDelete();
+//   if(isCardSaved) {
+//     if (props.cardId) {
+//     //   console.log(props.cardId)
+//       setCardId(props.cardId);
+//     //   console.log(props.cardId)dd
+//       saveApi
+//         .removeArticle(props.cardId)
+//         .then(() => {
+//           setIsCardSaved(false)
+//          props.onCardDelete(props.cardId)
+//         })
+//         .catch((err) => console.log(err));
+//     }
 
-  if(isCardSaved) {
-    if (props.cardId) {
-      console.log(props.cardId)
-      setCardId(props.cardId);
-      console.log(props.cardId)
-      saveApi
-        .removeArticle(props.cardId)
-        .then(() => {
-          setIsCardSaved(false)
-         props.onCardDelete(props.cardId)
-        })
-        .catch((err) => console.log(err));
-    }
-
-  }
+  
 
   // setIsCardSaved(true);
   // console.log(isCardSaved);
@@ -64,26 +68,21 @@ function handleDeleteClick(e) {
     // }
   // }
   // return;
-}
 
 
 
-function handleRemoveClick(e) {
-  console.log(`id ${cardId}`);
 
-//   if (props.cardId) {
-//     console.log(props.cardId)
-//     setCardId(props.cardId);
-//     console.log(props.cardId)
-//     saveApi
-//       .removeArticle(props.cardId)
-//       .then(() => {
-//        props.onCardDelete(props.cardId)
-//       })
-//       .catch((err) => console.log(err));
-//   }
-}
+  function handleRemoveClick(e) {
+      console.log(`remove ${props.cardId}`)
 
+      saveApi
+        .removeArticle(cardId)
+        .then(() => {
+          props.onDelete(cardId);
+        })
+        .catch((err) => console.log(err));
+    
+  }
 
 
   function formatDate() {
@@ -110,7 +109,7 @@ function handleRemoveClick(e) {
     return formattedDate;
   }
 
-
+  
 
   return (
     <li className='card'>
@@ -150,7 +149,6 @@ function handleRemoveClick(e) {
         <p className='card__date'>{formatDate()}</p>
         <h2 className='card__title'>{props.title}</h2>
         <p className='card__paragraph'>{props.text}</p>
-        <p className='card__source'>{props.source}</p>
         <p className='card__source'>{props.source}</p>
       </div>
     </li>
