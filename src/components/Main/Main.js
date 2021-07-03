@@ -100,18 +100,12 @@ export function Main(props) {
             <h2 className='search__title'>Search results</h2>
 
             <CardsList
-              buttonType={'card__save-btn'}
               cards={props.cards}
               keyword={props.keyword}
               isSaved={props.isSaved}
               loggedIn={props.loggedIn}
             />
-            {/* FIXME preloader */}
-            {/* FIXME nothing found pic not showing */}
 
-            {/* Once the data is received, the preloader should disappear from the results block, and proper cards should appear. Cards should be arranged in a row of three at screen width of 1280px or more. If the browser window is resized smaller than that, the cards that don't fit should be moved to the next line. */}
-
-            {/* <NothingFound /> */}
             {props.noResults ? <NothingFound noResults={props.noResults} /> : ''}
 
             {props.loading ? <Preloader /> : ''}

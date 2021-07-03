@@ -1,9 +1,11 @@
-import React from 'react';
+
+import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from '../../utils/hooks/mediaquery';
 import { Footer } from '../Footer/Footer';
 import { Header } from '../Header/Header';
 import { Navigator } from '../Navigator/Navigator';
 import { Link } from 'react-router-dom';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 import {
   headerBgWhite,
@@ -11,12 +13,33 @@ import {
   hamburgerBlack,
 } from '../../utils/constants/constants.js';
 import './SavedNewsPage.css';
-import { CardsList } from '../CardsList/CardsList';
+import * as articles from '../../utils/MainApi';
+import {CardsList } from '../CardsList/CardsList';
+import {NewsCardsList } from '../CardsList/NewsCardsList';
 import { SavedArticles } from '../SavedArticles/SavedArticles';
 
 function SavedNewsPage(props) {
+  const currentUser = React.useContext(CurrentUserContext)
   const isMobile = useMediaQuery('(max-width: 750px)');
   const isTable = useMediaQuery('(max-width: 1140px)');
+  const [savedCards, setSavedCards] = useState([]);
+  const [isSaved, setIsSaved] = useState(false);
+  
+  
+  useEffect(() => {
+    setIsSaved(true);
+    articles.getSavedArticles()
+        .then(res => {
+          console.log("get saved articles", res)
+            setSavedCards(res)
+            console.log('savedcards', savedCards)
+            
+        })
+        .catch(err => console.log(err))
+
+}, [])
+
+console.log(currentUser)
 
   return (
     <>
@@ -58,7 +81,7 @@ function SavedNewsPage(props) {
               onClick={props.onLogOut}
               className={`header__button header__button_black`}
             >
-              Elise
+            {currentUser.name}
               <div className={`header__icon header__icon_black`}></div>
             </button>
           </Header>
@@ -67,7 +90,7 @@ function SavedNewsPage(props) {
         <div className='saved-news__intro'>
           <p className='saved-news__subtitle'>Saved articles</p>
           <h1 className='saved-news__title'>
-            Elise, you have 5 saved articles
+           {currentUser.name}, you have 5 saved articles
           </h1>
           <p className='saved-news__keywords'>
             By keywords:{' '}
@@ -78,7 +101,8 @@ function SavedNewsPage(props) {
         </div>
 
         <SavedArticles>
-          <CardsList isSaved={props.isSaved} buttonType={'card__delete-btn'} />
+          {/* <CardsList loggedIn={props.loggedIn} savedCards={savedCards} isSaved={isSaved}/> */}
+  <NewsCardsList loggedIn={props.loggedIn} savedCards={savedCards} isSaved={isSaved}/>
         </SavedArticles>
         <Footer />
       </div>

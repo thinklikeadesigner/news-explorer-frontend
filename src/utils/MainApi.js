@@ -50,7 +50,7 @@ export function getSavedArticles() {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${localStorage.getItem('token')}`,
+      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZGQxZGFjMjEwNjExMGFjYzM5YzlkZSIsImlhdCI6MTYyNTI1NTY2MywiZXhwIjoxNjI1ODYwNDYzfQ.aWpXvzFjocTOCO7JNm37gH2QzN6SKA1lrNjr7n6F-VY`,
     },
   }).then((res) => checkResponse(res));
 }
@@ -59,7 +59,7 @@ export function removeArticle(articleId) {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${localStorage.getItem('token')}`,
+      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZGQxZGFjMjEwNjExMGFjYzM5YzlkZSIsImlhdCI6MTYyNTI1NTY2MywiZXhwIjoxNjI1ODYwNDYzfQ.aWpXvzFjocTOCO7JNm37gH2QzN6SKA1lrNjr7n6F-VY`,
     },
     method: 'DELETE',
   }).then((res) => {

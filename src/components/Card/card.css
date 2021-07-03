@@ -133,6 +133,10 @@
   background-image: url("../../images/saved-blue.svg");
 }
 
+.card__save-btn_saved {
+  background-image: url("../../images/saved-blue.svg");
+}
+
 .card__delete-btn {
   width: 24px;
   height: 24px;

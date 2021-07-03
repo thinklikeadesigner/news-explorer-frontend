@@ -15,29 +15,30 @@ import './App.css';
 
 function App() {
   const history = useHistory();
-
+  const jwt = localStorage.getItem('token');
   const [cards, setCards] = useState([]);
   const [selectedCard, setSelectedCard] = useState(false);
-
+  
   const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false);
   const [isRegisterPopupOpen, setIsRegisterPopupOpen] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-
+  
   const [currentUser, setCurrentUser] = useState({});
-
+  
   const [loggedIn, setLoggedIn] = useState(false);
-
+  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
-
+  
   const [message, setMessage] = useState('');
   const [isInfoToolTipOpen, setIsInfoToolTipOpen] = useState(false);
   const [isSuccess, setSuccess] = useState(false);
-
+  
   const [isNavOpen, setIsNavOpen] = useState(true);
   const [isSavedNewsPage, setIsSavedNewsPage] = useState(false);
-
+  
+  console.log('jwt', jwt);
   function handleSavedNewsClick() {
     setIsSavedNewsPage(true);
   }
@@ -78,46 +79,6 @@ function App() {
     setSelectedCard(card);
   }
 
-  function handleCardLike(card) {
-    //NOTE here it has to be card._id
-    const isLiked = card.likes?.some((i) => i._id === currentUser.id);
-
-    api
-      .changeCardLikeStatus(card._id, !isLiked)
-      .then((newCard) => {
-        const newCards = cards.map((c) => (c._id === card._id ? newCard : c));
-        setCards(newCards);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }
-
-  function handleCardDelete(card) {
-    api
-      .removeCard(card._id)
-      .then(() => {
-        const oldCards = [...cards];
-
-        const filteredCards = oldCards.filter(
-          (oldCard) => oldCard._id !== card._id
-        );
-        setCards(filteredCards);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }
-
-  function handleUpdateCard(card) {
-    api
-      .addCard(card)
-      .then((newCard) => setCards([newCard, ...cards]))
-      .then(closeAllPopups)
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }
 
   //NOTE sign up log in functions
 
@@ -133,6 +94,8 @@ function App() {
       .authorize(email, password)
       .then((user) => {
         setLoggedIn(true);
+        
+        setCurrentUser(user);
         console.log('user', user);
       })
       // .then(resetForm)
@@ -187,6 +150,7 @@ function App() {
     localStorage.removeItem('token');
     history.push('/main');
     setLoggedIn(false);
+    setCurrentUser({});
     closeAllPopups();
   }
 
@@ -261,11 +225,13 @@ function App() {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
+    console.log(token)
 
     if (token) {
       history.push('/main');
     }
   }, [history]);
+console.log('user', currentUser.name)
 
   return (
     <div className='app'>
@@ -283,15 +249,11 @@ function App() {
               loggedIn={loggedIn}
               cards={cards}
               component={Main}
-              onCardClick={handleCardClick}
-              onCardDelete={handleCardDelete}
-              onCardLike={handleCardLike}
               onLogOut={handleLogOut}
               onSignIn={handleSignInClick}
               onNavBarClick={handleNavOpen}
               onSavedNewsClick={handleSavedNewsClick}
               onClose={closeAllPopups}
-              cards={cards}
               keyword={keyword}
             ></Main>
           </Route>

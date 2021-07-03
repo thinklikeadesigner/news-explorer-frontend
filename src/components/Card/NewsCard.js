@@ -6,7 +6,7 @@ import * as saveApi from '../../utils/MainApi';
 import './card.css';
 import CardButton from './CardButton/CardButton';
 
-function Card(props) {
+function NewsCard(props) {
   const [cardId, setCardId] = useState('');
   const [isCardSaved, setIsCardSaved] = useState(false);
   const [isShown, setIsShown] = useState(false);
@@ -14,7 +14,7 @@ function Card(props) {
 
 
 
-function handleSaveClick(e) {
+function handleDeleteClick(e) {
   e.preventDefault();
 
   if(isCardSaved) {
@@ -30,22 +30,6 @@ function handleSaveClick(e) {
         })
         .catch((err) => console.log(err));
     }
-
-  } else {
-    saveApi
-    .saveArticle({
-      keyword: props.keyword,
-      title: props.title,
-      text: props.text,
-      date: props.date,
-      source: props.source,
-      link: props.link,
-      image: props.image,
-    })
-    .then((res) => {
-      setCardId(res._id);
-      setIsCardSaved(true);
-    });
 
   }
 
@@ -84,19 +68,20 @@ function handleSaveClick(e) {
 
 
 
-function handleRemoveClick() {
-  console.log('remove')
-  if (props.cardId) {
-    console.log(props.cardId)
-    setCardId(props.cardId);
-    console.log(props.cardId)
-    saveApi
-      .removeArticle(props.cardId)
-      .then(() => {
-       props.onCardDelete(props.cardId)
-      })
-      .catch((err) => console.log(err));
-  }
+function handleRemoveClick(e) {
+  console.log(`id ${cardId}`);
+
+//   if (props.cardId) {
+//     console.log(props.cardId)
+//     setCardId(props.cardId);
+//     console.log(props.cardId)
+//     saveApi
+//       .removeArticle(props.cardId)
+//       .then(() => {
+//        props.onCardDelete(props.cardId)
+//       })
+//       .catch((err) => console.log(err));
+//   }
 }
 
 
@@ -147,8 +132,8 @@ function handleRemoveClick() {
 <button
           onMouseEnter={() => setIsShown(true)}
           onMouseLeave={() => setIsShown(false)}
-          className={`card__save-btn ${isCardSaved ? 'card__save-btn_saved' : null}`}
-          onClick={handleSaveClick}
+          className={`card__delete-btn`}
+          onClick={handleRemoveClick}
           />
 
       </div>
@@ -166,9 +151,10 @@ function handleRemoveClick() {
         <h2 className='card__title'>{props.title}</h2>
         <p className='card__paragraph'>{props.text}</p>
         <p className='card__source'>{props.source}</p>
+        <p className='card__source'>{props.source}</p>
       </div>
     </li>
   );
 }
 
-export default Card;
+export default NewsCard;
