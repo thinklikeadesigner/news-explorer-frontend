@@ -51,7 +51,7 @@ export function CardsList(props) {
                     link={card.url}
                     image={card.urlToImage}
                     savedArticles={props.savedArticles}
-                    
+                    onSignIn={props.onSignIn}
                     
                     loggedIn={props.loggedIn}
                     isSaved={props.isSaved}

@@ -87,11 +87,10 @@ function Card(props) {
           onMouseLeave={() => setIsShown(false)}
         >
           <button
-            className={`card__save-btn ${
-              isCardSaved ? 'card__save-btn_saved' : null
-            }`}
-            onClick={handleSaveClick}
-            disabled={!props.loggedIn}
+            className={`card__save-btn `}
+ 
+            onClick={props.onSignIn}
+     
           />
         </div>
       </div>

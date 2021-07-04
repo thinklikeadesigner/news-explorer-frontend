@@ -279,7 +279,7 @@ noSearch={noSearch}
  {results &&           <CardsList
               cards={cards}
               keyword={keyword}
-    
+              onSignIn={handleSignInClick}
               loggedIn={loggedIn}
             />}
 {loading && <Preloader /> }
