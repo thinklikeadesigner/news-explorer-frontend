@@ -33,7 +33,6 @@ let cardsLength = 0;
       .then((res) => {
         setSavedCards(res);
     setLength(res.length);
-        console.log('res', res)
       })
       .catch((err) => console.log(err));
   }, [length]);
@@ -69,7 +68,6 @@ let cardsLength = 0;
   }
 
   function handleChange(cardID) {
-    console.log('hello')
     const newCards = savedCards.filter((c) => c._id !== cardID);
     setSavedCards(newCards);
     setLength(length - 1)

@@ -13,7 +13,6 @@ function Card(props) {
 
 
   function handleSaveClick(e) {
-    console.log(cardId);
     e.preventDefault();
     if (isCardSaved) {
       

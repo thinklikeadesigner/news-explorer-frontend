@@ -25,10 +25,8 @@ export function CardsList(props) {
 
 
   function handleDelete(cardID) {
-    // console.log('new cards', cardID)
     const newCards = props.savedCards.filter((c) =>  c._id !== cardID );
     props.setSavedCards(newCards)
-    // console.log('new cards', newCards)
   
   }
   

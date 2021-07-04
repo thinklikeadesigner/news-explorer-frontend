@@ -8,7 +8,6 @@ import NewsCard from '../Card/NewsCard';
 import './CardsList.css';
 
 export function NewsCardsList(props) {
-console.log('cards are saved',props.savedCards)
 
   return (
     <>
@@ -16,7 +15,6 @@ console.log('cards are saved',props.savedCards)
       <section className='cards'>
         <ul className='cards__list'>
           {props.savedCards ? props.savedCards.map((card, index) => {
-              console.log('card id is ', card._id)
                 return (
                   <NewsCard
                     key={index}

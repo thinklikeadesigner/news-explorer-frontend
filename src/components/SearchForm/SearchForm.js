@@ -35,7 +35,6 @@ function SearchForm(props) {
   
   }
 
-  // console.log('keyword valid', keywordValid);
   return (
     <>
       <section className='search-form'>

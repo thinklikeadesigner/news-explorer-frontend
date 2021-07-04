@@ -21,7 +21,6 @@ const useForm = () => {
            [name]: value
         })
         setIsValid(e.target.closest("form").checkValidity());
-        console.log(isValid)
     }
     const handleSubmit = e => {
      e.preventDefault();

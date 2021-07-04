@@ -2,7 +2,6 @@ const baseUrl = 'http://localhost:3000';
 
 function checkResponse(res) {
   if (res.ok) {
-    console.log('res');
     return res.json();
   } else {
     Promise.reject('Error!' + res.statusText);
@@ -36,9 +35,7 @@ export function saveArticle({
       image,
     }),
   }).then((res) => {
-    console.log('what is res', res);
     if (res.ok) {
-      console.log('res');
       return res.json();
     } else {
       Promise.reject('Error!' + res.statusText);
@@ -66,7 +63,6 @@ export function removeArticle(articleId) {
     },
     method: 'DELETE',
   }).then((res) => {
-    console.log('response', res);
     checkResponse(res);
   });
 }
