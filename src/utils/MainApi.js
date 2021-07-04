@@ -18,11 +18,12 @@ export function saveArticle({
   link,
   image,
 }) {
+  const token = localStorage.getItem('jwt');
   return fetch(baseUrl + '/articles', {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZGQxZGFjMjEwNjExMGFjYzM5YzlkZSIsImlhdCI6MTYyNTM1OTUzNywiZXhwIjoxNjI1OTY0MzM3fQ.vg0N5pdo2evP7d4u3kubbwr_DLf4vjs28aL0mzufKB4`,
+      Authorization: `Bearer ${token}`,
     },
     method: 'POST',
     body: JSON.stringify({
@@ -46,20 +47,22 @@ export function saveArticle({
 }
 
 export function getSavedArticles() {
+  const token = localStorage.getItem('jwt');
   return fetch(baseUrl + '/articles', {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZGQxZGFjMjEwNjExMGFjYzM5YzlkZSIsImlhdCI6MTYyNTM1OTUzNywiZXhwIjoxNjI1OTY0MzM3fQ.vg0N5pdo2evP7d4u3kubbwr_DLf4vjs28aL0mzufKB4`,
+      Authorization: `Bearer ${token}`,
     },
   }).then((res) => checkResponse(res));
 }
 export function removeArticle(articleId) {
+  const token = localStorage.getItem('jwt');
   return fetch(baseUrl + `/articles/` + articleId, {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZGQxZGFjMjEwNjExMGFjYzM5YzlkZSIsImlhdCI6MTYyNTM1OTUzNywiZXhwIjoxNjI1OTY0MzM3fQ.vg0N5pdo2evP7d4u3kubbwr_DLf4vjs28aL0mzufKB4`,
+      Authorization: `Bearer ${token}`,
     },
     method: 'DELETE',
   }).then((res) => {
