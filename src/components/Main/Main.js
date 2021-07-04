@@ -7,7 +7,7 @@ import './Main.css';
 import { Footer } from '../Footer/Footer';
 import SearchForm from '../SearchForm/SearchForm';
 import { Navigator } from '../Navigator/Navigator';
-import { CardsList } from '../CardsList/CardsList';
+
 
 import {
   headerBgTransparent,
@@ -15,8 +15,7 @@ import {
   hamburgerWhite,
 } from '../../utils/constants/constants.js';
 import { useMediaQuery } from '../../utils/hooks/mediaquery';
-import { NothingFound } from '../NothingFound/NothingFound';
-import { Preloader } from '../Preloader/Preloader';
+
 import { Search } from '../Search/Search';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
@@ -52,6 +51,7 @@ export function Main(props) {
     </button>
   );
 
+  
   return (
     <>
       <main className='main'>
@@ -91,28 +91,18 @@ export function Main(props) {
 
           <SearchForm onSearch={props.onSearch} />
         </div>
-        {props.results ? (
+ {!props.noSearch &&    
           <Search
             isSaved={props.isSaved}
             loggedIn={props.loggedIn}
             buttonType={'card__save-btn'}
           >
-            <h2 className='search__title'>Search results</h2>
+           
 
-            <CardsList
-              cards={props.cards}
-              keyword={props.keyword}
-              isSaved={props.isSaved}
-              loggedIn={props.loggedIn}
-            />
 
-            {props.noResults ? <NothingFound noResults={props.noResults} /> : ''}
-
-            {props.loading ? <Preloader /> : ''}
-
-            {props.resultError ? <NothingFound resultError={props.resultError} /> : ''}
+{props.children}
           </Search>
-        ) : null}
+        }
 
         <About />
         <Footer />

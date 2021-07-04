@@ -22,7 +22,7 @@ export function saveArticle({
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZGQxZGFjMjEwNjExMGFjYzM5YzlkZSIsImlhdCI6MTYyNTI1NTY2MywiZXhwIjoxNjI1ODYwNDYzfQ.aWpXvzFjocTOCO7JNm37gH2QzN6SKA1lrNjr7n6F-VY`,
+      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZGQxZGFjMjEwNjExMGFjYzM5YzlkZSIsImlhdCI6MTYyNTM1OTUzNywiZXhwIjoxNjI1OTY0MzM3fQ.vg0N5pdo2evP7d4u3kubbwr_DLf4vjs28aL0mzufKB4`,
     },
     method: 'POST',
     body: JSON.stringify({
@@ -50,7 +50,7 @@ export function getSavedArticles() {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZGQxZGFjMjEwNjExMGFjYzM5YzlkZSIsImlhdCI6MTYyNTI1NTY2MywiZXhwIjoxNjI1ODYwNDYzfQ.aWpXvzFjocTOCO7JNm37gH2QzN6SKA1lrNjr7n6F-VY`,
+      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZGQxZGFjMjEwNjExMGFjYzM5YzlkZSIsImlhdCI6MTYyNTM1OTUzNywiZXhwIjoxNjI1OTY0MzM3fQ.vg0N5pdo2evP7d4u3kubbwr_DLf4vjs28aL0mzufKB4`,
     },
   }).then((res) => checkResponse(res));
 }
@@ -59,7 +59,7 @@ export function removeArticle(articleId) {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZGQxZGFjMjEwNjExMGFjYzM5YzlkZSIsImlhdCI6MTYyNTI1NTY2MywiZXhwIjoxNjI1ODYwNDYzfQ.aWpXvzFjocTOCO7JNm37gH2QzN6SKA1lrNjr7n6F-VY`,
+      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZGQxZGFjMjEwNjExMGFjYzM5YzlkZSIsImlhdCI6MTYyNTM1OTUzNywiZXhwIjoxNjI1OTY0MzM3fQ.vg0N5pdo2evP7d4u3kubbwr_DLf4vjs28aL0mzufKB4`,
     },
     method: 'DELETE',
   }).then((res) => {

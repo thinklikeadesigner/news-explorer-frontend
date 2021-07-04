@@ -22,7 +22,6 @@ export function CardsList(props) {
 
   }, [count]);
 
-  // console.log('cards  ', props.savedCards);
 
 
   function handleDelete(cardID) {
@@ -36,6 +35,7 @@ export function CardsList(props) {
 
   return (
     <>
+     <h2 className='search__title'>Search results</h2>
       <section className='cards'>
         <ul className='cards__list'>
           { displayedCards?.map((card, index) => {
@@ -61,7 +61,7 @@ export function CardsList(props) {
                 );
               })}
         </ul>
-{props.isSaved &&        <button
+{isButtonVisible && <button
           className={`search__show 
        `}
           onClick={() => setCount(count + 5)}

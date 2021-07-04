@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch, useHistory, Redirect } from 'react-router-dom';
-
+import { CardsList } from '../CardsList/CardsList';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import * as api from '../../utils/NewsApi';
 import * as auth from '../../utils/auth';
 import InfoToolTip from '../InfoToolTip/InfoToolTip';
-
+import { NothingFound } from '../NothingFound/NothingFound';
+import { Preloader } from '../Preloader/Preloader';
 import { NewRegister } from '../Popup/NewRegister/NewRegister';
 import { Popup } from '../Popup/Popup';
 import { NewLogin } from '../Popup/NewLogin/NewLogin';
 import { Main } from '../Main/Main';
 import SavedNewsPage from '../SavedNewsPage/SavedNewsPage';
+import {ProtectedRoute} from '../../components/HOC/ProtectedRoute';
 import './App.css';
 
 function App() {
@@ -41,6 +43,9 @@ function App() {
   console.log('jwt', jwt);
   function handleSavedNewsClick() {
     setIsSavedNewsPage(true);
+    setCards([]);
+    setResults(false);
+    setNoSearch(true);
   }
 
   function handleHomeClick() {
@@ -58,6 +63,7 @@ function App() {
     setIsPopupOpen(true);
     setIsLoginPopupOpen(true);
     setIsRegisterPopupOpen(false);
+    
   }
 
   function handleSwitchToRegister(e) {
@@ -83,6 +89,9 @@ function App() {
   //NOTE sign up log in functions
 
   const handleLoginSubmit = ({ email, password }) => {
+    setCards([]);
+    setNoSearch(true);
+    setResults(false);
     console.log(isSuccess);
     if (!email || !password) {
       setMessage('400 - one or more of the fields were not provided');
@@ -100,7 +109,7 @@ function App() {
       })
       // .then(resetForm)
       .then(() => {
-        history.push('/login');
+        history.push('/');
         closeAllPopups();
       })
       .catch(() => {
@@ -152,6 +161,9 @@ function App() {
     setLoggedIn(false);
     setCurrentUser({});
     closeAllPopups();
+    setCards([]);
+    setResults(false);
+    setNoSearch(true);
   }
 
   function closeAllPopups() {
@@ -161,15 +173,20 @@ function App() {
     setIsRegisterPopupOpen(false);
     setIsPopupOpen(false);
     setIsNavOpen(true);
+    setCards([]);
+    setResults(false);
+    setNoSearch(true);
   }
 
   const [keyword, setKeyword] = useState('');
   const [noResults, setNoResults] = useState(true);
   const [resultError, setResultError] = useState(false);
   const [results, setResults] = useState(false);
+  const [noSearch, setNoSearch] = useState(true);
   const [loading, setLoading] = useState(true);
 
   function handleSearchSubmit(keyword) {
+    setNoSearch(false);
     setKeyword(keyword);
     console.log('hello');
     setNoResults(false);
@@ -183,6 +200,7 @@ function App() {
         setCards(res);
         // console.log('cards', cards);
         setLoading(false);
+        console.log('length', res.length)
         if (res.length === 0) {
           setNoResults(true);
         } else {
@@ -239,10 +257,8 @@ console.log('user', currentUser.name)
         <Switch>
           <Route path='/main'>
             <Main
-              results={results}
-              noResults={noResults}
-              laoding={loading}
-              resultError={resultError}
+
+noSearch={noSearch}
               onSearch={handleSearchSubmit}
               isSaved={isSavedNewsPage}
               isOpen={isNavOpen}
@@ -255,20 +271,36 @@ console.log('user', currentUser.name)
               onSavedNewsClick={handleSavedNewsClick}
               onClose={closeAllPopups}
               keyword={keyword}
-            ></Main>
+            >
+              
+            {noResults && <NothingFound noResults={true}  resultError={false}/> }
+{/* <Preloader /> */}
+
+ {results &&           <CardsList
+              cards={cards}
+              keyword={keyword}
+    
+              loggedIn={loggedIn}
+            />}
+{loading && <Preloader /> }
+
+{resultError && <NothingFound noResults={false}  resultError={true} />}
+            </Main>
           </Route>
-          {/* <ProtectedRoute
-          ></ProtectedRoute> */}
+  
 
           <Route path='/savedNewsPage'>
-            <SavedNewsPage
+            
+            <ProtectedRoute
               isSaved={isSavedNewsPage}
               onLogOut={handleLogOut}
+              component={SavedNewsPage}
               onNavBarClick={handleNavOpen}
               isOpen={isNavOpen}
               onHomeClick={handleHomeClick}
               loggedIn={loggedIn}
               onClose={closeAllPopups}
+              signInRedirect={handleSignInClick}
             />
           </Route>
           <Route exact path='/'>

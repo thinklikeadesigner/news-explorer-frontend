@@ -111,6 +111,7 @@
 .card__icon-text_container:hover {
   background-color: #e8e8e8;
   cursor: pointer;
+  /* background-image: url("../../images/saved-hover.svg"); */
 }
 
 .card__save-btn {

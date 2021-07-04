@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState } from 'react';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import * as saveApi from '../../utils/MainApi';
@@ -14,100 +12,35 @@ function Card(props) {
 
 
 
-function handleSaveClick(e) {
-  e.preventDefault();
-
-  if(isCardSaved) {
-    if (props.cardId) {
-      console.log(props.cardId)
-      setCardId(props.cardId);
-      // console.log('card', props.cardId)
-      saveApi
-        .removeArticle(props.cardId)
-        .then(() => {
-          setIsCardSaved(false)
-         props.onCardDelete(props.cardId)
-        })
-        .catch((err) => console.log(err));
-    }
-
-  } else {
-    saveApi
-    .saveArticle({
-      keyword: props.keyword,
-      title: props.title,
-      text: props.text,
-      date: props.date,
-      source: props.source,
-      link: props.link,
-      image: props.image,
-    })
-    .then((res) => {
-      setCardId(res._id);
-      setIsCardSaved(true);
-    });
-
-  }
-
-  // setIsCardSaved(true);
-  // console.log(isCardSaved);
-  // if (props.loggedIn) {
-    // if (!e.target.classList.contains('card__save-btn_saved')) {
-    //   saveApi
-    //     .saveArticle({
-    //       keyword: props.keyword,
-    //       title: props.title,
-    //       text: props.text,
-    //       date: props.date,
-    //       source: props.source,
-    //       link: props.link,
-    //       image: props.image,
-    //     })
-    //     .then((res) => {
-    //       setCardId(res._id);
-    //       // setIsCardSaved(true);
-    //     });
-    //   }
+  function handleSaveClick(e) {
+    console.log(cardId);
+    e.preventDefault();
+    if (isCardSaved) {
       
-    // if (e.target.classList.contains('card__save-btn_saved')) {
-    //   setIsSaved(false);
-    //   saveApi
-    //     .removeArticle(cardId)
-    //     .then(() => {
-    //       e.target.classList.remove('card__save-btn_saved');
-    //     })
-    //     .catch((err) => console.log(err));
-    // }
-  // }
-  // return;
-}
-
-
-
-function handleDelete(cardID) {
-  console.log('new cards', cardID)
-  // const newCards = props.savedCards.filter((c) =>  c._id !== cardID );
-  // props.setSavedCards(newCards)
-  // console.log('new cards', newCards)
-
-}
-
-
-function handleRemoveClick() {
-  console.log('remove')
-  if (props.cardId) {
-    console.log(props.cardId)
-    setCardId(props.cardId);
-    console.log(props.cardId)
-    saveApi
-      .removeArticle(props.cardId)
-      .then(() => {
-       props.onCardDelete(props.cardId)
-      })
-      .catch((err) => console.log(err));
+        saveApi
+          .removeArticle(cardId)
+          .then(() => {
+            setIsCardSaved(false);
+          })
+          .catch((err) => console.log(err));
+      
+    } else {
+      saveApi
+        .saveArticle({
+          keyword: props.keyword,
+          title: props.title,
+          text: props.text,
+          date: props.date,
+          source: props.source,
+          link: props.link,
+          image: props.image,
+        })
+        .then((res) => {
+          setCardId(res._id);
+          setIsCardSaved(true);
+        });
+    }
   }
-}
-
 
 
   function formatDate() {
@@ -134,8 +67,6 @@ function handleRemoveClick() {
     return formattedDate;
   }
 
-
-
   return (
     <li className='card'>
       <div className='card__top-left_container'>
@@ -144,23 +75,25 @@ function handleRemoveClick() {
         </div>
       </div>
       <div className='card__top-right_container'>
-      {isShown && !props.loggedIn && (
-        <div className='card__hoverbox'>
-          <p className='card__hoverbox-text'>
-          'Sign in to save articles'
-          </p>
-        </div>
-      )}
-      <div className='card___container'></div>
-      <div className='card__icon-text_container'>
-<button
+        {isShown && !props.loggedIn && (
+          <div className='card__hoverbox'>
+            <p className='card__hoverbox-text'>Sign in to save articles</p>
+          </div>
+        )}
+        <div className='card___container'></div>
+        <div
+          className='card__icon-text_container'
           onMouseEnter={() => setIsShown(true)}
           onMouseLeave={() => setIsShown(false)}
-          className={`card__save-btn ${isCardSaved ? 'card__save-btn_saved' : null}`}
-          onClick={handleDelete(props.cardId)}
+        >
+          <button
+            className={`card__save-btn ${
+              isCardSaved ? 'card__save-btn_saved' : null
+            }`}
+            onClick={handleSaveClick}
+            disabled={!props.loggedIn}
           />
-
-      </div>
+        </div>
       </div>
       <img
         // TEST this is a test link

@@ -10,79 +10,21 @@ function NewsCard(props) {
   const [cardId, setCardId] = useState('');
   const [isCardSaved, setIsCardSaved] = useState(false);
   const [isShown, setIsShown] = useState(false);
-  // const [isSaved, setIsSaved] = useState(false);
-
-  useEffect(() => {
-setCardId(props.cardId)
-}, []);
 
 
-function handleDeleteClick(e) {
+
+function handleRemoveClick(e) {
   e.preventDefault();
-}
-// props.onDelete();
-//   if(isCardSaved) {
-//     if (props.cardId) {
-//     //   console.log(props.cardId)
-//       setCardId(props.cardId);
-//     //   console.log(props.cardId)dd
-//       saveApi
-//         .removeArticle(props.cardId)
-//         .then(() => {
-//           setIsCardSaved(false)
-//          props.onCardDelete(props.cardId)
-//         })
-//         .catch((err) => console.log(err));
-//     }
-
-  
-
-  // setIsCardSaved(true);
-  // console.log(isCardSaved);
-  // if (props.loggedIn) {
-    // if (!e.target.classList.contains('card__save-btn_saved')) {
-    //   saveApi
-    //     .saveArticle({
-    //       keyword: props.keyword,
-    //       title: props.title,
-    //       text: props.text,
-    //       date: props.date,
-    //       source: props.source,
-    //       link: props.link,
-    //       image: props.image,
-    //     })
-    //     .then((res) => {
-    //       setCardId(res._id);
-    //       // setIsCardSaved(true);
-    //     });
-    //   }
-      
-    // if (e.target.classList.contains('card__save-btn_saved')) {
-    //   setIsSaved(false);
-    //   saveApi
-    //     .removeArticle(cardId)
-    //     .then(() => {
-    //       e.target.classList.remove('card__save-btn_saved');
-    //     })
-    //     .catch((err) => console.log(err));
-    // }
-  // }
-  // return;
-
-
-
-
-  function handleRemoveClick(e) {
-      console.log(`remove ${props.cardId}`)
-
-      saveApi
-        .removeArticle(cardId)
-        .then(() => {
-          props.onDelete(cardId);
-        })
-        .catch((err) => console.log(err));
-    
+  if (props.cardId) {
+    setCardId(props.cardId);
+    saveApi
+      .removeArticle(props.cardId)
+      .then(() => {
+        props.onDelete(props.cardId);
+      })
+      .catch((err) => console.log(err));
   }
+}
 
 
   function formatDate() {
@@ -119,18 +61,20 @@ function handleDeleteClick(e) {
         </div>
       </div>
       <div className='card__top-right_container'>
-      {isShown && !props.loggedIn && (
+      {isShown  && (
         <div className='card__hoverbox'>
           <p className='card__hoverbox-text'>
-          'Sign in to save articles'
+          Remove from saved
           </p>
         </div>
       )}
       <div className='card___container'></div>
-      <div className='card__icon-text_container'>
+      <div className='card__icon-text_container'
+                onMouseEnter={() => setIsShown(true)}
+                onMouseLeave={() => setIsShown(false)}
+      >
 <button
-          onMouseEnter={() => setIsShown(true)}
-          onMouseLeave={() => setIsShown(false)}
+
           className={`card__delete-btn`}
           onClick={handleRemoveClick}
           />

@@ -31,6 +31,8 @@ function SearchForm(props) {
     }
     props.onSearch(keyword);
     setTimeout(enableSearch, 1000);
+    setKeyword('')
+  
   }
 
   // console.log('keyword valid', keywordValid);
@@ -50,6 +52,7 @@ function SearchForm(props) {
                 onFocus={() => setKeywordValid(false)}
                 className='search-bar__input'
                 placeholder='Enter topic'
+                value={keyword}
               />
 
               <button
