@@ -3,7 +3,7 @@
 
 import {newsApi} from '../utils/constants/constants';
 
-// MAKEME weed out the necessary api calls
+
 
 function checkResponse(res) {
   if (res.ok) {
@@ -12,12 +12,12 @@ function checkResponse(res) {
     Promise.reject('Error!' + res.statusText);
   }
 }
+const API_KEY = process.env.API_KEY;
+// const api = process.env.API_KEY;
 
-const api = process.env.API_KEY;
+// const baseUrl = 'https://newsapi.org/v2/everything';
+const baseUrl = 'https://nomoreparties.co/news/v2/everything';
 
-const baseUrl = 'https://newsapi.org/v2/everything';
-// const   baseUrl =  "http://localhost:3000";
-// const   baseUrl = process.env.NODE_ENV === 'production' ? "http://api.final-countdown.students.nomoreparties.site" : "http://localhost:3000";
 export const search = (keyword) => {
 
   var today = new Date();
@@ -25,21 +25,8 @@ export const search = (keyword) => {
 
   return fetch( baseUrl
      + '?q=' + keyword  + '&from=' + lastWeek +  '&to=' + today + '&' + 'sortBy=popularity'
-   + '&pageSize=100&apiKey=' + newsApi, {
+   + '&pageSize=100&apiKey=' + API_KEY, {
   }
   ).then((res) => checkResponse(res)).then((res) => res.articles);
   };
-  // return fetch( 'https://datausa.io/api/data?drilldowns=Nation&measures=' + keyword
-  //  {
-    
-  // headers: {
-      // Accept: 'application/json',
-      // 'Content-Type': 'application/json',
-      // Authorization: 'af2333dae49940699539bd20bbcb969a',
-    // },
-
-
-// https://newsapi.org/v2/everything?q=dog&from=2021-06-17T05:00:00.000Z&to=2021-06-24T23:53:26.089Z&sortBy=popularity&apiKey=af2333dae49940699539bd20bbcb969a
-
-
 
