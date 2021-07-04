@@ -1,20 +1,16 @@
-
-
-
-import React, { useLayoutEffect, useState } from 'react';
-import Card from '../Card/Card';
+import React from 'react';
 import NewsCard from '../Card/NewsCard';
 
 import './CardsList.css';
 
 export function NewsCardsList(props) {
-
   return (
     <>
-     <h2 className='search__title'>Search results</h2>
+      <h2 className='search__title'>Search results</h2>
       <section className='cards'>
         <ul className='cards__list'>
-          {props.savedCards ? props.savedCards.map((card, index) => {
+          {props.savedCards
+            ? props.savedCards.map((card, index) => {
                 return (
                   <NewsCard
                     key={index}
@@ -23,16 +19,16 @@ export function NewsCardsList(props) {
                     text={card.text}
                     date={card.date}
                     source={card.source}
-                    image={card.link}
+                    link={card.link}
                     image={card.image}
                     loggedIn={props.loggedIn}
                     cardId={card._id}
                     onDelete={props.onChange}
                   />
                 );
-              }) : null}
+              })
+            : null}
         </ul>
-
       </section>
     </>
   );

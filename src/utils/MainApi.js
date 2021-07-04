@@ -53,6 +53,7 @@ export function getSavedArticles() {
     },
   }).then((res) => checkResponse(res));
 }
+
 export function removeArticle(articleId) {
   const token = localStorage.getItem('jwt');
   return fetch(baseUrl + `/articles/` + articleId, {

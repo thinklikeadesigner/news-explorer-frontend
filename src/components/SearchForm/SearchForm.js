@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Header } from '../Header/Header';
 import './SearchForm.css';
 
 function SearchForm(props) {
@@ -31,8 +30,7 @@ function SearchForm(props) {
     }
     props.onSearch(keyword);
     setTimeout(enableSearch, 1000);
-    setKeyword('')
-  
+    setKeyword('');
   }
 
   return (

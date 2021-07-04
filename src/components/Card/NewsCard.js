@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState } from 'react';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import * as saveApi from '../../utils/MainApi';
@@ -11,21 +9,18 @@ function NewsCard(props) {
   const [isCardSaved, setIsCardSaved] = useState(false);
   const [isShown, setIsShown] = useState(false);
 
-
-
-function handleRemoveClick(e) {
-  e.preventDefault();
-  if (props.cardId) {
-    setCardId(props.cardId);
-    saveApi
-      .removeArticle(props.cardId)
-      .then(() => {
-        props.onDelete(props.cardId);
-      })
-      .catch((err) => console.log(err));
+  function handleRemoveClick(e) {
+    e.preventDefault();
+    if (props.cardId) {
+      setCardId(props.cardId);
+      saveApi
+        .removeArticle(props.cardId)
+        .then(() => {
+          props.onDelete(props.cardId);
+        })
+        .catch((err) => console.log(err));
+    }
   }
-}
-
 
   function formatDate() {
     let articleDate = props.date;
@@ -51,8 +46,6 @@ function handleRemoveClick(e) {
     return formattedDate;
   }
 
-  
-
   return (
     <li className='card'>
       <div className='card__top-left_container'>
@@ -61,33 +54,24 @@ function handleRemoveClick(e) {
         </div>
       </div>
       <div className='card__top-right_container'>
-      {isShown  && (
-        <div className='card__hoverbox'>
-          <p className='card__hoverbox-text'>
-          Remove from saved
-          </p>
+        {isShown && (
+          <div className='card__hoverbox'>
+            <p className='card__hoverbox-text'>Remove from saved</p>
+          </div>
+        )}
+        <div className='card___container'></div>
+        <div
+          className='card__icon-text_container'
+          onMouseEnter={() => setIsShown(true)}
+          onMouseLeave={() => setIsShown(false)}
+        >
+          <button className={`card__delete-btn`} onClick={handleRemoveClick} />
         </div>
-      )}
-      <div className='card___container'></div>
-      <div className='card__icon-text_container'
-                onMouseEnter={() => setIsShown(true)}
-                onMouseLeave={() => setIsShown(false)}
-      >
-<button
-
-          className={`card__delete-btn`}
-          onClick={handleRemoveClick}
-          />
-
-      </div>
       </div>
       <img
-        // TEST this is a test link
-        // src='https://static.toiimg.com/photo/72975551.cms'
         src={props.image}
         className='card__pic'
-        // alt={props.name}
-        alt={'test card'}
+        alt={props.title}
       />
       <div className='card__text'>
         <p className='card__date'>{formatDate()}</p>

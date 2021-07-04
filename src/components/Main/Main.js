@@ -8,7 +8,6 @@ import { Footer } from '../Footer/Footer';
 import SearchForm from '../SearchForm/SearchForm';
 import { Navigator } from '../Navigator/Navigator';
 
-
 import {
   headerBgTransparent,
   headerTitleWhite,
@@ -20,7 +19,7 @@ import { Search } from '../Search/Search';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 export function Main(props) {
-  const currentUser = React.useContext(CurrentUserContext)
+  const currentUser = React.useContext(CurrentUserContext);
   const isMobile = useMediaQuery('(max-width: 750px)');
   const isTable = useMediaQuery('(max-width: 1140px)');
 
@@ -51,7 +50,6 @@ export function Main(props) {
     </button>
   );
 
-  
   return (
     <>
       <main className='main'>
@@ -91,18 +89,15 @@ export function Main(props) {
 
           <SearchForm onSearch={props.onSearch} />
         </div>
- {!props.noSearch &&    
+        {!props.noSearch && (
           <Search
             isSaved={props.isSaved}
             loggedIn={props.loggedIn}
             buttonType={'card__save-btn'}
           >
-           
-
-
-{props.children}
+            {props.children}
           </Search>
-        }
+        )}
 
         <About />
         <Footer />
