@@ -15,8 +15,8 @@ function checkResponse(res) {
 
 
 
-const baseUrl = 'https://newsapi.org/v2/everything';
-// const baseUrl = 'https://nomoreparties.co/news/v2/everything';
+// const baseUrl = 'https://newsapi.org/v2/everything';
+const baseUrl = 'https://nomoreparties.co/news/v2/everything';
 
 export const search = (keyword) => {
 
