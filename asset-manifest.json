@@ -1,30 +1,30 @@
 {
   "files": {
-    "main.css": "/news-explorer-frontend/main/static/css/main.5db7f1ca.chunk.css",
-    "main.js": "/news-explorer-frontend/main/static/js/main.84fa3384.chunk.js",
-    "main.js.map": "/news-explorer-frontend/main/static/js/main.84fa3384.chunk.js.map",
-    "runtime-main.js": "/news-explorer-frontend/main/static/js/runtime-main.2fe6051d.js",
-    "runtime-main.js.map": "/news-explorer-frontend/main/static/js/runtime-main.2fe6051d.js.map",
-    "static/js/2.9a9abbcc.chunk.js": "/news-explorer-frontend/main/static/js/2.9a9abbcc.chunk.js",
-    "static/js/2.9a9abbcc.chunk.js.map": "/news-explorer-frontend/main/static/js/2.9a9abbcc.chunk.js.map",
-    "static/js/3.7a67d8ec.chunk.js": "/news-explorer-frontend/main/static/js/3.7a67d8ec.chunk.js",
-    "static/js/3.7a67d8ec.chunk.js.map": "/news-explorer-frontend/main/static/js/3.7a67d8ec.chunk.js.map",
-    "index.html": "/news-explorer-frontend/main/index.html",
-    "static/css/main.5db7f1ca.chunk.css.map": "/news-explorer-frontend/main/static/css/main.5db7f1ca.chunk.css.map",
-    "static/js/2.9a9abbcc.chunk.js.LICENSE.txt": "/news-explorer-frontend/main/static/js/2.9a9abbcc.chunk.js.LICENSE.txt",
-    "static/media/About.css": "/news-explorer-frontend/main/static/media/avatar.b0b75056.png",
-    "static/media/card.css": "/news-explorer-frontend/main/static/media/saved-hover.67744314.svg",
-    "static/media/Footer.css": "/news-explorer-frontend/main/static/media/github.d45221a2.svg",
-    "static/media/InfoToolTip.css": "/news-explorer-frontend/main/static/media/success.1b6082f8.svg",
-    "static/media/Header.css": "/news-explorer-frontend/main/static/media/logout-white.96d43996.svg",
-    "static/media/SearchForm.css": "/news-explorer-frontend/main/static/media/hero.49c03fa2.png",
-    "static/media/NothingFound.css": "/news-explorer-frontend/main/static/media/nothing-found.5661906d.svg",
-    "static/media/Main.css": "/news-explorer-frontend/main/static/media/x.9981be0f.svg"
+    "main.css": "/news-explorer-frontend/static/css/main.7683f0a6.chunk.css",
+    "main.js": "/news-explorer-frontend/static/js/main.2b707fed.chunk.js",
+    "main.js.map": "/news-explorer-frontend/static/js/main.2b707fed.chunk.js.map",
+    "runtime-main.js": "/news-explorer-frontend/static/js/runtime-main.ba41c7ad.js",
+    "runtime-main.js.map": "/news-explorer-frontend/static/js/runtime-main.ba41c7ad.js.map",
+    "static/js/2.9a9abbcc.chunk.js": "/news-explorer-frontend/static/js/2.9a9abbcc.chunk.js",
+    "static/js/2.9a9abbcc.chunk.js.map": "/news-explorer-frontend/static/js/2.9a9abbcc.chunk.js.map",
+    "static/js/3.7a67d8ec.chunk.js": "/news-explorer-frontend/static/js/3.7a67d8ec.chunk.js",
+    "static/js/3.7a67d8ec.chunk.js.map": "/news-explorer-frontend/static/js/3.7a67d8ec.chunk.js.map",
+    "index.html": "/news-explorer-frontend/index.html",
+    "static/css/main.7683f0a6.chunk.css.map": "/news-explorer-frontend/static/css/main.7683f0a6.chunk.css.map",
+    "static/js/2.9a9abbcc.chunk.js.LICENSE.txt": "/news-explorer-frontend/static/js/2.9a9abbcc.chunk.js.LICENSE.txt",
+    "static/media/About.css": "/news-explorer-frontend/static/media/avatar.b0b75056.png",
+    "static/media/card.css": "/news-explorer-frontend/static/media/saved-hover.67744314.svg",
+    "static/media/Footer.css": "/news-explorer-frontend/static/media/github.d45221a2.svg",
+    "static/media/InfoToolTip.css": "/news-explorer-frontend/static/media/success.1b6082f8.svg",
+    "static/media/Header.css": "/news-explorer-frontend/static/media/logout-white.96d43996.svg",
+    "static/media/SearchForm.css": "/news-explorer-frontend/static/media/hero.49c03fa2.png",
+    "static/media/NothingFound.css": "/news-explorer-frontend/static/media/nothing-found.5661906d.svg",
+    "static/media/Main.css": "/news-explorer-frontend/static/media/x.9981be0f.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.2fe6051d.js",
+    "static/js/runtime-main.ba41c7ad.js",
     "static/js/2.9a9abbcc.chunk.js",
-    "static/css/main.5db7f1ca.chunk.css",
-    "static/js/main.84fa3384.chunk.js"
+    "static/css/main.7683f0a6.chunk.css",
+    "static/js/main.2b707fed.chunk.js"
   ]
 }
