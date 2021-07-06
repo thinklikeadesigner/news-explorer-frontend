@@ -13,11 +13,11 @@ function checkResponse(res) {
   }
 }
 
-const api = process.env.API_KEY;
 
-const baseUrl = 'https://newsapi.org/v2/everything';
-// const   baseUrl =  "http://localhost:3000";
-// const   baseUrl = process.env.NODE_ENV === 'production' ? "http://api.final-countdown.students.nomoreparties.site" : "http://localhost:3000";
+
+
+const   baseUrl = process.env.NODE_ENV === 'production' ? "https://nomoreparties.co/news/v2/everything" : "https://newsapi.org/v2/everything";
+
 export const search = (keyword) => {
 
   var today = new Date();
@@ -29,17 +29,6 @@ export const search = (keyword) => {
   }
   ).then((res) => checkResponse(res)).then((res) => res.articles);
   };
-  // return fetch( 'https://datausa.io/api/data?drilldowns=Nation&measures=' + keyword
-  //  {
-    
-  // headers: {
-      // Accept: 'application/json',
-      // 'Content-Type': 'application/json',
-      // Authorization: 'af2333dae49940699539bd20bbcb969a',
-    // },
-
-
-// https://newsapi.org/v2/everything?q=dog&from=2021-06-17T05:00:00.000Z&to=2021-06-24T23:53:26.089Z&sortBy=popularity&apiKey=af2333dae49940699539bd20bbcb969a
-
+  
 
 

@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3000';
+const   baseUrl = process.env.NODE_ENV === 'production' ? "https://morning-paper.students.nomoreparties.site" : "http://localhost:3000";
 
 function checkResponse(res) {
   if (res.ok) {
@@ -22,7 +22,7 @@ export function saveArticle({
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZGQxZGFjMjEwNjExMGFjYzM5YzlkZSIsImlhdCI6MTYyNTM1OTUzNywiZXhwIjoxNjI1OTY0MzM3fQ.vg0N5pdo2evP7d4u3kubbwr_DLf4vjs28aL0mzufKB4`,
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
     },
     method: 'POST',
     body: JSON.stringify({
@@ -50,7 +50,7 @@ export function getSavedArticles() {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZGQxZGFjMjEwNjExMGFjYzM5YzlkZSIsImlhdCI6MTYyNTM1OTUzNywiZXhwIjoxNjI1OTY0MzM3fQ.vg0N5pdo2evP7d4u3kubbwr_DLf4vjs28aL0mzufKB4`,
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
     },
   }).then((res) => checkResponse(res));
 }
@@ -59,7 +59,7 @@ export function removeArticle(articleId) {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZGQxZGFjMjEwNjExMGFjYzM5YzlkZSIsImlhdCI6MTYyNTM1OTUzNywiZXhwIjoxNjI1OTY0MzM3fQ.vg0N5pdo2evP7d4u3kubbwr_DLf4vjs28aL0mzufKB4`,
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
     },
     method: 'DELETE',
   }).then((res) => {
