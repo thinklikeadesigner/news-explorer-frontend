@@ -22,7 +22,6 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 export function Main(props) {
   const currentUser = React.useContext(CurrentUserContext)
   const isMobile = useMediaQuery('(max-width: 750px)');
-  const isTable = useMediaQuery('(max-width: 1140px)');
 
   const savedArticles = props.loggedIn ? (
     <Link

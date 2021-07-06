@@ -4,12 +4,14 @@ import React, { useEffect, useState } from 'react';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import * as saveApi from '../../utils/MainApi';
 import './card.css';
+import { useMediaQuery } from '../../utils/hooks/mediaquery';
 import CardButton from './CardButton/CardButton';
 
 function NewsCard(props) {
   const [cardId, setCardId] = useState('');
   const [isCardSaved, setIsCardSaved] = useState(false);
   const [isShown, setIsShown] = useState(false);
+  const isMobile = useMediaQuery('(max-width: 750px)');
 
 
 
@@ -61,7 +63,7 @@ function handleRemoveClick(e) {
         </div>
       </div>
       <div className='card__top-right_container'>
-      {isShown  && (
+      {isShown && !isMobile && (
         <div className='card__hoverbox'>
           <p className='card__hoverbox-text'>
           Remove from saved

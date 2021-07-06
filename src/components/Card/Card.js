@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import React, { useState } from 'react';
 import * as saveApi from '../../utils/MainApi';
+import { useMediaQuery } from '../../utils/hooks/mediaquery'; 
 import './card.css';
-import CardButton from './CardButton/CardButton';
 
 function Card(props) {
   const [cardId, setCardId] = useState('');
   const [isCardSaved, setIsCardSaved] = useState(false);
   const [isShown, setIsShown] = useState(false);
   // const [isSaved, setIsSaved] = useState(false);
+  const isMobile = useMediaQuery('(max-width: 750px)');
 
 
 
@@ -66,7 +66,7 @@ function Card(props) {
     } ${date.getDate()},  ${date.getFullYear()}`;
     return formattedDate;
   }
-
+  
   return (
     <li className='card'>
       <div className='card__top-left_container'>
@@ -75,7 +75,7 @@ function Card(props) {
         </div>
       </div>
       <div className='card__top-right_container'>
-        {isShown && !props.loggedIn && (
+        {isShown && !props.loggedIn && !isMobile && (
           <div className='card__hoverbox'>
             <p className='card__hoverbox-text'>Sign in to save articles</p>
           </div>

@@ -13,19 +13,15 @@ import {
   hamburgerBlack,
 } from '../../utils/constants/constants.js';
 import './SavedNewsPage.css';
-import * as articles from '../../utils/MainApi';
-import { CardsList } from '../CardsList/CardsList';
 import { NewsCardsList } from '../CardsList/NewsCardsList';
 import { SavedArticles } from '../SavedArticles/SavedArticles';
 
 function SavedNewsPage(props) {
   const currentUser = React.useContext(CurrentUserContext);
   const isMobile = useMediaQuery('(max-width: 750px)');
-  const isTable = useMediaQuery('(max-width: 1140px)');
   const [savedCards, setSavedCards] = useState([]);
   const [length, setLength] = useState(0);
 
-let cardsLength = 0;
   useEffect(() => {
 
     saveApi

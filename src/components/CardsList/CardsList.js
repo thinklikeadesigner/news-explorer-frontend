@@ -20,17 +20,10 @@ export function CardsList(props) {
         setIsButtonVisible(true);
       }
 
-  }, [count]);
+  }, [props.cards, count]);
 
 
 
-  function handleDelete(cardID) {
-    // console.log('new cards', cardID)
-    const newCards = props.savedCards.filter((c) =>  c._id !== cardID );
-    props.setSavedCards(newCards)
-    // console.log('new cards', newCards)
-  
-  }
   
 
   return (

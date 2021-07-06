@@ -23,9 +23,7 @@ export const search = (keyword) => {
   var today = new Date();
   var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
 
-  return fetch( baseUrl
-     + '?q=' + keyword  + '&from=' + lastWeek +  '&to=' + today + '&' + 'sortBy=popularity'
-   + '&pageSize=100&apiKey=' + newsApi, {
+  return fetch( `${baseUrl}?q=${keyword}&from=${lastWeek}&to${today}&sortBy=popularity&pageSize=100&apiKey=${newsApi}`, {
   }
   ).then((res) => checkResponse(res)).then((res) => res.articles);
   };
