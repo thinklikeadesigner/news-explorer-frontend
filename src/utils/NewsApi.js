@@ -1,7 +1,7 @@
 
 
 
-import {newsApi} from '../utils/constants/constants';
+import {apiKey} from '../utils/constants/constants';
 
 
 
@@ -12,11 +12,11 @@ function checkResponse(res) {
     Promise.reject('Error!' + res.statusText);
   }
 }
-const API_KEY = process.env.API_KEY;
-// const api = process.env.API_KEY;
 
-// const baseUrl = 'https://newsapi.org/v2/everything';
-const baseUrl = 'https://nomoreparties.co/news/v2/everything';
+
+
+const baseUrl = 'https://newsapi.org/v2/everything';
+// const baseUrl = 'https://nomoreparties.co/news/v2/everything';
 
 export const search = (keyword) => {
 
@@ -25,7 +25,7 @@ export const search = (keyword) => {
 
   return fetch( baseUrl
      + '?q=' + keyword  + '&from=' + lastWeek +  '&to=' + today + '&' + 'sortBy=popularity'
-   + '&pageSize=100&apiKey=' + API_KEY, {
+   + '&pageSize=100&apiKey=' + apiKey, {
   }
   ).then((res) => checkResponse(res)).then((res) => res.articles);
   };

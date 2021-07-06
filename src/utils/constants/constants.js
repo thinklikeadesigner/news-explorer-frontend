@@ -10,6 +10,7 @@ const hamburgerBlack = 'header__icon_hamburger_black';
 const hamburgerWhite = 'header__icon_hamburger_white';
 const iconX = 'header__icon_x';
 const noButton = 'header__button_hidden';
+const apiKey = 'af2333dae49940699539bd20bbcb969a';
 
 export {
   headerBgBlack,
@@ -24,4 +25,5 @@ export {
   hamburgerWhite,
   hiddenNavDrawer,
   showNavDrawer,
+  apiKey
 };
