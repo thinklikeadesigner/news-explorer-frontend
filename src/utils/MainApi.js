@@ -1,5 +1,5 @@
 // const baseUrl = 'http://localhost:3000';
-const baseUrl = 'http://api.morning-paper.students.nomoreparties.site';
+const baseUrl = 'https://morning-paper.students.nomoreparties.site';
 
 function checkResponse(res) {
   if (res.ok) {

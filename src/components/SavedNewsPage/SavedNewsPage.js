@@ -32,7 +32,10 @@ let cardsLength = 0;
       .getSavedArticles()
       .then((res) => {
         setSavedCards(res);
-    setLength(res.length);
+        if(res) {
+          setLength(res.length);
+        }
+    
       })
       .catch((err) => console.log(err));
   }, [length]);
@@ -126,7 +129,7 @@ let cardsLength = 0;
           </h1>
           <p className='saved-news__keywords'>
             By keywords:{' '}
-            <span className='saved-news__keywords_span'>{getKeywords()}</span>
+            <span className='saved-news__keywords_span'>{savedCards ? getKeywords() : null}</span>
           </p>
         </div>
 
