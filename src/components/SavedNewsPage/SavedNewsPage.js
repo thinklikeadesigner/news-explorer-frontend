@@ -97,7 +97,7 @@ function SavedNewsPage(props) {
           <Header headerTitle={headerTitleBlack} headerBg={headerBgWhite}>
             <Link
               onClick={props.onHomeClick}
-              to='/main'
+              to='/'
               className={`header__home header__home_black`}
             >
               Home
