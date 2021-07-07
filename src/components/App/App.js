@@ -165,7 +165,7 @@ function App() {
   function handleLogOut() {
     console.log('logged out');
     localStorage.removeItem('token');
-    history.push('/');
+    history.push('/main');
     setLoggedIn(false);
     setCurrentUser({});
     closeAllPopups();
@@ -241,7 +241,7 @@ function App() {
         })
         .then(setLoggedIn(true))
         .then(() => {
-          history.push('/');
+          history.push('/main');
         })
         .catch((err) => {
           console.log(err.message);
@@ -254,7 +254,7 @@ function App() {
     console.log(token)
 
     if (token) {
-      history.push('/');
+      history.push('/main');
     }
   }, [history]);
 console.log('user', currentUser.name)
@@ -263,7 +263,7 @@ console.log('user', currentUser.name)
     <div className='app'>
       <CurrentUserContext.Provider value={currentUser}>
         <Switch>
-          <Route path='/'>
+          <Route path='/main'>
             <Main
 
 noSearch={noSearch}
@@ -297,7 +297,7 @@ noSearch={noSearch}
           </Route>
   
 
-          <Route path='/saved-news-page'>
+          <Route path='/savedNewsPage'>
             
             <ProtectedRoute
               isSaved={isSavedNewsPage}
@@ -313,9 +313,9 @@ noSearch={noSearch}
           </Route>
           <Route exact path='/'>
             {loggedIn ? (
-              <Redirect to='/saved-news-page' />
+              <Redirect to='/savedNewsPage' />
             ) : (
-              <Redirect to='/' />
+              <Redirect to='/main' />
             )}
           </Route>
           <Route path="/*">

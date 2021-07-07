@@ -10,19 +10,19 @@ import {
 export function Navigator(props) {
   const navBarLink = props.loggedIn ? (
     <>
-      <Link onClick={props.onClose} to='/' className={`navigator__link`}>
+      <Link onClick={props.onClose} to='/main' className={`navigator__link`}>
         Home
       </Link>
       <Link
         onClick={props.onClose}
-        to='/saved-news-page'
+        to='/savedNewsPage'
         className={`navigator__link navigator__link_bottom`}
       >
         Saved articles
       </Link>
     </>
   ) : (
-    <Link onClick={props.onClose} to='/' className={`navigator__link `}>
+    <Link onClick={props.onClose} to='/main' className={`navigator__link `}>
       Home
     </Link>
   );
