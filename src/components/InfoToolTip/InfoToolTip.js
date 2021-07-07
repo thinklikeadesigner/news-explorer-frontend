@@ -20,7 +20,7 @@ export function InfoToolTip(props) {
             <>
               <h1 className='infotooltip__message'>
                 {' '}
-                "Registration successfully completed."{' '}
+                Registration successfully completed.
               </h1>
               <Link
                 onClick={props.onSignIn}

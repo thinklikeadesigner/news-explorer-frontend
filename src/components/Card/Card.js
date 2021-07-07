@@ -95,6 +95,8 @@ function Card(props) {
           />
         </div>
       </div>
+      <a href={props.link} target='_blank' rel="noopener noreferrer">
+
       <img
         // TEST this is a test link
         // src='https://static.toiimg.com/photo/72975551.cms'
@@ -102,13 +104,14 @@ function Card(props) {
         className='card__pic'
         // alt={props.name}
         alt={'test card'}
-      />
-      <div className='card__text'>
+        />
+        </a>
+      <a href={props.link} target='_blank' rel="noopener noreferrer" className='card__text'>
         <p className='card__date'>{formatDate()}</p>
         <h2 className='card__title'>{props.title}</h2>
         <p className='card__paragraph'>{props.text}</p>
         <p className='card__source'>{props.source}</p>
-      </div>
+      </a >
     </li>
   );
 }

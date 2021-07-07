@@ -118,6 +118,8 @@ position: relative;
   &__text {
     height: 100%;
     display: flex;
+    text-decoration: none;
+    color: inherit;
     flex-direction: column;
     box-sizing: border-box;
     padding: 20px 24px 24px;

@@ -91,12 +91,12 @@ function handleRemoveClick(e) {
         // alt={props.name}
         alt={'test card'}
       />
-      <div className='card__text'>
+      <a href={props.link} target='_blank' rel="noopener noreferrer" className='card__text'>
         <p className='card__date'>{formatDate()}</p>
         <h2 className='card__title'>{props.title}</h2>
         <p className='card__paragraph'>{props.text}</p>
         <p className='card__source'>{props.source}</p>
-      </div>
+      </a>
     </li>
   );
 }
