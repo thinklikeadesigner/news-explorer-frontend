@@ -111,7 +111,6 @@
 .card__icon-text_container:hover {
   background-color: #e8e8e8;
   cursor: pointer;
-  /* background-image: url("../../images/saved-hover.svg"); */
 }
 
 .card__save-btn {
@@ -194,6 +193,9 @@
   line-height: 30px;
   color: #1A1B22;
   margin-bottom: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card__paragraph {
@@ -207,7 +209,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -221,6 +223,8 @@
   color: #B6BCBF;
   letter-spacing: 0.4px;
   text-transform: uppercase;
+  position: absolute;
+  bottom: 20px;
 }
 
 @media screen and (max-width: 1140px) {
@@ -253,15 +257,14 @@
     margin-bottom: 10px;
     font-size: 22px;
     line-height: 24px;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
   }
   .card__paragraph {
     margin-bottom: 12px;
     display: -webkit-box;
     -webkit-line-clamp: 4;
+  }
+  .card__source {
+    bottom: 16px;
   }
 }
 
@@ -295,10 +298,6 @@
     margin-bottom: 20px;
     font-size: 22px;
     line-height: 24px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
   }
   .card__paragraph {
     margin-bottom: 14px;
