@@ -311,7 +311,7 @@ noSearch={noSearch}
               signInRedirect={handleSignInClick}
             />
           </Route>
-          <Route exact path='/main'>
+          <Route exact path='/'>
             {loggedIn ? (
               <Redirect to='/savedNewsPage' />
             ) : (
