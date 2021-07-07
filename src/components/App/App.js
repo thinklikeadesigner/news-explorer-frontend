@@ -66,6 +66,13 @@ function App() {
     
   }
 
+  function handleInfoToolSignIn() {
+    setIsPopupOpen(true);
+    setIsLoginPopupOpen(true);
+    setIsRegisterPopupOpen(false);
+    setIsInfoToolTipOpen(false);
+  }
+
   function handleSwitchToRegister(e) {
     e.preventDefault();
     setIsPopupOpen(true);
@@ -129,6 +136,7 @@ function App() {
       .register(email, password, name)
       .then((res) => {
         setSuccess(true);
+        setIsRegisterPopupOpen(false);
         setMessage('Success! You have now been registered.');
         handleInfoToolTip();
 
@@ -334,6 +342,7 @@ noSearch={noSearch}
           isOpen={isInfoToolTipOpen}
           isItSuccess={isSuccess}
           onClose={closeAllPopups}
+          onSignIn={handleInfoToolSignIn}
           message={message}
         />
       </CurrentUserContext.Provider>

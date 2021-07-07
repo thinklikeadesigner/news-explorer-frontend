@@ -3,7 +3,11 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { Link } from 'react-router-dom';
 import './InfoToolTip.css';
 
+
 export function InfoToolTip(props) {
+
+
+
   return (
     <div
       className={`modal modal_type_${props.name} ${
@@ -19,7 +23,7 @@ export function InfoToolTip(props) {
                 "Registration successfully completed."{' '}
               </h1>
               <Link
-                onClick={props.onClose}
+                onClick={props.onSignIn}
                 className='infotooltip__link'
                 to='main'
               >
