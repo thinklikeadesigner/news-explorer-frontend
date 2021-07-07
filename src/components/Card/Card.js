@@ -69,11 +69,11 @@ function Card(props) {
   
   return (
     <li className='card'>
-      <div className='card__top-left_container'>
+      {/* <div className='card__top-left_container'>
         <div className='card__tag_container'>
           <p className='card__tag_text'>{props.keyword}</p>
         </div>
-      </div>
+      </div> */}
       <div className='card__top-right_container'>
         {isShown && !props.loggedIn && !isMobile && (
           <div className='card__hoverbox'>
