@@ -15,6 +15,7 @@ export function Navigator(props) {
       </Link>
       <Link
         onClick={props.onClose}
+        
         to='/savedNewsPage'
         className={`navigator__link navigator__link_bottom`}
       >

@@ -116,7 +116,7 @@ function App() {
       })
       // .then(resetForm)
       .then(() => {
-        history.push('/');
+        history.push('/main');
         closeAllPopups();
       })
       .catch(() => {
@@ -143,7 +143,7 @@ function App() {
         return res;
       })
       // .then(resetForm)
-      .then(history.push('/login'))
+      
       .catch((res) => {
         if (res.status === 400) {
           setMessage('One of the fields was filled in incorrectly');
@@ -311,7 +311,7 @@ noSearch={noSearch}
               signInRedirect={handleSignInClick}
             />
           </Route>
-          <Route exact path='/'>
+          <Route exact path='/main'>
             {loggedIn ? (
               <Redirect to='/savedNewsPage' />
             ) : (
