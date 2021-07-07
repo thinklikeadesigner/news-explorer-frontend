@@ -12,7 +12,7 @@ console.log('cards are saved',props.savedCards)
 
   return (
     <>
-     <h2 className='search__title'>Search results</h2>
+     
       <section className='cards'>
         <ul className='cards__list'>
           {props.savedCards ? props.savedCards.map((card, index) => {
