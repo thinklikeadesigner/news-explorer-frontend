@@ -1,80 +1,89 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch, useHistory, Redirect } from 'react-router-dom';
-
+import { CardsList } from '../CardsList/CardsList';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import * as api from '../../utils/api';
+import * as api from '../../utils/NewsApi';
 import * as auth from '../../utils/auth';
 import InfoToolTip from '../InfoToolTip/InfoToolTip';
-
-import { NewRegister } from '../NewRegister/NewRegister';
+import { NothingFound } from '../NothingFound/NothingFound';
+import { Preloader } from '../Preloader/Preloader';
+import { NewRegister } from '../Popup/NewRegister/NewRegister';
 import { Popup } from '../Popup/Popup';
-import { NewLogin } from '../NewLogin/NewLogin';
+import { NewLogin } from '../Popup/NewLogin/NewLogin';
 import { Main } from '../Main/Main';
 import SavedNewsPage from '../SavedNewsPage/SavedNewsPage';
+import {ProtectedRoute} from '../../components/HOC/ProtectedRoute';
 import './App.css';
 
 function App() {
   const history = useHistory();
-
+  const jwt = localStorage.getItem('token');
   const [cards, setCards] = useState([]);
   const [selectedCard, setSelectedCard] = useState(false);
-
+  
   const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false);
   const [isRegisterPopupOpen, setIsRegisterPopupOpen] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-
+  
   const [currentUser, setCurrentUser] = useState({});
-
+  
   const [loggedIn, setLoggedIn] = useState(false);
-
+  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
-
+  
   const [message, setMessage] = useState('');
   const [isInfoToolTipOpen, setIsInfoToolTipOpen] = useState(false);
   const [isSuccess, setSuccess] = useState(false);
   
   const [isNavOpen, setIsNavOpen] = useState(true);
   const [isSavedNewsPage, setIsSavedNewsPage] = useState(false);
-
-  function handleSavedNewsClick()
-  {
+  
+  console.log('jwt', jwt);
+  function handleSavedNewsClick() {
     setIsSavedNewsPage(true);
+    setCards([]);
+    setResults(false);
+    setNoSearch(true);
   }
 
   function handleHomeClick() {
     setIsSavedNewsPage(false);
   }
 
-
   function handleNavOpen(e) {
     e.preventDefault();
     setIsNavOpen(!isNavOpen);
   }
 
-  function resetForm() {
-    setEmail('');
-    setPassword('');
-    setName('');
-    setMessage('');
-  }
+
 
   function handleSignInClick() {
     setIsPopupOpen(true);
     setIsLoginPopupOpen(true);
+    setIsRegisterPopupOpen(false);
+    
+  }
+
+  function handleInfoToolSignIn() {
+    setIsPopupOpen(true);
+    setIsLoginPopupOpen(true);
+    setIsRegisterPopupOpen(false);
+    setIsInfoToolTipOpen(false);
   }
 
   function handleSwitchToRegister(e) {
     e.preventDefault();
-    console.log(isLoginPopupOpen);
+    setIsPopupOpen(true);
     setIsLoginPopupOpen(false);
-    console.log(isLoginPopupOpen);
-    console.log('register');
+    setIsRegisterPopupOpen(true);
   }
   function handleSwitchToLogin(e) {
     e.preventDefault();
     setIsLoginPopupOpen(true);
+    setIsRegisterPopupOpen(false);
+    setIsPopupOpen(true);
   }
 
   //NOTE card functions
@@ -83,114 +92,71 @@ function App() {
     setSelectedCard(card);
   }
 
-  function handleCardLike(card) {
-    //NOTE here it has to be card._id
-    const isLiked = card.likes?.some((i) => i._id === currentUser.id);
-
-    api
-      .changeCardLikeStatus(card._id, !isLiked)
-      .then((newCard) => {
-        const newCards = cards.map((c) => (c._id === card._id ? newCard : c));
-        setCards(newCards);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }
-
-  function handleCardDelete(card) {
-    api
-      .removeCard(card._id)
-      .then(() => {
-        const oldCards = [...cards];
-
-        const filteredCards = oldCards.filter(
-          (oldCard) => oldCard._id !== card._id
-        );
-        setCards(filteredCards);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }
-
-  function handleUpdateCard(card) {
-    api
-      .addCard(card)
-      .then((newCard) => setCards([newCard, ...cards]))
-      .then(closeAllPopups)
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }
 
   //NOTE sign up log in functions
 
-  const handleLoginSubmit = (e) => {
-    e.preventDefault();
-    setLoggedIn(true);
-    closeAllPopups();
-    // console.log(isSuccess);
-    // if (!email || !password) {
-    //   setMessage('400 - one or more of the fields were not provided');
-    //   setSuccess(false);
-    //   handleInfoToolTip();
-    // }
-    // auth
-    //   .authorize(email, password)
-    //   .then((user) => {
-    //     setLoggedIn(true);
-    //   })
-    //   .then(resetForm)
-    //   .then(() => {
-    //     history.push('/login');
-    //   })
-    //   .catch(() => {
-    //     setSuccess(false);
-    //     setMessage('Oops, something went wrong! Please try again.');
-    //     handleInfoToolTip();
-    //   });
+  const handleLoginSubmit = ({ email, password }) => {
+    setCards([]);
+    setNoSearch(true);
+    setResults(false);
+    console.log(isSuccess);
+    if (!email || !password) {
+      setMessage('400 - one or more of the fields were not provided');
+      setSuccess(false);
+      handleInfoToolTip();
+      console.log('no email or password');
+    }
+    auth
+      .authorize(email, password)
+      .then((user) => {
+        setLoggedIn(true);
+        
+        setCurrentUser(user);
+        console.log('user', user);
+      })
+      // .then(resetForm)
+      .then(() => {
+        history.push('/main');
+        closeAllPopups();
+      })
+      .catch(() => {
+        setSuccess(false);
+        setMessage('Oops, something went wrong! Please try again.');
+        handleInfoToolTip();
+      });
   };
 
-  const handleRegisterSubmit = (e) => {
-    e.preventDefault();
-    setLoggedIn(true);
-    closeAllPopups();
-    // if (!password || !email || !name) {
-    //   return;
-    // }
-    // auth
-    //   .register(email, password, name)
-    //   .then((res) => {
-    //     setSuccess(true);
-    //     setMessage('Success! You have now been registered.');
-    //     handleInfoToolTip();
-    //     return res;
-    //   })
-    //   .then(resetForm)
-    //   .then(history.push('/login'))
-    //   .catch((res) => {
-    //     if (res.status === 400) {
-    //       setMessage('One of the fields was filled in incorrectly');
-    //       setSuccess(false);
-    //       handleInfoToolTip();
-    //     } else if (res.status === 403) {
-    //       setMessage('This user already exists!');
-    //       setSuccess(false);
-    //       handleInfoToolTip();
-    //     }
-    //   });
+  const handleRegisterSubmit = ({ email, password, name }) => {
+    if (!password || !email || !name) {
+      console.log('no email or password');
+      console.log(email);
+      return;
+    }
+    auth
+      .register(email, password, name)
+      .then((res) => {
+        setSuccess(true);
+        setIsRegisterPopupOpen(false);
+        setMessage('Success! You have now been registered.');
+        handleInfoToolTip();
+
+        return res;
+      })
+      // .then(resetForm)
+      
+      .catch((res) => {
+        if (res.status === 400) {
+          setMessage('One of the fields was filled in incorrectly');
+          setSuccess(false);
+          handleInfoToolTip();
+        } else if (res.status === 403) {
+          setMessage('This user already exists!');
+          setSuccess(false);
+          handleInfoToolTip();
+        }
+      });
   };
   console.log('app logged in?', loggedIn);
-  function handleSetPassword(e) {
-    setPassword(e.target.value);
-  }
-  function handleSetEmail(e) {
-    setEmail(e.target.value);
-  }
-  function handleSetName(e) {
-    setName(e.target.value);
-  }
 
   function handleInfoToolTip() {
     setIsInfoToolTipOpen(true);
@@ -201,7 +167,11 @@ function App() {
     localStorage.removeItem('token');
     history.push('/main');
     setLoggedIn(false);
+    setCurrentUser({});
     closeAllPopups();
+    setCards([]);
+    setResults(false);
+    setNoSearch(true);
   }
 
   function closeAllPopups() {
@@ -211,6 +181,47 @@ function App() {
     setIsRegisterPopupOpen(false);
     setIsPopupOpen(false);
     setIsNavOpen(true);
+    setCards([]);
+    setResults(false);
+    setNoSearch(true);
+  }
+
+  const [keyword, setKeyword] = useState('');
+  const [noResults, setNoResults] = useState(true);
+  const [resultError, setResultError] = useState(false);
+  const [results, setResults] = useState(false);
+  const [noSearch, setNoSearch] = useState(true);
+  const [loading, setLoading] = useState(true);
+
+  function handleSearchSubmit(keyword) {
+    setNoSearch(false);
+    setKeyword(keyword);
+    console.log('hello');
+    setNoResults(false);
+    setResultError(false);
+    setResults(false);
+    setLoading(true);
+    api
+      .search(keyword)
+      .then((res) => {
+        console.log(res);
+        setCards(res);
+        // console.log('cards', cards);
+        setLoading(false);
+        console.log('length', res.length)
+        if (res.length === 0) {
+          setNoResults(true);
+        } else {
+          setNoResults(false);
+          setResults(true);
+        }
+      })
+
+      .catch((err) => {
+        setLoading(false);
+        setResultError(true);
+        console.log(err);
+      });
   }
 
   useEffect(() => {
@@ -218,6 +229,7 @@ function App() {
     if (token) {
       console.log('token', token);
       console.log('has token', token);
+
       auth
         .getContent(token)
         .then((res) => {
@@ -234,26 +246,18 @@ function App() {
         .catch((err) => {
           console.log(err.message);
         });
-
-      // api
-      //   .getCardList()
-      //   .then((res) => {
-      //     setCards(res);
-      //   })
-      //   .catch((err) => {
-      //     console.log(err.message);
-      //   });
     }
   }, [history, loggedIn]);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
+    console.log(token)
+
     if (token) {
-      history.push('/login');
+      history.push('/main');
     }
   }, [history]);
-
-  
+console.log('user', currentUser.name)
 
   return (
     <div className='app'>
@@ -261,34 +265,50 @@ function App() {
         <Switch>
           <Route path='/main'>
             <Main
-            isSaved={isSavedNewsPage}
+
+noSearch={noSearch}
+              onSearch={handleSearchSubmit}
+              isSaved={isSavedNewsPage}
               isOpen={isNavOpen}
               loggedIn={loggedIn}
               cards={cards}
               component={Main}
-              onCardClick={handleCardClick}
-              onCardDelete={handleCardDelete}
-              onCardLike={handleCardLike}
               onLogOut={handleLogOut}
               onSignIn={handleSignInClick}
               onNavBarClick={handleNavOpen}
               onSavedNewsClick={handleSavedNewsClick}
               onClose={closeAllPopups}
+              keyword={keyword}
+            >
               
-            ></Main>
+            {noResults && <NothingFound noResults={true}  resultError={false}/> }
+{/* <Preloader /> */}
+
+ {results &&           <CardsList
+              cards={cards}
+              keyword={keyword}
+    
+              loggedIn={loggedIn}
+            />}
+{loading && <Preloader /> }
+
+{resultError && <NothingFound noResults={false}  resultError={true} />}
+            </Main>
           </Route>
-          {/* <ProtectedRoute
-          ></ProtectedRoute> */}
+  
 
           <Route path='/savedNewsPage'>
-            <SavedNewsPage
-                        isSaved={isSavedNewsPage}
+            
+            <ProtectedRoute
+              isSaved={isSavedNewsPage}
               onLogOut={handleLogOut}
+              component={SavedNewsPage}
               onNavBarClick={handleNavOpen}
               isOpen={isNavOpen}
               onHomeClick={handleHomeClick}
               loggedIn={loggedIn}
               onClose={closeAllPopups}
+              signInRedirect={handleSignInClick}
             />
           </Route>
           <Route exact path='/'>
@@ -298,35 +318,31 @@ function App() {
               <Redirect to='/main' />
             )}
           </Route>
+          <Route path="/*">
+          <Redirect to="/" />
+        </Route>
         </Switch>
-        <Popup
-          isOpen={isPopupOpen}
-          message={message}
-          onSetEmail={handleSetEmail}
-          onSetPassword={handleSetPassword}
-          onSetName={handleSetName}
+
+        {console.log('log', isLoginPopupOpen)}
+        <NewLogin
+          isLoginPopupOpen={isLoginPopupOpen}
+          handleSubmit={handleLoginSubmit}
           onClose={closeAllPopups}
-        >
-          {isLoginPopupOpen ? (
-      
-            <NewLogin
-              // isOpen={isLoginPopupOpen}
-              onLogin={handleLoginSubmit}
-              onSwitchToRegister={handleSwitchToRegister}
-            />
-          ) : (
-            <NewRegister
-            // isOpen={isRegisterPopupOpen}
-            onRegister={handleRegisterSubmit}
-            onSwitchToLogin={handleSwitchToLogin}
-          ></NewRegister>
-          )}
-        </Popup>
+          linkClick={handleSwitchToRegister}
+        />
+
+        <NewRegister
+          isRegisterPopupOpen={isRegisterPopupOpen}
+          handleSubmit={handleRegisterSubmit}
+          onClose={closeAllPopups}
+          linkClick={handleSwitchToLogin}
+        ></NewRegister>
 
         <InfoToolTip
           isOpen={isInfoToolTipOpen}
           isItSuccess={isSuccess}
           onClose={closeAllPopups}
+          onSignIn={handleInfoToolSignIn}
           message={message}
         />
       </CurrentUserContext.Provider>

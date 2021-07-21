@@ -10,4 +10,5 @@ const hamburgerBlack = 'header__icon_hamburger_black';
 const hamburgerWhite = 'header__icon_hamburger_white';
 const iconX = 'header__icon_x';
 const noButton = 'header__button_hidden';
-export {headerBgBlack, headerBgTransparent, noButton, iconX, headerBgWhite, headerTitleBlack, headerTitleWhite, hamburger, hamburgerBlack, hamburgerWhite, hiddenNavDrawer, showNavDrawer };
+const newsApi = 'af2333dae49940699539bd20bbcb969a';
+export {headerBgBlack, headerBgTransparent, newsApi, noButton, iconX, headerBgWhite, headerTitleBlack, headerTitleWhite, hamburger, hamburgerBlack, hamburgerWhite, hiddenNavDrawer, showNavDrawer };

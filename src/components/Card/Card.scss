@@ -90,6 +90,9 @@
     &:active {
       background-image: url('../../images/saved-blue.svg');
     }
+    &_saved {
+      background-image: url('../../images/saved-blue.svg');
+    }
   }
   &__delete-btn {
 width: 24px;
@@ -115,6 +118,8 @@ position: relative;
   &__text {
     height: 100%;
     display: flex;
+    text-decoration: none;
+    color: inherit;
     flex-direction: column;
     box-sizing: border-box;
     padding: 20px 24px 24px;
@@ -136,7 +141,11 @@ position: relative;
     line-height: 30px;
     color: $primary-text-color;
     margin-bottom: 16px;
-  }
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
   &__paragraph {
     font-family: Roboto, arial, 'sans serif';
     font-style: normal;
@@ -146,7 +155,7 @@ position: relative;
     color: $primary-text-color;
     margin-bottom: 18px;
     display: flex;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -159,6 +168,8 @@ position: relative;
     color: $secondary-text-color;
     letter-spacing: 0.4px;
     text-transform: uppercase;
+    position: absolute;
+    bottom:20px;
   }
 }
 
@@ -191,15 +202,14 @@ position: relative;
       margin-bottom: 10px;
       font-size: 22px;
       line-height: 24px;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
     }
     &__paragraph {
       margin-bottom: 12px;
       display: -webkit-box;
       -webkit-line-clamp: 4;
+    }
+    &__source {
+      bottom: 16px;
     }
   }
 }
@@ -233,10 +243,7 @@ position: relative;
       margin-bottom: 20px;
       font-size: 22px;
       line-height: 24px;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+
     }
     &__paragraph {
       margin-bottom: 14px;

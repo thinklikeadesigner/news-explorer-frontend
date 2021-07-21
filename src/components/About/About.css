@@ -20,6 +20,7 @@
   max-width: 464px;
   -o-object-fit: cover;
      object-fit: cover;
+  border-radius: 50%;
 }
 
 .about__text {

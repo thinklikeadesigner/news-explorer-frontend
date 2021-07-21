@@ -1,90 +1,118 @@
-import React from 'react';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-// import TrashCan  from '../Delete/Delete.js';
-// import Save  from '../Save/Save.js';
+import React, { useState } from 'react';
+import * as saveApi from '../../utils/MainApi';
+import { useMediaQuery } from '../../utils/hooks/mediaquery'; 
 import './card.css';
-import CardButton from './CardButton/CardButton';
 
 function Card(props) {
-  function handleClick() {
-    props.onCardClick(props.card);
+  const [cardId, setCardId] = useState('');
+  const [isCardSaved, setIsCardSaved] = useState(false);
+  const [isShown, setIsShown] = useState(false);
+  // const [isSaved, setIsSaved] = useState(false);
+  const isMobile = useMediaQuery('(max-width: 750px)');
+
+
+
+  function handleSaveClick(e) {
+    console.log(cardId);
+    e.preventDefault();
+    if (isCardSaved) {
+      
+        saveApi
+          .removeArticle(cardId)
+          .then(() => {
+            setIsCardSaved(false);
+          })
+          .catch((err) => console.log(err));
+      
+    } else {
+      saveApi
+        .saveArticle({
+          keyword: props.keyword,
+          title: props.title,
+          text: props.text,
+          date: props.date,
+          source: props.source,
+          link: props.link,
+          image: props.image,
+        })
+        .then((res) => {
+          setCardId(res._id);
+          setIsCardSaved(true);
+        });
+    }
   }
 
-  function handleLikeClick() {
-    props.onCardLike(props.card);
+
+  function formatDate() {
+    let articleDate = props.date;
+    const months = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
+    let noTime = articleDate?.slice(0, 10);
+    let date = new Date(noTime);
+    let formattedDate = `${
+      months[date.getMonth()]
+    } ${date.getDate()},  ${date.getFullYear()}`;
+    return formattedDate;
   }
-
-  function handleDeleteClick() {
-    props.onCardDelete(props.card);
-  }
-
-  // const currentUser = React.useContext(CurrentUserContext);
-
-  // const isOwn = props.card.owner === currentUser._id;
-
-  // const cardDeleteButtonClassName = `card__delete-btn ${
-  //   isOwn ? "card_show-delete-btn card_show-delete-btn" : "card__delete-btn"
-  // }`;
-
-  // const isLiked = props.card.likes?.some((i) =>
-  //  i._id === currentUser.id
-  // );
-
-  // const cardLikeButtonClassName = `card__heart ${
-  //   isLiked ? " card__heart_active" : "card__heart"
-  // }`;
-  console.log('cards 1 ', props.isSaved);
+  
   return (
-    
     <li className='card'>
-      <div className='card__top-left_container'>
+      {/* <div className='card__top-left_container'>
         <div className='card__tag_container'>
-          <p className='card__tag_text'>Nature</p>
+          <p className='card__tag_text'>{props.keyword}</p>
+        </div>
+      </div> */}
+      <div className='card__top-right_container'>
+        {isShown && !props.loggedIn && !isMobile && (
+          <div className='card__hoverbox'>
+            <p className='card__hoverbox-text'>Sign in to save articles</p>
+          </div>
+        )}
+        <div className='card___container'></div>
+        <div
+          className='card__icon-text_container'
+          onMouseEnter={() => setIsShown(true)}
+          onMouseLeave={() => setIsShown(false)}
+        >
+          <button
+            className={`card__save-btn ${
+              isCardSaved ? 'card__save-btn_saved' : null
+            }`}
+            onClick={handleSaveClick}
+            disabled={!props.loggedIn}
+          />
         </div>
       </div>
-      <div className='card__top-right_container'>
-<CardButton isSaved={props.isSaved} 
-loggedIn={props.loggedIn}
-buttonType={props.buttonType}
-/>
+      <a href={props.link} target='_blank' rel="noopener noreferrer">
 
-      </div>
       <img
         // TEST this is a test link
-        src='https://static.toiimg.com/photo/72975551.cms'
-        // src={props.card.link}
+        // src='https://static.toiimg.com/photo/72975551.cms'
+        src={props.image}
         className='card__pic'
-        
-        // alt={props.card.name}
+        // alt={props.name}
         alt={'test card'}
-      />
-      <div className='card__text'>
-        <p className='card__date'>November 4, 2020</p>
-        <h2 className='card__title'>
-          {/* {props.card.name} */}
-          Everyone Needs a Special 'Sit Spot' in Nature
-        </h2>
-        <p className='card__paragraph'>
-          Ever since I read Richard Louv's influential book, "Last Child in the
-          Woods," the idea of having a special "sit spot" has stuck with me.
-          This advice, which Louv attributes to nature educator Jon Young, is
-          for both adults and children to find...
-        </p>
-        <p className='card__source'>treehugger</p>
-        {/* <div className=''>
-          <button
-            aria-label='Like Button'
-            onClick={handleLikeClick}
-            // className={`${cardLikeButtonClassName}`}
-          ></button>
-          <p className=''>{
-          //  props.card.likes?.length
-          
-          }</p>
-        </div> */}
-      </div>
+        />
+        </a>
+      <a href={props.link} target='_blank' rel="noopener noreferrer" className='card__text'>
+        <p className='card__date'>{formatDate()}</p>
+        <h2 className='card__title'>{props.title}</h2>
+        <p className='card__paragraph'>{props.text}</p>
+        <p className='card__source'>{props.source}</p>
+      </a >
     </li>
-     
   );
 }
 
